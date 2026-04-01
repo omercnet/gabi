@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@v4
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
 
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@v4
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec tsc --noEmit
 
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@v4
       - run: pnpm install --frozen-lockfile
       - run: pnpm jest --watchAll=false --forceExit --testPathIgnorePatterns='src/__integration__'
         env:
@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@v4
       - run: pnpm install --frozen-lockfile
       - run: pnpm expo export --platform web
         env:
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@v4
       - run: pnpm install --frozen-lockfile
       - run: pnpm jest --config jest.integration.config.js
         env:
