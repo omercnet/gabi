@@ -6,7 +6,58 @@ module.exports = {
   ],
   presets: [require("nativewind/preset")],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: "rgb(var(--color-background) / <alpha-value>)",
+        foreground: "rgb(var(--color-foreground) / <alpha-value>)",
+        surface: {
+          DEFAULT: "rgb(var(--color-surface) / <alpha-value>)",
+          hover: "rgb(var(--color-surface-hover) / <alpha-value>)",
+        },
+        border: "rgb(var(--color-border) / <alpha-value>)",
+        primary: {
+          DEFAULT: "rgb(var(--color-primary) / <alpha-value>)",
+          foreground: "rgb(var(--color-primary-foreground) / <alpha-value>)",
+        },
+        muted: {
+          DEFAULT: "rgb(var(--color-muted) / <alpha-value>)",
+          foreground: "rgb(var(--color-muted-foreground) / <alpha-value>)",
+        },
+        destructive: {
+          DEFAULT: "rgb(var(--color-destructive) / <alpha-value>)",
+          foreground: "rgb(var(--color-destructive-foreground) / <alpha-value>)",
+        },
+        tool: {
+          DEFAULT: "rgb(var(--color-tool) / <alpha-value>)",
+          foreground: "rgb(var(--color-tool-foreground) / <alpha-value>)",
+        },
+        reasoning: {
+          DEFAULT: "rgb(var(--color-reasoning) / <alpha-value>)",
+          foreground: "rgb(var(--color-reasoning-foreground) / <alpha-value>)",
+        },
+        "user-bubble": {
+          DEFAULT: "rgb(var(--color-user-bubble) / <alpha-value>)",
+          foreground: "rgb(var(--color-user-bubble-foreground) / <alpha-value>)",
+        },
+        "assistant-bubble": {
+          DEFAULT: "rgb(var(--color-assistant-bubble) / <alpha-value>)",
+          foreground: "rgb(var(--color-assistant-bubble-foreground) / <alpha-value>)",
+        },
+        success: "rgb(var(--color-success) / <alpha-value>)",
+        warning: "rgb(var(--color-warning) / <alpha-value>)",
+        error: "rgb(var(--color-error) / <alpha-value>)",
+      },
+      borderRadius: {
+        sm: "6px",
+        md: "8px",
+        lg: "12px",
+        xl: "16px",
+      },
+      fontFamily: {
+        sans: ["System", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "monospace"],
+      },
+    },
   },
   plugins: [],
 };

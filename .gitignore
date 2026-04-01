@@ -10,3 +10,7 @@ dist/
 web-build/
 .env
 .env.local
+
+metro-cache/
+dist/
+.expo/types/
