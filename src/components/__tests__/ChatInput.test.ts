@@ -81,7 +81,7 @@ describe("ChatInput logic", () => {
 
     it("does not trigger send on non-Enter keys", () => {
       const isWeb = true;
-      const key = "Shift";
+      const key: string = "Shift";
       const shouldSend = isWeb && key === "Enter";
       expect(shouldSend).toBe(false);
     });

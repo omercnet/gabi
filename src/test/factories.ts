@@ -26,26 +26,33 @@ export function makeSession(overrides: Partial<Session> = {}): Session {
   } as Session;
 }
 
-export function makeUserMessage(overrides: Partial<Message> = {}): Message {
+export function makeUserMessage(overrides: Partial<Record<string, unknown>> = {}): Message {
   return {
     id: uid(),
     sessionID: "ses-1",
     role: "user",
-    content: "hello",
-    time: { created: Date.now() / 1000, updated: Date.now() / 1000 },
+    time: { created: Date.now() / 1000 },
+    agent: "",
+    model: { providerID: "", modelID: "" },
     ...overrides,
-  } as Message;
+  } as unknown as Message;
 }
 
-export function makeAssistantMessage(overrides: Partial<Message> = {}): Message {
+export function makeAssistantMessage(overrides: Partial<Record<string, unknown>> = {}): Message {
   return {
     id: uid(),
     sessionID: "ses-1",
     role: "assistant",
     parts: [],
-    time: { created: Date.now() / 1000, updated: Date.now() / 1000 },
+    time: { created: Date.now() / 1000 },
+    parentID: "",
+    modelID: "",
+    providerID: "",
+    mode: "",
+    agent: "",
+    path: { cwd: "" },
     ...overrides,
-  } as Message;
+  } as unknown as Message;
 }
 
 export function makeTextPart(overrides: Partial<TextPart> = {}): TextPart {

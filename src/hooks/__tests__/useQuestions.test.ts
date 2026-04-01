@@ -6,7 +6,7 @@ import { useQuestionStore } from "@/stores/questionStore";
 import { makeQuestionRequest } from "@/test/factories";
 import { resetAllStores } from "@/test/setup";
 
-function makeMockClient() {
+function makeMockClient(): any {
   return {
     question: {
       reply: jest.fn(() => Promise.resolve({ data: {} })),

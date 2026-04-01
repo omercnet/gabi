@@ -14,7 +14,7 @@ describe("MessageBubble", () => {
   beforeEach(resetAllStores);
 
   it("renders user bubble with content text", () => {
-    const message = makeUserMessage();
+    const message = makeUserMessage({ content: "hello" });
     render(<MessageBubble message={message} items={[]} />);
 
     expect(JSON.stringify(screen.toJSON())).toContain("hello");

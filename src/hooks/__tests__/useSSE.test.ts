@@ -178,7 +178,7 @@ describe("useSSE event routing", () => {
     it("updates existing message by id", () => {
       const msg = makeUserMessage({ id: "msg-1", sessionID: "ses-1" });
       useMessageStore.getState().upsertMessage("ses-1", msg);
-      const updated = { ...msg, content: "updated" } as typeof msg;
+      const updated = { ...msg } as unknown as typeof msg;
       routeEvent(
         {
           type: "message.updated",

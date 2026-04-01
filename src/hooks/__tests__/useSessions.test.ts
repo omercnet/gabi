@@ -6,7 +6,7 @@ import { useSessionStore } from "@/stores/sessionStore";
 import { makeSession } from "@/test/factories";
 import { resetAllStores } from "@/test/setup";
 
-function makeMockClient(overrides: Record<string, unknown> = {}) {
+function makeMockClient(overrides: Record<string, unknown> = {}): any {
   return {
     session: {
       list: jest.fn(() => Promise.resolve({ data: [] })),

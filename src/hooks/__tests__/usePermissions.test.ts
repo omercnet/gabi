@@ -6,7 +6,7 @@ import { usePermissionStore } from "@/stores/permissionStore";
 import { makePermissionRequest } from "@/test/factories";
 import { resetAllStores } from "@/test/setup";
 
-function makeMockClient() {
+function makeMockClient(): any {
   return {
     permission: {
       reply: jest.fn(() => Promise.resolve({ data: {} })),

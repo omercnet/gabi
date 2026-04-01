@@ -5,7 +5,7 @@
 import { useMessageStore } from "@/stores/messageStore";
 import { resetAllStores } from "@/test/setup";
 
-function makeMockClient() {
+function makeMockClient(): any {
   return {
     session: {
       prompt: jest.fn(() => Promise.resolve({ data: {} })),

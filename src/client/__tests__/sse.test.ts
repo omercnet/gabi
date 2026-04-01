@@ -138,8 +138,10 @@ describe("SSEManager", () => {
       manager.start();
       await jest.advanceTimersByTimeAsync(0);
       manager.stop();
-      if (resolveNext) {
-        resolveNext({ value: { data: event }, done: false });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const resolve = resolveNext as unknown as ((v: any) => void) | null;
+      if (resolve) {
+        resolve({ value: { data: event }, done: false });
       }
       await jest.advanceTimersByTimeAsync(0);
       expect(onEvent).not.toHaveBeenCalled();

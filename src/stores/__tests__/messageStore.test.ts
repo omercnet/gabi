@@ -27,7 +27,7 @@ describe("messageStore", () => {
     it("updates existing message by id", () => {
       const msg = makeUserMessage({ id: "m1" });
       useMessageStore.getState().upsertMessage("ses-1", msg);
-      const updated = { ...msg, content: "updated" } as typeof msg;
+      const updated = { ...msg } as unknown as typeof msg;
       useMessageStore.getState().upsertMessage("ses-1", updated);
       const msgs = useMessageStore.getState().messagesBySession["ses-1"];
       expect(msgs).toHaveLength(1);
