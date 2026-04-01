@@ -27,7 +27,7 @@ export function ProjectSidebar() {
         : "bg-error";
 
   const handleAdd = () => {
-    if (!newName.trim() || !newDir.trim()) return;
+    if (!(newName.trim() && newDir.trim())) return;
     const project = addProject(newName.trim(), newDir.trim());
     setActiveProject(project.id);
     setShowAdd(false);
@@ -37,9 +37,9 @@ export function ProjectSidebar() {
 
   return (
     <View className="flex-1 bg-surface">
-      <View className="flex-row items-center justify-between border-b border-border px-4 py-3">
+      <View className="flex-row items-center justify-between border-border border-b px-4 py-3">
         <View className="flex-row items-center gap-2">
-          <Text className="text-lg font-bold text-foreground">Gabi</Text>
+          <Text className="font-bold text-foreground text-lg">Gabi</Text>
           <View className={`h-2 w-2 rounded-full ${statusColor}`} />
         </View>
         <Pressable onPress={() => router.push("/settings")}>
@@ -65,7 +65,7 @@ export function ProjectSidebar() {
               }}
             >
               <Text className="font-medium text-foreground">{project.name}</Text>
-              <Text className="text-xs text-muted" numberOfLines={1}>
+              <Text className="text-muted text-xs" numberOfLines={1}>
                 {project.directory}
               </Text>
             </Pressable>
@@ -77,7 +77,7 @@ export function ProjectSidebar() {
       </ScrollView>
 
       {showAdd ? (
-        <View className="border-t border-border p-4 gap-2">
+        <View className="gap-2 border-border border-t p-4">
           <TextInput
             className="rounded-lg border border-border bg-background px-3 py-2 text-foreground text-sm"
             placeholder="Project name"
@@ -98,19 +98,19 @@ export function ProjectSidebar() {
               className="flex-1 items-center rounded-lg bg-primary py-2"
               onPress={handleAdd}
             >
-              <Text className="text-sm font-semibold text-primary-foreground">Add</Text>
+              <Text className="font-semibold text-primary-foreground text-sm">Add</Text>
             </Pressable>
             <Pressable
               className="flex-1 items-center rounded-lg bg-surface-hover py-2"
               onPress={() => setShowAdd(false)}
             >
-              <Text className="text-sm text-muted">Cancel</Text>
+              <Text className="text-muted text-sm">Cancel</Text>
             </Pressable>
           </View>
         </View>
       ) : (
-        <Pressable className="border-t border-border px-4 py-3" onPress={() => setShowAdd(true)}>
-          <Text className="text-center text-sm text-primary">+ Add Project</Text>
+        <Pressable className="border-border border-t px-4 py-3" onPress={() => setShowAdd(true)}>
+          <Text className="text-center text-primary text-sm">+ Add Project</Text>
         </Pressable>
       )}
     </View>

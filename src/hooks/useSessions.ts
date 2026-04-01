@@ -1,7 +1,6 @@
 import { useCallback, useEffect } from "react";
-import type { OpencodeClient } from "@/client/types";
+import type { OpencodeClient, Session } from "@/client/types";
 import { useSessionStore } from "@/stores/sessionStore";
-import type { Session } from "@/client/types";
 
 const EMPTY_SESSIONS: Session[] = [];
 
@@ -17,7 +16,7 @@ export function useSessions(client: OpencodeClient | null, directory: string | n
   const setActiveSession = useSessionStore((s) => s.setActiveSession);
 
   useEffect(() => {
-    if (!client || !directory) return;
+    if (!(client && directory)) return;
 
     let cancelled = false;
     setLoading(directory, true);
@@ -38,8 +37,11 @@ export function useSessions(client: OpencodeClient | null, directory: string | n
 
   const createSession = useCallback(
     async (title?: string) => {
-      if (!client || !directory) return null;
-      const result = await client.session.create({ directory, title });
+      if (!(client && directory)) return null;
+      const result = await client.session.create({
+        directory,
+        ...(title === undefined ? {} : { title }),
+      });
       return result.data ?? null;
     },
     [client, directory],
@@ -47,7 +49,7 @@ export function useSessions(client: OpencodeClient | null, directory: string | n
 
   const deleteSession = useCallback(
     async (sessionId: string) => {
-      if (!client || !directory) return;
+      if (!(client && directory)) return;
       await client.session.delete({ sessionID: sessionId, directory });
       useSessionStore.getState().removeSession(directory, sessionId);
     },

@@ -45,7 +45,7 @@ export function SessionList({ client, directory }: Props) {
         />
       ))}
       <Pressable className="px-4 py-2" onPress={handleCreate}>
-        <Text className="text-xs text-primary">+ New Session</Text>
+        <Text className="text-primary text-xs">+ New Session</Text>
       </Pressable>
     </View>
   );

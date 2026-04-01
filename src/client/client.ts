@@ -13,12 +13,12 @@ export function buildClient(config: ClientConfig): OpencodeClient {
 
   if (config.username && config.password) {
     const encoded = btoa(`${config.username}:${config.password}`);
-    headers["Authorization"] = `Basic ${encoded}`;
+    headers.Authorization = `Basic ${encoded}`;
   }
 
   return createOpencodeClient({
     baseUrl: config.baseUrl as `${string}://${string}`,
-    directory: config.directory,
+    ...(config.directory === undefined ? {} : { directory: config.directory }),
     headers,
   });
 }

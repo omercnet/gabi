@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { FlatList, View } from "react-native";
+import { FlatList } from "react-native";
 import type { Message } from "@/client/types";
 import type { RenderItem } from "@/transcript/types";
 import { MessageBubble } from "./MessageBubble";
@@ -14,14 +14,14 @@ interface Props {
   isStreaming: boolean;
 }
 
-export function MessageList({ messages, isStreaming }: Props) {
+export function MessageList({ messages, isStreaming: _isStreaming }: Props) {
   const listRef = useRef<FlatList>(null);
 
   useEffect(() => {
     if (messages.length > 0) {
       setTimeout(() => listRef.current?.scrollToEnd({ animated: true }), 100);
     }
-  }, [messages.length, isStreaming]);
+  }, [messages.length]);
 
   return (
     <FlatList

@@ -128,7 +128,7 @@ describe("useSessions logic", () => {
       await client.session.delete({ sessionID: "del", directory: DIR });
       useSessionStore.getState().removeSession(DIR, "del");
       expect(useSessionStore.getState().sessionsByDirectory[DIR]).toHaveLength(1);
-      expect(useSessionStore.getState().sessionsByDirectory[DIR][0].id).toBe("keep");
+      expect(useSessionStore.getState().sessionsByDirectory[DIR]?.[0]?.id).toBe("keep");
     });
   });
 

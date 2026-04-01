@@ -19,9 +19,9 @@ export default function SettingsScreen() {
           <Text className="text-primary">← Back</Text>
         </Pressable>
 
-        <Text className="mb-6 text-2xl font-bold text-foreground">Settings</Text>
+        <Text className="mb-6 font-bold text-2xl text-foreground">Settings</Text>
 
-        <Text className="mb-3 text-sm font-semibold text-muted">DISPLAY</Text>
+        <Text className="mb-3 font-semibold text-muted text-sm">DISPLAY</Text>
         <SettingRow
           label="Show reasoning"
           value={prefs.showReasoning}
@@ -48,8 +48,8 @@ export default function SettingsScreen() {
           onToggle={prefs.setShowFileParts}
         />
 
-        <Text className="mb-3 mt-8 text-sm font-semibold text-muted">APPEARANCE</Text>
-        <View className="flex-row gap-2 mb-4">
+        <Text className="mt-8 mb-3 font-semibold text-muted text-sm">APPEARANCE</Text>
+        <View className="mb-4 flex-row gap-2">
           {(["system", "light", "dark"] as const).map((scheme) => (
             <Pressable
               key={scheme}
@@ -59,7 +59,7 @@ export default function SettingsScreen() {
               <Text
                 className={
                   prefs.colorScheme === scheme
-                    ? "text-primary-foreground text-sm font-medium"
+                    ? "font-medium text-primary-foreground text-sm"
                     : "text-foreground text-sm"
                 }
               >
@@ -69,10 +69,10 @@ export default function SettingsScreen() {
           ))}
         </View>
 
-        <Text className="mb-3 mt-8 text-sm font-semibold text-muted">CONNECTION</Text>
-        <Text className="mb-2 text-sm text-foreground">{baseUrl}</Text>
+        <Text className="mt-8 mb-3 font-semibold text-muted text-sm">CONNECTION</Text>
+        <Text className="mb-2 text-foreground text-sm">{baseUrl}</Text>
         <Pressable
-          className="items-center rounded-lg bg-destructive py-3 mt-2"
+          className="mt-2 items-center rounded-lg bg-destructive py-3"
           onPress={handleDisconnect}
         >
           <Text className="font-semibold text-destructive-foreground">Disconnect</Text>

@@ -22,7 +22,7 @@ export function useSSE(client: OpencodeClient | null, directory: string | null):
   const upsertQuestion = useQuestionStore((s) => s.upsert);
 
   useEffect(() => {
-    if (!client || !directory) return;
+    if (!(client && directory)) return;
 
     const handleEvent = (event: SSEEvent) => {
       switch (event.type) {

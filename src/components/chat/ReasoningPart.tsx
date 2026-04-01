@@ -12,9 +12,9 @@ export function ReasoningPart({ part }: Props) {
   return (
     <Pressable onPress={() => setExpanded(!expanded)} className="my-1">
       <View className="rounded-md bg-reasoning/10 px-3 py-2">
-        <Text className="text-xs font-medium text-reasoning">{expanded ? "▼" : "▶"} Thinking</Text>
+        <Text className="font-medium text-reasoning text-xs">{expanded ? "▼" : "▶"} Thinking</Text>
         {expanded && "text" in part ? (
-          <Text className="mt-1 text-xs text-muted">{part.text}</Text>
+          <Text className="mt-1 text-muted text-xs">{part.text}</Text>
         ) : null}
       </View>
     </Pressable>

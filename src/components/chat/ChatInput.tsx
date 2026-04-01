@@ -25,7 +25,7 @@ export function ChatInput({ onSend, onAbort, isStreaming, disabled }: Props) {
   };
 
   return (
-    <View className="border-t border-border bg-surface px-4 py-3">
+    <View className="border-border border-t bg-surface px-4 py-3">
       <View className="flex-row items-end gap-2">
         <TextInput
           className="flex-1 rounded-xl border border-border bg-background px-4 py-3 text-foreground"
@@ -34,7 +34,7 @@ export function ChatInput({ onSend, onAbort, isStreaming, disabled }: Props) {
           value={text}
           onChangeText={setText}
           onKeyPress={handleKeyPress}
-          multiline
+          multiline={true}
           editable={!disabled}
           style={{ maxHeight: 120 }}
         />

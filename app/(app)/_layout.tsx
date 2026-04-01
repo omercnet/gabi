@@ -9,7 +9,7 @@ export default function AppLayout() {
   return (
     <View className="flex-1 flex-row bg-background">
       {isWide ? (
-        <View className="w-72 border-r border-border">
+        <View className="w-72 border-border border-r">
           <ProjectSidebar />
         </View>
       ) : null}

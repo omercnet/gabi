@@ -1,5 +1,5 @@
-import { resetAllStores } from "@/test/setup";
 import { makeQuestionRequest } from "@/test/factories";
+import { resetAllStores } from "@/test/setup";
 import { useQuestionStore } from "../questionStore";
 
 describe("questionStore", () => {
@@ -14,7 +14,7 @@ describe("questionStore", () => {
     useQuestionStore.getState().upsert(req);
     useQuestionStore.getState().upsert({ ...req, sessionID: "new-ses" });
     expect(useQuestionStore.getState().pending).toHaveLength(1);
-    expect(useQuestionStore.getState().pending[0].sessionID).toBe("new-ses");
+    expect(useQuestionStore.getState().pending[0]?.sessionID).toBe("new-ses");
   });
 
   it("remove deletes by id", () => {

@@ -7,7 +7,7 @@ export function useClient(): OpencodeClient | null {
   const { baseUrl, username, password, isConfigured } = useConnectionStore();
 
   return useMemo(() => {
-    if (!isConfigured || !baseUrl) return null;
+    if (!(isConfigured && baseUrl)) return null;
     return buildClient({ baseUrl, username, password });
   }, [baseUrl, username, password, isConfigured]);
 }

@@ -1,7 +1,6 @@
 import type {
   FilePart,
   Message,
-  Part,
   PermissionRequest,
   QuestionRequest,
   ReasoningPart,

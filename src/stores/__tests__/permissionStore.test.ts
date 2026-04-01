@@ -1,5 +1,5 @@
-import { resetAllStores } from "@/test/setup";
 import { makePermissionRequest } from "@/test/factories";
+import { resetAllStores } from "@/test/setup";
 import { usePermissionStore } from "../permissionStore";
 
 describe("permissionStore", () => {
@@ -15,7 +15,7 @@ describe("permissionStore", () => {
     usePermissionStore.getState().upsert(req);
     usePermissionStore.getState().upsert({ ...req, permission: "new" });
     expect(usePermissionStore.getState().pending).toHaveLength(1);
-    expect(usePermissionStore.getState().pending[0].permission).toBe("new");
+    expect(usePermissionStore.getState().pending[0]?.permission).toBe("new");
   });
 
   it("remove deletes by id", () => {

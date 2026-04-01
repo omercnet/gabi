@@ -14,7 +14,7 @@ export function MessageBubble({ message, items }: Props) {
 
   if (isUser) {
     return (
-      <View className="self-end max-w-[85%] rounded-2xl bg-user-bubble px-4 py-3">
+      <View className="max-w-[85%] self-end rounded-2xl bg-user-bubble px-4 py-3">
         <Text className="text-user-bubble-foreground">
           {"content" in message ? String(message.content) : ""}
         </Text>
@@ -23,7 +23,7 @@ export function MessageBubble({ message, items }: Props) {
   }
 
   return (
-    <View className="self-start max-w-[85%] rounded-2xl bg-assistant-bubble px-4 py-3">
+    <View className="max-w-[85%] self-start rounded-2xl bg-assistant-bubble px-4 py-3">
       {items.map((item, idx) =>
         item.kind === "tool-group" ? (
           <ToolGroup key={`tg-${idx}`} group={item} />

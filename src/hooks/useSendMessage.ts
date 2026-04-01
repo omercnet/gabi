@@ -18,7 +18,7 @@ export function useSendMessage(
 
   const send = useCallback(
     async (text: string) => {
-      if (!client || !sessionId || !text.trim()) return;
+      if (!(client && sessionId && text.trim())) return;
 
       await client.session.prompt({
         sessionID: sessionId,
@@ -30,7 +30,7 @@ export function useSendMessage(
   );
 
   const abort = useCallback(async () => {
-    if (!client || !sessionId) return;
+    if (!(client && sessionId)) return;
     await client.session.abort({ sessionID: sessionId, directory });
   }, [client, sessionId, directory]);
 

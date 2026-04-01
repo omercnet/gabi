@@ -1,5 +1,5 @@
+import { makeTextPart, makeUserMessage } from "@/test/factories";
 import { resetAllStores } from "@/test/setup";
-import { makeAssistantMessage, makeTextPart, makeUserMessage } from "@/test/factories";
 import { useMessageStore } from "../messageStore";
 
 describe("messageStore", () => {
@@ -52,7 +52,7 @@ describe("messageStore", () => {
     it("adds part to message", () => {
       const part = makeTextPart({ id: "p1" });
       useMessageStore.getState().upsertPart("ses-1", "msg-1", part);
-      expect(useMessageStore.getState().partsByMessage["msg-1"]["p1"]).toBe(part);
+      expect(useMessageStore.getState().partsByMessage["msg-1"]?.p1).toBe(part);
     });
 
     it("updates existing part by id", () => {
@@ -60,7 +60,7 @@ describe("messageStore", () => {
       useMessageStore.getState().upsertPart("ses-1", "msg-1", part);
       const updated = makeTextPart({ id: "p1", text: "v2" });
       useMessageStore.getState().upsertPart("ses-1", "msg-1", updated);
-      expect(useMessageStore.getState().partsByMessage["msg-1"]["p1"].type).toBe("text");
+      expect(useMessageStore.getState().partsByMessage["msg-1"]?.p1?.type).toBe("text");
     });
   });
 
@@ -68,7 +68,7 @@ describe("messageStore", () => {
     it("removes part from message", () => {
       useMessageStore.getState().upsertPart("ses-1", "msg-1", makeTextPart({ id: "p1" }));
       useMessageStore.getState().removePart("ses-1", "msg-1", "p1");
-      expect(useMessageStore.getState().partsByMessage["msg-1"]["p1"]).toBeUndefined();
+      expect(useMessageStore.getState().partsByMessage["msg-1"]?.p1).toBeUndefined();
     });
   });
 

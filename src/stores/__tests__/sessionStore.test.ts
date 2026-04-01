@@ -1,5 +1,5 @@
-import { resetAllStores } from "@/test/setup";
 import { makeSession } from "@/test/factories";
+import { resetAllStores } from "@/test/setup";
 import { useSessionStore } from "../sessionStore";
 
 describe("sessionStore", () => {
@@ -21,18 +21,18 @@ describe("sessionStore", () => {
     useSessionStore.getState().setSessions("/test", [existing]);
     const newSes = makeSession({ id: "s2" });
     useSessionStore.getState().upsertSession("/test", newSes);
-    const list = useSessionStore.getState().sessionsByDirectory["/test"];
+    const list = useSessionStore.getState().sessionsByDirectory["/test"]!;
     expect(list).toHaveLength(2);
-    expect(list[0].id).toBe("s2");
+    expect(list[0]?.id).toBe("s2");
   });
 
   it("upsertSession updates existing by id", () => {
     const ses = makeSession({ id: "s1", title: "old" });
     useSessionStore.getState().setSessions("/test", [ses]);
     useSessionStore.getState().upsertSession("/test", { ...ses, title: "new" });
-    const list = useSessionStore.getState().sessionsByDirectory["/test"];
+    const list = useSessionStore.getState().sessionsByDirectory["/test"]!;
     expect(list).toHaveLength(1);
-    expect(list[0].title).toBe("new");
+    expect(list[0]?.title).toBe("new");
   });
 
   it("removeSession removes by id", () => {

@@ -12,7 +12,8 @@
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
     "test": "jest --passWithNoTests",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepare": "husky"
   },
   "dependencies": {
     "@opencode-ai/sdk": "latest",
@@ -41,13 +42,17 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@biomejs/biome": "^2.4.10",
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
     "@testing-library/jest-native": "^5.4.3",
     "@testing-library/react-native": "^13.3.3",
     "@types/jest": "^30.0.0",
     "@types/react": "~18.3.12",
     "@types/use-sync-external-store": "^1.5.0",
+    "husky": "^9.1.7",
     "jest": "^30.3.0",
     "jest-expo": "^55.0.11",
+    "lint-staged": "^16.4.0",
     "react-test-renderer": "18.3.1",
     "typescript": "^5.3.3"
   },
@@ -55,5 +60,14 @@
     "overrides": {
       "react-test-renderer": "18.3.1"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "biome check --write --no-errors-on-unmatched",
+      "bash -c 'npx tsc --noEmit'"
+    ],
+    "*.{js,json,css,md}": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
   }
 }

@@ -15,12 +15,12 @@ export function ToolGroup({ group }: Props) {
   return (
     <View className="my-1">
       <Pressable onPress={() => setExpanded(!expanded)} className="rounded-md bg-tool/10 px-3 py-2">
-        <Text className="text-xs font-medium text-tool">
+        <Text className="font-medium text-tool text-xs">
           {expanded ? "▼" : "▶"} {group.summary}
         </Text>
       </Pressable>
       {expanded ? (
-        <View className="ml-2 border-l-2 border-tool/20 pl-2">
+        <View className="ml-2 border-tool/20 border-l-2 pl-2">
           {group.parts.map((part) => (
             <ToolPart key={part.id} part={part} />
           ))}

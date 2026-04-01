@@ -33,7 +33,7 @@ interface ConnectOptions {
 }
 
 async function createHandleConnect(opts: ConnectOptions): Promise<void> {
-  const { url, username, password, healthFn, configure, setError, setLoading } = opts;
+  const { url, username, password, healthFn: _healthFn, configure, setError, setLoading } = opts;
   setError("");
   setLoading(true);
   try {

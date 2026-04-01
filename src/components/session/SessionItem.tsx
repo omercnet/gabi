@@ -1,4 +1,4 @@
-import { Alert, Pressable, Text, View } from "react-native";
+import { Alert, Pressable, Text } from "react-native";
 import type { Session } from "@/client/types";
 
 interface Props {
@@ -19,10 +19,10 @@ export function SessionItem({ session, onPress, onDelete }: Props) {
         ]);
       }}
     >
-      <Text className="text-sm text-foreground" numberOfLines={1}>
+      <Text className="text-foreground text-sm" numberOfLines={1}>
         {session.title || "Untitled"}
       </Text>
-      <Text className="text-xs text-muted">
+      <Text className="text-muted text-xs">
         {new Date(session.time.updated * 1000).toLocaleDateString()}
       </Text>
     </Pressable>

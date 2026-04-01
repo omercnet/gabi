@@ -33,8 +33,8 @@ export default function SetupScreen() {
 
   return (
     <View className="flex-1 items-center justify-center bg-background px-6">
-      <Text className="mb-8 text-3xl font-bold text-foreground">Gabi</Text>
-      <Text className="mb-6 text-sm text-muted">Connect to your OpenCode server</Text>
+      <Text className="mb-8 font-bold text-3xl text-foreground">Gabi</Text>
+      <Text className="mb-6 text-muted text-sm">Connect to your OpenCode server</Text>
 
       <View className="w-full max-w-sm gap-4">
         <TextInput
@@ -60,10 +60,10 @@ export default function SetupScreen() {
           placeholderTextColor="#737373"
           value={password}
           onChangeText={setPassword}
-          secureTextEntry
+          secureTextEntry={true}
         />
 
-        {error ? <Text className="text-sm text-error">{error}</Text> : null}
+        {error ? <Text className="text-error text-sm">{error}</Text> : null}
 
         <Pressable
           className="items-center rounded-lg bg-primary px-4 py-3"

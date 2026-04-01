@@ -10,29 +10,29 @@ describe("processMessages", () => {
     const msg = makeUserMessage();
     const result = processMessages([msg], {});
     expect(result).toHaveLength(1);
-    expect(result[0].parts).toEqual([]);
+    expect(result[0]?.parts).toEqual([]);
   });
 
   it("hydrates message with matching parts", () => {
     const msg = makeAssistantMessage({ id: "msg-1" });
     const part = makeTextPart({ id: "p1", messageID: "msg-1" });
     const result = processMessages([msg], { "msg-1": { p1: part } });
-    expect(result[0].parts).toHaveLength(1);
-    expect(result[0].parts[0]).toBe(part);
+    expect(result[0]?.parts).toHaveLength(1);
+    expect(result[0]!.parts[0]).toBe(part);
   });
 
   it("sorts messages by time.created ascending", () => {
     const older = makeUserMessage({ id: "a", time: { created: 100, updated: 100 } });
     const newer = makeAssistantMessage({ id: "b", time: { created: 200, updated: 200 } });
     const result = processMessages([newer, older], {});
-    expect(result[0].message.id).toBe("a");
-    expect(result[1].message.id).toBe("b");
+    expect(result[0]?.message.id).toBe("a");
+    expect(result[1]?.message.id).toBe("b");
   });
 
   it("ignores parts for non-existent message IDs", () => {
     const msg = makeUserMessage({ id: "msg-1" });
     const result = processMessages([msg], { "msg-999": { p1: makeTextPart() } });
-    expect(result[0].parts).toEqual([]);
+    expect(result[0]?.parts).toEqual([]);
   });
 
   it("includes multiple parts per message", () => {
@@ -40,6 +40,6 @@ describe("processMessages", () => {
     const p1 = makeTextPart({ id: "p1", messageID: "msg-1" });
     const p2 = makeTextPart({ id: "p2", messageID: "msg-1" });
     const result = processMessages([msg], { "msg-1": { p1, p2 } });
-    expect(result[0].parts).toHaveLength(2);
+    expect(result[0]?.parts).toHaveLength(2);
   });
 });

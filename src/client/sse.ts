@@ -78,7 +78,7 @@ export class SSEManager {
           }
         }
       }
-    } catch (error) {
+    } catch (_error) {
       if (!this.running) return;
     }
 

@@ -38,8 +38,8 @@ describe("useMessages logic", () => {
     const partsByMessage = useMessageStore.getState().partsByMessage;
     const hydrated = processMessages(messages, partsByMessage);
     expect(hydrated).toHaveLength(1);
-    expect(hydrated[0].parts).toHaveLength(1);
-    expect(hydrated[0].parts[0].type).toBe("text");
+    expect(hydrated[0]?.parts).toHaveLength(1);
+    expect(hydrated[0]?.parts[0]?.type).toBe("text");
   });
 
   it("groups consecutive tool parts into tool groups", () => {
@@ -55,7 +55,7 @@ describe("useMessages logic", () => {
     const messages = useMessageStore.getState().messagesBySession["ses-1"] ?? [];
     const partsByMessage = useMessageStore.getState().partsByMessage;
     const hydrated = processMessages(messages, partsByMessage);
-    const items = groupParts(hydrated[0].parts);
+    const items = groupParts(hydrated[0]!.parts);
 
     // Two consecutive tools should form a group
     const toolGroups = items.filter((i) => i.kind === "tool-group");
@@ -70,8 +70,8 @@ describe("useMessages logic", () => {
     const messages = useMessageStore.getState().messagesBySession["ses-1"] ?? [];
     const partsByMessage = useMessageStore.getState().partsByMessage;
     const hydrated = processMessages(messages, partsByMessage);
-    expect(hydrated[0].message.role).toBe("user");
-    expect(hydrated[1].message.role).toBe("assistant");
+    expect(hydrated[0]?.message.role).toBe("user");
+    expect(hydrated[1]?.message.role).toBe("assistant");
   });
 
   it("handles mixed part types in one message", () => {
@@ -90,7 +90,7 @@ describe("useMessages logic", () => {
     const messages = useMessageStore.getState().messagesBySession["ses-1"] ?? [];
     const partsByMessage = useMessageStore.getState().partsByMessage;
     const hydrated = processMessages(messages, partsByMessage);
-    expect(hydrated[0].parts).toHaveLength(3);
+    expect(hydrated[0]?.parts).toHaveLength(3);
   });
 
   it("returns user messages with no parts", () => {
@@ -101,7 +101,7 @@ describe("useMessages logic", () => {
     const partsByMessage = useMessageStore.getState().partsByMessage;
     const hydrated = processMessages(messages, partsByMessage);
     expect(hydrated).toHaveLength(1);
-    expect(hydrated[0].parts).toHaveLength(0);
+    expect(hydrated[0]?.parts).toHaveLength(0);
   });
 
   it("isolates parts by messageId", () => {
@@ -121,7 +121,7 @@ describe("useMessages logic", () => {
     const messages = useMessageStore.getState().messagesBySession["ses-1"] ?? [];
     const partsByMessage = useMessageStore.getState().partsByMessage;
     const hydrated = processMessages(messages, partsByMessage);
-    expect(hydrated[0].parts).toHaveLength(1);
-    expect(hydrated[1].parts).toHaveLength(1);
+    expect(hydrated[0]?.parts).toHaveLength(1);
+    expect(hydrated[1]?.parts).toHaveLength(1);
   });
 });

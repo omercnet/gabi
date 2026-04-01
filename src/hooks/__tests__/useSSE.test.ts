@@ -8,7 +8,6 @@
  */
 
 import type { SSEEvent } from "@/client/types";
-import { useConnectionStore } from "@/stores/connectionStore";
 import { useMessageStore } from "@/stores/messageStore";
 import { usePermissionStore } from "@/stores/permissionStore";
 import { useQuestionStore } from "@/stores/questionStore";
@@ -97,8 +96,8 @@ describe("useSSE event routing", () => {
         } as unknown as SSEEvent,
         DIR,
       );
-      expect(useMessageStore.getState().partsByMessage["msg-1"]["p1"]).toBeDefined();
-      expect(useMessageStore.getState().partsByMessage["msg-1"]["p1"].type).toBe("text");
+      expect(useMessageStore.getState().partsByMessage["msg-1"]?.p1).toBeDefined();
+      expect(useMessageStore.getState().partsByMessage["msg-1"]?.p1?.type).toBe("text");
     });
 
     it("updates existing part with same id", () => {
@@ -119,7 +118,7 @@ describe("useSSE event routing", () => {
         DIR,
       );
       expect(
-        (useMessageStore.getState().partsByMessage["msg-1"]["p1"] as { text: string }).text,
+        (useMessageStore.getState().partsByMessage["msg-1"]?.p1 as { text: string }).text,
       ).toBe("v2");
     });
 
@@ -132,7 +131,7 @@ describe("useSSE event routing", () => {
         } as unknown as SSEEvent,
         DIR,
       );
-      expect(useMessageStore.getState().partsByMessage["msg-1"]["tp1"].type).toBe("tool");
+      expect(useMessageStore.getState().partsByMessage["msg-1"]?.tp1?.type).toBe("tool");
     });
   });
 
@@ -147,7 +146,7 @@ describe("useSSE event routing", () => {
         } as unknown as SSEEvent,
         DIR,
       );
-      expect(useMessageStore.getState().partsByMessage["msg-1"]["p1"]).toBeUndefined();
+      expect(useMessageStore.getState().partsByMessage["msg-1"]?.p1).toBeUndefined();
     });
 
     it("is safe when part does not exist", () => {
@@ -212,7 +211,7 @@ describe("useSSE event routing", () => {
         DIR,
       );
       expect(useSessionStore.getState().sessionsByDirectory[DIR]).toHaveLength(1);
-      expect(useSessionStore.getState().sessionsByDirectory[DIR][0].title).toBe("New Session");
+      expect(useSessionStore.getState().sessionsByDirectory[DIR]?.[0]?.title).toBe("New Session");
     });
   });
 
@@ -225,7 +224,7 @@ describe("useSSE event routing", () => {
         { type: "session.updated", properties: { info: updated } } as unknown as SSEEvent,
         DIR,
       );
-      expect(useSessionStore.getState().sessionsByDirectory[DIR][0].title).toBe("Updated");
+      expect(useSessionStore.getState().sessionsByDirectory[DIR]?.[0]?.title).toBe("Updated");
     });
 
     it("appends if session id not found", () => {
@@ -314,7 +313,7 @@ describe("useSSE event routing", () => {
       const perm = makePermissionRequest({ id: "perm-1" });
       routeEvent({ type: "permission.asked", properties: perm } as unknown as SSEEvent, DIR);
       expect(usePermissionStore.getState().pending).toHaveLength(1);
-      expect(usePermissionStore.getState().pending[0].id).toBe("perm-1");
+      expect(usePermissionStore.getState().pending[0]?.id).toBe("perm-1");
     });
 
     it("upserts existing permission with same id", () => {
@@ -323,7 +322,7 @@ describe("useSSE event routing", () => {
       routeEvent({ type: "permission.asked", properties: perm1 } as unknown as SSEEvent, DIR);
       routeEvent({ type: "permission.asked", properties: perm2 } as unknown as SSEEvent, DIR);
       expect(usePermissionStore.getState().pending).toHaveLength(1);
-      expect(usePermissionStore.getState().pending[0].permission).toBe("file.write");
+      expect(usePermissionStore.getState().pending[0]?.permission).toBe("file.write");
     });
   });
 

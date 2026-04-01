@@ -8,7 +8,6 @@
 
 import { useConnectionStore } from "@/stores/connectionStore";
 import { useProjectStore } from "@/stores/projectStore";
-import { makeProject } from "@/test/factories";
 import { resetAllStores } from "@/test/setup";
 
 describe("ProjectSidebar logic", () => {
@@ -16,8 +15,8 @@ describe("ProjectSidebar logic", () => {
 
   describe("project listing", () => {
     it("shows all projects from store", () => {
-      const p1 = useProjectStore.getState().addProject("Project 1", "/path/1");
-      const p2 = useProjectStore.getState().addProject("Project 2", "/path/2");
+      useProjectStore.getState().addProject("Project 1", "/path/1");
+      useProjectStore.getState().addProject("Project 2", "/path/2");
       expect(useProjectStore.getState().projects).toHaveLength(2);
     });
 
@@ -113,10 +112,10 @@ describe("ProjectSidebar logic", () => {
 
     it("preserves other projects when removing one", () => {
       const p1 = useProjectStore.getState().addProject("P1", "/p1");
-      const p2 = useProjectStore.getState().addProject("P2", "/p2");
+      useProjectStore.getState().addProject("P2", "/p2");
       useProjectStore.getState().removeProject(p1.id);
       expect(useProjectStore.getState().projects).toHaveLength(1);
-      expect(useProjectStore.getState().projects[0].name).toBe("P2");
+      expect(useProjectStore.getState().projects[0]?.name).toBe("P2");
     });
   });
 

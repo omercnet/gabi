@@ -8,9 +8,9 @@ function makeAsyncIterable(events: Array<{ data: SSEEvent }>): AsyncIterable<{ d
       return {
         async next() {
           if (i < events.length) {
-            return { value: events[i++], done: false };
+            return { value: events[i++]!, done: false as const };
           }
-          return { value: undefined, done: true };
+          return { value: undefined as any, done: true };
         },
       };
     },
@@ -83,7 +83,7 @@ describe("SSEManager", () => {
   describe("start", () => {
     it("calls client.event.subscribe with directory", async () => {
       const subscribeFn = jest.fn(() => Promise.resolve(makeAsyncIterable([])));
-      const { manager, client } = createManager(makeMockClient(subscribeFn), "/my-project");
+      const { manager } = createManager(makeMockClient(subscribeFn), "/my-project");
       manager.start();
       await jest.advanceTimersByTimeAsync(0);
       expect(subscribeFn).toHaveBeenCalledWith({ directory: "/my-project" });
@@ -223,9 +223,9 @@ describe("SSEManager", () => {
     });
 
     it("schedules reconnect when iterable ends normally", async () => {
-      let callCount = 0;
+      let _callCount = 0;
       const subscribeFn = jest.fn(() => {
-        callCount++;
+        _callCount++;
         return Promise.resolve(makeAsyncIterable([]));
       });
       const { manager } = createManager(makeMockClient(subscribeFn));

@@ -22,7 +22,7 @@ function buildTree(paths: string[]): TreeNode[] {
     const segments = filePath.split("/").filter(Boolean);
     let current = root;
     for (let i = 0; i < segments.length; i++) {
-      const name = segments[i];
+      const name = segments[i]!;
       if (!current[name]) {
         current[name] = {
           name,
@@ -32,9 +32,9 @@ function buildTree(paths: string[]): TreeNode[] {
         };
       }
       if (i < segments.length - 1) {
-        current[name].isDir = true;
+        current[name]!.isDir = true;
       }
-      current = current[name].children;
+      current = current[name]?.children;
     }
   }
 
@@ -63,7 +63,7 @@ export function FileTree({ client, directory }: Props) {
   const [gitStatus, setGitStatus] = useState<Record<string, string>>({});
 
   const loadFiles = useCallback(async () => {
-    if (!client || !directory) return;
+    if (!(client && directory)) return;
     setLoading(true);
     try {
       const result = await client.find.files({ directory, query: "" });
@@ -108,7 +108,7 @@ export function FileTree({ client, directory }: Props) {
   if (tree.length === 0) {
     return (
       <View className="p-4">
-        <Text className="text-sm text-muted">No files</Text>
+        <Text className="text-muted text-sm">No files</Text>
       </View>
     );
   }

@@ -27,19 +27,19 @@ export function PartRenderer({ part }: Props) {
       return showToolCalls ? <ToolPart part={part} /> : null;
     case "file":
       return showFileParts ? (
-        <View className="rounded-md bg-surface px-3 py-2 my-1">
-          <Text className="text-xs text-muted">
+        <View className="my-1 rounded-md bg-surface px-3 py-2">
+          <Text className="text-muted text-xs">
             📄 {"filename" in part ? String(part.filename) : "file"}
           </Text>
         </View>
       ) : null;
     case "step-start":
     case "step-finish":
-      return showStepMarkers ? <View className="my-2 border-t border-border" /> : null;
+      return showStepMarkers ? <View className="my-2 border-border border-t" /> : null;
     case "subtask":
       return (
-        <View className="rounded-md bg-surface px-3 py-2 my-1">
-          <Text className="text-xs text-muted">⚡ {part.description}</Text>
+        <View className="my-1 rounded-md bg-surface px-3 py-2">
+          <Text className="text-muted text-xs">⚡ {part.description}</Text>
         </View>
       );
     default:

@@ -1,9 +1,9 @@
 import { useMemo } from "react";
+import type { Message, Part } from "@/client/types";
 import { useMessageStore } from "@/stores/messageStore";
 import { groupParts } from "@/transcript/groupMessages";
 import { processMessages } from "@/transcript/processMessages";
 import type { HydratedMessage, RenderItem } from "@/transcript/types";
-import type { Message, Part } from "@/client/types";
 
 const EMPTY_MESSAGES: Message[] = [];
 const EMPTY_PARTS: Record<string, Record<string, Part>> = {};

@@ -34,12 +34,12 @@ export function FileTreeNode({ node, depth, gitStatus }: Props) {
         style={{ paddingLeft: 12 + depth * 16 }}
         onPress={() => node.isDir && setExpanded(!expanded)}
       >
-        <Text className="text-xs text-muted w-4">{node.isDir ? (expanded ? "▼" : "▶") : " "}</Text>
-        <Text className="text-xs text-muted mr-1">{node.isDir ? "📁" : "📄"}</Text>
-        <Text className="flex-1 text-xs text-foreground" numberOfLines={1}>
+        <Text className="w-4 text-muted text-xs">{node.isDir ? (expanded ? "▼" : "▶") : " "}</Text>
+        <Text className="mr-1 text-muted text-xs">{node.isDir ? "📁" : "📄"}</Text>
+        <Text className="flex-1 text-foreground text-xs" numberOfLines={1}>
           {node.name}
         </Text>
-        {status ? <Text className={`text-xs font-bold mr-2 ${statusColor}`}>{status}</Text> : null}
+        {status ? <Text className={`mr-2 font-bold text-xs ${statusColor}`}>{status}</Text> : null}
       </Pressable>
       {expanded && node.children.length > 0
         ? node.children.map((child) => (

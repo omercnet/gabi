@@ -68,9 +68,9 @@ describe("MessageBubble logic", () => {
         { kind: "part", part: makeTextPart({ text: "After tools" }) },
       ];
       expect(items).toHaveLength(3);
-      expect(items[0].kind).toBe("part");
-      expect(items[1].kind).toBe("tool-group");
-      expect(items[2].kind).toBe("part");
+      expect(items[0]?.kind).toBe("part");
+      expect(items[1]?.kind).toBe("tool-group");
+      expect(items[2]?.kind).toBe("part");
     });
 
     it("handles empty items array for assistant", () => {
