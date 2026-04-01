@@ -1,10 +1,13 @@
 import { useCallback, useEffect } from "react";
 import type { OpencodeClient } from "@/client/types";
 import { useSessionStore } from "@/stores/sessionStore";
+import type { Session } from "@/client/types";
+
+const EMPTY_SESSIONS: Session[] = [];
 
 export function useSessions(client: OpencodeClient | null, directory: string | null) {
   const sessions = useSessionStore((s) =>
-    directory ? (s.sessionsByDirectory[directory] ?? []) : [],
+    directory ? (s.sessionsByDirectory[directory] ?? EMPTY_SESSIONS) : EMPTY_SESSIONS,
   );
   const isLoading = useSessionStore((s) =>
     directory ? (s.loadingByDirectory[directory] ?? false) : false,
