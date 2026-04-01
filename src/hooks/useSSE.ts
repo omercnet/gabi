@@ -27,7 +27,11 @@ export function useSSE(client: OpencodeClient | null, directory: string | null):
     const handleEvent = (event: SSEEvent) => {
       switch (event.type) {
         case "message.part.updated":
-          upsertPart(event.properties.sessionID, "", event.properties.part);
+          upsertPart(
+            event.properties.sessionID,
+            event.properties.part.messageID,
+            event.properties.part,
+          );
           break;
         case "message.part.removed":
           removePart(
@@ -41,6 +45,15 @@ export function useSSE(client: OpencodeClient | null, directory: string | null):
           break;
         case "message.removed":
           removeMessage(event.properties.sessionID, event.properties.messageID);
+          break;
+        case "session.created":
+          upsertSession(directory, event.properties.info);
+          break;
+        case "session.updated":
+          upsertSession(directory, event.properties.info);
+          break;
+        case "session.deleted":
+          removeSession(directory, event.properties.info.id);
           break;
         case "session.status":
           if (event.properties.status.type === "busy") {

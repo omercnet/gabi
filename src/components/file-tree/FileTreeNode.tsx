@@ -24,8 +24,6 @@ const STATUS_COLORS: Record<string, string> = {
 
 export function FileTreeNode({ node, depth, gitStatus }: Props) {
   const [expanded, setExpanded] = useState(false);
-  const children = Array.isArray(node.children)
-  const status = gitStatus[node.path];
   const status = gitStatus[node.path];
   const statusColor = status ? (STATUS_COLORS[status] ?? "text-muted") : "";
 
