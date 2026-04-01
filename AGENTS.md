@@ -124,15 +124,12 @@ pnpm test                # Jest (all tests)
 
 ## Integration Tests
 
-Integration tests live in `src/__integration__/` and require a running OpenCode server.
+Integration tests live in `src/__integration__/` and are **self-contained** — they spawn their own `opencode serve` instance automatically.
 
 ```bash
-# Start the server
-opencode serve --port 14096
-
-# Run integration tests (separate terminal)
-OPENCODE_URL=http://localhost:14096 pnpm jest --testPathPattern=__integration__
+# Run integration tests (spawns its own server)
+pnpm test:integration
 ```
 
-In CI, integration tests only run when `OPENCODE_SERVER_URL` is configured as a repository variable.
+They use a dedicated Jest config (`jest.integration.config.js`) with plain Node environment.
 
