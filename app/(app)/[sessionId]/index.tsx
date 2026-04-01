@@ -2,6 +2,7 @@ import { useLocalSearchParams } from "expo-router";
 import { KeyboardAvoidingView, Platform, View } from "react-native";
 import { ChatInput } from "@/components/chat/ChatInput";
 import { MessageList } from "@/components/chat/MessageList";
+import { PermissionPromptQueue, QuestionPromptQueue } from "@/components/shared";
 import { useClient } from "@/hooks/useClient";
 import { useMessages } from "@/hooks/useMessages";
 import { useSendMessage } from "@/hooks/useSendMessage";
@@ -22,15 +23,19 @@ export default function ChatScreen() {
   const { send, abort, isStreaming } = useSendMessage(client, sessionId ?? null, directory);
 
   return (
-    <KeyboardAvoidingView
-      className="flex-1 bg-background"
-      behavior={Platform.OS === "ios" ? "padding" : undefined}
-      keyboardVerticalOffset={0}
-    >
-      <View className="flex-1">
-        <MessageList messages={messageViews} isStreaming={isStreaming} />
-      </View>
-      <ChatInput onSend={send} onAbort={abort} isStreaming={isStreaming} disabled={!client} />
-    </KeyboardAvoidingView>
+    <View className="flex-1">
+      <KeyboardAvoidingView
+        className="flex-1 bg-background"
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        keyboardVerticalOffset={0}
+      >
+        <View className="flex-1">
+          <MessageList messages={messageViews} isStreaming={isStreaming} />
+        </View>
+        <ChatInput onSend={send} onAbort={abort} isStreaming={isStreaming} disabled={!client} />
+      </KeyboardAvoidingView>
+      <PermissionPromptQueue />
+      <QuestionPromptQueue />
+    </View>
   );
 }
