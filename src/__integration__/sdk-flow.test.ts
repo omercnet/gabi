@@ -52,9 +52,17 @@ beforeAll(async () => {
     console.error("Server check failed:", err instanceof Error ? err.message : err);
   }
 
-  if (!(serverAvailable || isCI)) {
+  if (!serverAvailable && isCI) {
+    throw new Error(
+      `OpenCode server not reachable at ${OPENCODE_URL}. ` +
+        "Integration tests are running in CI but the server is unavailable. " +
+        "Check OPENCODE_SERVER_URL and OPENCODE_SERVER_PASSWORD configuration.",
+    );
+  }
+
+  if (!serverAvailable) {
     console.warn(
-      `⚠ OpenCode server not reachable at ${OPENCODE_URL}. ` +
+      `\u26a0 OpenCode server not reachable at ${OPENCODE_URL}. ` +
         "Start one with: opencode serve --port 14096\n" +
         "Skipping integration tests.",
     );
