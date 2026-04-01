@@ -35,10 +35,10 @@ describe("buildClient", () => {
     expect(callArgs.headers.Authorization).toBe(`Basic ${btoa("user:pass")}`);
   });
 
-  it("does not add auth header when username is empty", () => {
+  it("defaults username to 'opencode' when only password is provided", () => {
     buildClient({ baseUrl: "http://localhost:4096", username: "", password: "pass" });
     const callArgs = mockCreate.mock.calls[0][0];
-    expect(callArgs.headers.Authorization).toBeUndefined();
+    expect(callArgs.headers.Authorization).toBe(`Basic ${btoa("opencode:pass")}`);
   });
 
   it("does not add auth header when password is empty", () => {
