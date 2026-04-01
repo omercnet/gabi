@@ -15,3 +15,6 @@ metro-cache/
 dist/
 .expo/types/
 jest_rt/
+metro-file-map-*
+node-compile-cache/
+*.so

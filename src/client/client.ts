@@ -11,8 +11,9 @@ export interface ClientConfig {
 export function buildClient(config: ClientConfig): OpencodeClient {
   const headers: Record<string, string> = {};
 
-  if (config.username && config.password) {
-    const encoded = btoa(`${config.username}:${config.password}`);
+  if (config.password) {
+    const user = config.username || "opencode";
+    const encoded = btoa(`${user}:${config.password}`);
     headers.Authorization = `Basic ${encoded}`;
   }
 
