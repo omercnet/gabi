@@ -10,17 +10,16 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  MISE_YES: 1
+
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
+      - uses: jdx/mise-action@v2
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
 
@@ -29,11 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
+      - uses: jdx/mise-action@v2
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec tsc --noEmit
 
@@ -42,11 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
+      - uses: jdx/mise-action@v2
       - run: pnpm install --frozen-lockfile
       - run: pnpm jest --watchAll=false --forceExit --testPathIgnorePatterns='src/__integration__'
         env:
@@ -57,11 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
+      - uses: jdx/mise-action@v2
       - run: pnpm install --frozen-lockfile
       - run: pnpm expo export --platform web
         env:
@@ -77,11 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
+      - uses: jdx/mise-action@v2
       - run: pnpm install --frozen-lockfile
       - name: Install OpenCode CLI
         run: curl -fsSL https://opencode.ai/install | bash
