@@ -75,7 +75,6 @@ jobs:
   integration-test:
     name: Integration Tests
     runs-on: ubuntu-latest
-    if: ${{ vars.OPENCODE_SERVER_URL != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -84,8 +83,8 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm jest --watchAll=false --forceExit --testPathPattern='src/__integration__'
+      - name: Install OpenCode CLI
+        run: curl -fsSL https://opencode.ai/install | bash
+      - run: pnpm jest --config jest.integration.config.js
         env:
           CI: "true"
-          OPENCODE_URL: ${{ vars.OPENCODE_SERVER_URL }}
-          OPENCODE_SERVER_PASSWORD: ${{ secrets.OPENCODE_SERVER_PASSWORD }}
