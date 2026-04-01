@@ -56,3 +56,83 @@ Search results can flood context. Use `context-mode_ctx_execute(language: "shell
 | `ctx stats` | Call the `stats` MCP tool and display the full output verbatim |
 | `ctx doctor` | Call the `doctor` MCP tool, run the returned shell command, display as checklist |
 | `ctx upgrade` | Call the `upgrade` MCP tool, run the returned shell command, display as checklist |
+
+---
+
+# Git Workflow — MANDATORY rules
+
+These rules are NON-NEGOTIABLE. Every agent working in this repo MUST follow them.
+
+## Branch Protection
+
+- **NEVER push directly to `main`**. The `main` branch is protected and requires pull requests.
+- All work happens on feature branches: `feat/`, `fix/`, `refactor/`, `ci/`, `docs/`, `chore/`.
+- Branch names: lowercase, kebab-case. Example: `fix/hydration-errors`, `feat/markdown-renderer`.
+
+## Pull Request Workflow
+
+1. Create a branch from `main`.
+2. Make commits following the commit format below.
+3. Push the branch and open a PR with `gh pr create`.
+4. **Wait for ALL CI checks to pass** before merging.
+5. Merge only when: lint ✓, typecheck ✓, tests ✓, build ✓.
+6. If CI fails, fix the issue on the branch and push again. Never skip or ignore failing checks.
+
+## Commit Message Format
+
+Conventional Commits — enforced by commitlint.
+
+```
+<type>: <summary>
+```
+
+- **Types**: `feat`, `fix`, `refactor`, `perf`, `docs`, `test`, `build`, `ci`, `chore`, `style`, `revert`
+- **Subject**: lowercase, max 100 chars, no period at end
+- **Body** (optional): max 120 chars per line
+- **Header**: max 120 chars total
+
+Examples:
+```
+feat: add markdown rendering for assistant messages
+fix: resolve react hydration mismatch on vercel
+ci: add github actions workflow for lint and tests
+```
+
+## CI Pipeline
+
+GitHub Actions runs 5 parallel jobs on every push and PR:
+
+| Job | Command | What it checks |
+|-----|---------|----------------|
+| **Lint** | `pnpm lint` | Biome linting + formatting |
+| **Typecheck** | `pnpm exec tsc --noEmit` | TypeScript strict mode |
+| **Unit Tests** | `pnpm jest --testPathIgnorePatterns=__integration__` | 400+ unit tests |
+| **Build** | `pnpm expo export --platform web` | Web export produces valid output |
+| **Integration Tests** | `pnpm jest --testPathPattern=__integration__` | SDK tests (only when server configured) |
+
+All jobs except Integration Tests MUST pass before merging.
+
+## Pre-Push Checklist
+
+Before pushing, run these locally to catch issues early:
+
+```bash
+pnpm lint                # Biome check
+pnpm exec tsc --noEmit   # TypeScript
+pnpm test                # Jest (all tests)
+```
+
+## Integration Tests
+
+Integration tests live in `src/__integration__/` and require a running OpenCode server.
+
+```bash
+# Start the server
+opencode serve --port 14096
+
+# Run integration tests (separate terminal)
+OPENCODE_URL=http://localhost:14096 pnpm jest --testPathPattern=__integration__
+```
+
+In CI, integration tests only run when `OPENCODE_SERVER_URL` is configured as a repository variable.
+

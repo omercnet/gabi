@@ -1,5 +1,8 @@
 {
   "root": true,
+  "files": {
+    "includes": ["**", "!dist", "!metro-cache", "!.expo", "!.sisyphus"]
+  },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
@@ -149,7 +152,7 @@
   },
   "overrides": [
     {
-      "includes": ["**/__tests__/**", "**/*.test.ts", "**/*.test.tsx"],
+      "includes": ["**/__tests__/**", "**/__integration__/**", "**/*.test.ts", "**/*.test.tsx"],
       "linter": {
         "rules": {
           "suspicious": {
@@ -161,6 +164,11 @@
           }
         }
       }
+    },
+    {
+      "includes": ["global.css", "tailwind.config.js"],
+      "linter": { "enabled": false },
+      "formatter": { "enabled": false }
     }
   ]
 }
