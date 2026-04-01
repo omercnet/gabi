@@ -1,14 +1,12 @@
-import { View, Text } from "react-native";
+import { Redirect } from "expo-router";
+import { useConnectionStore } from "@/stores/connectionStore";
 
 export default function Index() {
-  return (
-    <View className="flex-1 items-center justify-center bg-background">
-      <Text className="text-2xl font-bold text-foreground">
-        Gabi
-      </Text>
-      <Text className="mt-2 text-sm text-muted">
-        OpenCode Client
-      </Text>
-    </View>
-  );
+  const isConfigured = useConnectionStore((s) => s.isConfigured);
+
+  if (!isConfigured) {
+    return <Redirect href="/setup" />;
+  }
+
+  return <Redirect href="/(app)" />;
 }

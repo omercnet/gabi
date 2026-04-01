@@ -1,0 +1,48 @@
+import { Text, View } from "react-native";
+import type { Part } from "@/client/types";
+import { usePreferencesStore } from "@/stores/preferencesStore";
+import { ReasoningPart } from "./ReasoningPart";
+import { ToolPart } from "./ToolPart";
+
+interface Props {
+  part: Part;
+}
+
+export function PartRenderer({ part }: Props) {
+  const showReasoning = usePreferencesStore((s) => s.showReasoning);
+  const showToolCalls = usePreferencesStore((s) => s.showToolCalls);
+  const showStepMarkers = usePreferencesStore((s) => s.showStepMarkers);
+  const showFileParts = usePreferencesStore((s) => s.showFileParts);
+
+  switch (part.type) {
+    case "text":
+      return (
+        <View className="py-1">
+          <Text className="text-assistant-bubble-foreground">{part.text}</Text>
+        </View>
+      );
+    case "reasoning":
+      return showReasoning ? <ReasoningPart part={part} /> : null;
+    case "tool":
+      return showToolCalls ? <ToolPart part={part} /> : null;
+    case "file":
+      return showFileParts ? (
+        <View className="rounded-md bg-surface px-3 py-2 my-1">
+          <Text className="text-xs text-muted">
+            📄 {"filename" in part ? String(part.filename) : "file"}
+          </Text>
+        </View>
+      ) : null;
+    case "step-start":
+    case "step-finish":
+      return showStepMarkers ? <View className="my-2 border-t border-border" /> : null;
+    case "subtask":
+      return (
+        <View className="rounded-md bg-surface px-3 py-2 my-1">
+          <Text className="text-xs text-muted">⚡ {part.description}</Text>
+        </View>
+      );
+    default:
+      return null;
+  }
+}
