@@ -40,7 +40,13 @@ export function QuestionPrompt({ request, onSubmit, onDismiss }: QuestionPromptP
   };
 
   return (
-    <Modal visible={true} animationType="slide" transparent={true} statusBarTranslucent={true}>
+    <Modal
+      visible={true}
+      animationType="slide"
+      transparent={true}
+      statusBarTranslucent={true}
+      onRequestClose={onDismiss}
+    >
       <View className="flex-1 justify-end">
         <View className="rounded-t-3xl bg-surface p-6 shadow-xl dark:bg-surface">
           <View className="mb-4 flex-row items-center justify-between">

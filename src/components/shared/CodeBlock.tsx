@@ -1,6 +1,6 @@
 import * as Clipboard from "expo-clipboard";
 import type React from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Platform, Pressable, ScrollView, Text, View } from "react-native";
 
 // react-syntax-highlighter may have issues on native, so we try/catch
@@ -36,11 +36,18 @@ interface Props {
 
 export function CodeBlock({ code, language, showLineNumbers = false }: Props) {
   const [copied, setCopied] = useState(false);
+  const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+    };
+  }, []);
 
   const handleCopy = async () => {
     await Clipboard.setStringAsync(code);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    copyTimerRef.current = setTimeout(() => setCopied(false), 2000);
   };
 
   const displayLanguage = language ?? "text";

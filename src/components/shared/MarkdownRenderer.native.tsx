@@ -100,7 +100,7 @@ const defaultStyles = {
     fontStyle: "italic" as const,
   },
   link: {
-    color: "rgb(var(--color-primary, 99 102 241))",
+    color: "#6366f1", // indigo-500 — design token primary (light theme)
     textDecorationLine: "underline" as const,
   },
   table: {

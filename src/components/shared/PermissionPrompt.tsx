@@ -9,10 +9,16 @@ interface PermissionPromptProps {
 }
 
 export function PermissionPrompt({ request, onAllow, onDeny }: PermissionPromptProps) {
-  const argsPreview = JSON.stringify(request.metadata, null, 2);
+  const argsPreview = request.metadata ? JSON.stringify(request.metadata, null, 2) : null;
 
   return (
-    <Modal visible={true} animationType="fade" transparent={true} statusBarTranslucent={true}>
+    <Modal
+      visible={true}
+      animationType="fade"
+      transparent={true}
+      statusBarTranslucent={true}
+      onRequestClose={onDeny}
+    >
       <View className="flex-1 items-center justify-center bg-black/60 px-6">
         <View className="w-full max-w-sm rounded-2xl bg-surface p-5 shadow-xl dark:bg-surface">
           <Text className="mb-1 font-bold text-base text-foreground dark:text-foreground">
@@ -36,7 +42,7 @@ export function PermissionPrompt({ request, onAllow, onDeny }: PermissionPromptP
             </View>
           ) : null}
 
-          {argsPreview === "{}" ? null : (
+          {argsPreview && argsPreview !== "{}" ? (
             <View className="mb-4">
               <Text className="mb-1 text-muted text-xs dark:text-muted">Details:</Text>
               <ScrollView
@@ -48,7 +54,7 @@ export function PermissionPrompt({ request, onAllow, onDeny }: PermissionPromptP
                 </Text>
               </ScrollView>
             </View>
-          )}
+          ) : null}
 
           <View className="flex-row gap-3">
             <Pressable
