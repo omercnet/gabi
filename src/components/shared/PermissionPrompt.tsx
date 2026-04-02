@@ -70,7 +70,12 @@ export function PermissionPrompt({ request, onAllow, onDeny }: PermissionPromptP
   );
 }
 
-export function PermissionPromptQueue() {
+interface PermissionPromptQueueProps {
+  onAllow?: (id: string) => void;
+  onDeny?: (id: string) => void;
+}
+
+export function PermissionPromptQueue({ onAllow, onDeny }: PermissionPromptQueueProps = {}) {
   const pending = usePermissionStore((s) => s.pending);
   const remove = usePermissionStore((s) => s.remove);
 
@@ -80,8 +85,12 @@ export function PermissionPromptQueue() {
   return (
     <PermissionPrompt
       request={first}
-      onAllow={() => remove(first.id)}
-      onDeny={() => remove(first.id)}
+      onAllow={() => {
+        onAllow ? onAllow(first.id) : remove(first.id);
+      }}
+      onDeny={() => {
+        onDeny ? onDeny(first.id) : remove(first.id);
+      }}
     />
   );
 }

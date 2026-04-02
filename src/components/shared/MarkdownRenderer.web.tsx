@@ -43,12 +43,13 @@ export function MarkdownRenderer({ content, className }: Props) {
           ),
 
           // Code blocks and inline code
-          code: ({ className: cls, children, ...props }) => {
-            const match = /language-(\w+)/.exec(cls || "");
-            const isBlock = "data-is-block" in props || match !== null;
+          code: ({ className: cls, children }) => {
+            const match = /language-(\w+)/.exec(cls ?? "");
+            // Block code: has a language class OR children contain a newline (fenced without lang)
             const codeStr = String(children).replace(/\n$/, "");
+            const isBlock = match !== null || String(children).includes("\n");
 
-            if (isBlock || match) {
+            if (isBlock) {
               return <CodeBlock code={codeStr} {...(match ? { language: match[1] } : {})} />;
             }
 

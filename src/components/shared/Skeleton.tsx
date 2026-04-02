@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import { Animated, View } from "react-native";
+import { Animated, type DimensionValue, View } from "react-native";
 
 interface SkeletonProps {
-  width?: number | string;
+  width?: DimensionValue;
   height?: number;
   rounded?: boolean;
   className?: string;
@@ -32,7 +32,7 @@ export function Skeleton({ width, height = 16, rounded = false, className = "" }
 
   const borderRadiusStyle = rounded ? { borderRadius: height / 2 } : { borderRadius: 4 };
   const sizeStyle = {
-    width: width as number | undefined,
+    ...(width === undefined ? {} : { width }),
     height,
   };
 

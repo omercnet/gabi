@@ -115,7 +115,12 @@ export function QuestionPrompt({ request, onSubmit, onDismiss }: QuestionPromptP
   );
 }
 
-export function QuestionPromptQueue() {
+interface QuestionPromptQueueProps {
+  onSubmit?: (id: string, answers: QuestionAnswer[]) => void;
+  onDismiss?: (id: string) => void;
+}
+
+export function QuestionPromptQueue({ onSubmit, onDismiss }: QuestionPromptQueueProps = {}) {
   const pending = useQuestionStore((s) => s.pending);
   const remove = useQuestionStore((s) => s.remove);
 
@@ -125,8 +130,12 @@ export function QuestionPromptQueue() {
   return (
     <QuestionPrompt
       request={first}
-      onSubmit={() => remove(first.id)}
-      onDismiss={() => remove(first.id)}
+      onSubmit={(answers) => {
+        onSubmit ? onSubmit(first.id, answers) : remove(first.id);
+      }}
+      onDismiss={() => {
+        onDismiss ? onDismiss(first.id) : remove(first.id);
+      }}
     />
   );
 }

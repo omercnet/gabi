@@ -10,40 +10,40 @@ interface Props {
 // We layer via the style prop so the caller can override for dark mode if needed.
 const defaultStyles = {
   body: {
-    color: "rgb(var(--color-foreground, 15 23 42))",
+    color: "#0f172a",
     fontSize: 14,
     lineHeight: 22,
   },
   heading1: {
-    color: "rgb(var(--color-foreground, 15 23 42))",
+    color: "#0f172a",
     fontSize: 24,
     fontWeight: "700" as const,
     marginBottom: 8,
     marginTop: 16,
   },
   heading2: {
-    color: "rgb(var(--color-foreground, 15 23 42))",
+    color: "#0f172a",
     fontSize: 20,
     fontWeight: "700" as const,
     marginBottom: 6,
     marginTop: 12,
   },
   heading3: {
-    color: "rgb(var(--color-foreground, 15 23 42))",
+    color: "#0f172a",
     fontSize: 18,
     fontWeight: "600" as const,
     marginBottom: 6,
     marginTop: 12,
   },
   heading4: {
-    color: "rgb(var(--color-foreground, 15 23 42))",
+    color: "#0f172a",
     fontSize: 16,
     fontWeight: "600" as const,
     marginBottom: 4,
     marginTop: 8,
   },
   paragraph: {
-    color: "rgb(var(--color-foreground, 15 23 42))",
+    color: "#0f172a",
     fontSize: 14,
     lineHeight: 22,
     marginBottom: 8,
@@ -55,7 +55,7 @@ const defaultStyles = {
     marginBottom: 8,
   },
   list_item: {
-    color: "rgb(var(--color-foreground, 15 23 42))",
+    color: "#0f172a",
     fontSize: 14,
     lineHeight: 22,
   },
@@ -63,7 +63,7 @@ const defaultStyles = {
     fontFamily: "ui-monospace, monospace",
     fontSize: 12,
     backgroundColor: "rgba(0,0,0,0.06)",
-    color: "rgb(var(--color-foreground, 15 23 42))",
+    color: "#0f172a",
     paddingHorizontal: 4,
     paddingVertical: 2,
     borderRadius: 4,
@@ -116,13 +116,13 @@ const defaultStyles = {
     padding: 8,
     borderWidth: 1,
     borderColor: "rgba(0,0,0,0.15)",
-    color: "rgb(var(--color-foreground, 15 23 42))",
+    color: "#0f172a",
   },
   td: {
     padding: 8,
     borderWidth: 1,
     borderColor: "rgba(0,0,0,0.15)",
-    color: "rgb(var(--color-foreground, 15 23 42))",
+    color: "#0f172a",
   },
 };
 
