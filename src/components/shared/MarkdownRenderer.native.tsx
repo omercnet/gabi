@@ -60,7 +60,7 @@ const defaultStyles = {
     lineHeight: 22,
   },
   code_inline: {
-    fontFamily: "ui-monospace, monospace",
+    fontFamily: "monospace",
     fontSize: 12,
     backgroundColor: "rgba(0,0,0,0.06)",
     color: "#0f172a",
@@ -70,14 +70,14 @@ const defaultStyles = {
   },
   code_block: {
     // Overridden by custom rules below — kept as fallback
-    fontFamily: "ui-monospace, monospace",
+    fontFamily: "monospace",
     fontSize: 12,
     backgroundColor: "rgba(0,0,0,0.06)",
     padding: 12,
     borderRadius: 8,
   },
   fence: {
-    fontFamily: "ui-monospace, monospace",
+    fontFamily: "monospace",
     fontSize: 12,
     padding: 0,
     backgroundColor: "transparent",

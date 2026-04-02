@@ -1,5 +1,5 @@
 import BottomSheet, { BottomSheetTextInput, BottomSheetView } from "@gorhom/bottom-sheet";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Pressable, Text } from "react-native";
 import { useProjectStore } from "@/stores/projectStore";
 
@@ -11,7 +11,7 @@ export function AddProjectSheet({ onClose }: AddProjectSheetProps) {
   const [newName, setNewName] = useState("");
   const [newDir, setNewDir] = useState("");
   const bottomSheetRef = useRef<BottomSheet>(null);
-  const snapPoints = ["50%"];
+  const snapPoints = useMemo(() => ["50%"], []);
 
   const handleAdd = () => {
     if (!(newName.trim() && newDir.trim())) return;

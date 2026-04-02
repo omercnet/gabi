@@ -25,9 +25,9 @@ export default function ChatScreen() {
   useSSE(client, directory || null);
 
   useEffect(() => {
-    if (!sessionId) return;
-    loadSessionMessages(client, sessionId).catch(() => undefined);
-  }, [client, sessionId]);
+    if (!(sessionId && directory)) return;
+    loadSessionMessages(client, sessionId, directory).catch(() => undefined);
+  }, [client, sessionId, directory]);
 
   const messageViews = useMessages(sessionId ?? null);
   const { send, abort, isStreaming } = useSendMessage(client, sessionId ?? null, directory);
@@ -51,7 +51,7 @@ export default function ChatScreen() {
         onDeny={(id) => replyPermission(id, false)}
       />
       <QuestionPromptQueue
-        onSubmit={(id, answers) => replyQuestion(id, answers as string[][])}
+        onSubmit={(id, answers) => replyQuestion(id, answers)}
         onDismiss={(id) => rejectQuestion(id)}
       />
     </View>

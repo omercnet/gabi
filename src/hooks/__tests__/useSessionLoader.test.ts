@@ -28,9 +28,12 @@ describe("session message loading contract (red)", () => {
     };
 
     const { loadSessionMessages } = require("@/hooks/useSessionLoader");
-    await loadSessionMessages(client, sessionId);
+    await loadSessionMessages(client, sessionId, "/home/test");
 
-    expect(client.session.messages).toHaveBeenCalledWith(sessionId);
+    expect(client.session.messages).toHaveBeenCalledWith({
+      sessionID: sessionId,
+      directory: "/home/test",
+    });
     expect(useMessageStore.getState().messagesBySession[sessionId]).toEqual(expectedMessages);
   });
 });

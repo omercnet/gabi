@@ -64,15 +64,16 @@ describe("MessageList", () => {
     expect(json).toContain("bubble:rep");
   });
 
-  it("attempts scrollToEnd after messages change (via 100ms timer)", () => {
+  it("renders messages correctly before and after scroll timer fires", () => {
     jest.useFakeTimers();
     const msgs = [makeUserMessage({ id: "u1" })];
     render(<MessageList messages={msgs.map(makeView)} isStreaming={false} />);
-    // Advancing the timer should not throw
+    expect(JSON.stringify(screen.toJSON())).toContain("bubble:u1");
+    // Advance past the 100ms scroll timer — component stays mounted without error
     act(() => {
       jest.advanceTimersByTime(200);
     });
-    expect(true).toBe(true); // no crash = pass
+    expect(JSON.stringify(screen.toJSON())).toContain("bubble:u1");
     jest.useRealTimers();
   });
 });

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Modal, Pressable, ScrollView, Text, TextInput, View } from "react-native";
-import type { QuestionAnswer, QuestionRequest } from "@/client/types";
+import type { QuestionRequest } from "@/client/types"; // QuestionAnswer = string[]
 import { useQuestionStore } from "@/stores/questionStore";
 
 interface QuestionPromptProps {
   request: QuestionRequest;
-  onSubmit: (answers: QuestionAnswer[]) => void;
+  onSubmit: (answers: string[][]) => void;
   onDismiss: () => void;
 }
 
@@ -122,7 +122,7 @@ export function QuestionPrompt({ request, onSubmit, onDismiss }: QuestionPromptP
 }
 
 interface QuestionPromptQueueProps {
-  onSubmit?: (id: string, answers: QuestionAnswer[]) => void;
+  onSubmit?: (id: string, answers: string[][]) => void;
   onDismiss?: (id: string) => void;
 }
 

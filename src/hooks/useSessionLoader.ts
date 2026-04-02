@@ -13,12 +13,10 @@ function normalizeMessages(result: unknown): Message[] {
 export async function loadSessionMessages(
   client: OpencodeClient | null,
   sessionId: string,
+  directory: string,
 ): Promise<void> {
-  if (!(client && sessionId)) return;
-  const messagesApi = client.session.messages as unknown as (
-    arg: string | { sessionID: string },
-  ) => Promise<unknown>;
-  const result = await messagesApi(sessionId).catch(() => messagesApi({ sessionID: sessionId }));
+  if (!(client && sessionId && directory)) return;
+  const result = await client.session.messages({ sessionID: sessionId, directory });
   const messages = normalizeMessages(result);
   useMessageStore.getState().setMessages(sessionId, messages);
 }

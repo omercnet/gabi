@@ -55,9 +55,11 @@ export function Toast({ message, visible, onDismiss, duration = 4000 }: ToastPro
   return (
     <Animated.View
       style={{ transform: [{ translateY }], opacity }}
-      className="absolute bottom-8 left-4 right-4 z-50 rounded-xl bg-gray-900 px-4 py-3 shadow-lg dark:bg-gray-700"
+      className="absolute bottom-8 left-4 right-4 z-50 rounded-xl bg-surface px-4 py-3 shadow-lg dark:bg-surface"
     >
-      <Text className="text-center font-medium text-sm text-white dark:text-white">{message}</Text>
+      <Text className="text-center font-medium text-foreground text-sm dark:text-foreground">
+        {message}
+      </Text>
     </Animated.View>
   );
 }
