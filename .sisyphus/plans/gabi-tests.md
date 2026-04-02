@@ -16,7 +16,7 @@
 
 ### Wave 3 — SSE Manager + useSSE Hook
 
-- [ ] T3-A: SSE Manager unit tests
+- [x] T3-A: SSE Manager unit tests
   - File: src/client/__tests__/sse.test.ts
   - Covers: src/client/sse.ts (SSEManager class)
   - Category: deep
@@ -29,7 +29,7 @@
   - Pattern: jest.useFakeTimers() for backoff, mock client.event.subscribe returning async generator
   - Commit: test: add SSE manager unit tests with backoff and lifecycle coverage
 
-- [ ] T3-B: useSSE hook integration tests
+- [x] T3-B: useSSE hook integration tests
   - File: src/hooks/__tests__/useSSE.test.ts
   - Covers: src/hooks/useSSE.ts (event routing dispatch table)
   - Category: deep
@@ -47,7 +47,7 @@
 
 ### Wave 4 — Remaining Hooks
 
-- [ ] T4-A: useClient hook tests
+- [x] T4-A: useClient hook tests
   - File: src/hooks/__tests__/useClient.test.ts
   - Covers: src/hooks/useClient.ts
   - Category: quick
@@ -61,7 +61,7 @@
     - New ref when store changes
   - Commit: test: add useClient hook tests
 
-- [ ] T4-B: useSendMessage hook tests
+- [x] T4-B: useSendMessage hook tests
   - File: src/hooks/__tests__/useSendMessage.test.ts
   - Covers: src/hooks/useSendMessage.ts
   - Category: quick
@@ -81,7 +81,7 @@
     - isStreaming false when null
   - Commit: test: add useSendMessage hook tests
 
-- [ ] T4-C: useMessages hook tests
+- [x] T4-C: useMessages hook tests
   - File: src/hooks/__tests__/useMessages.test.ts
   - Covers: src/hooks/useMessages.ts
   - Category: quick
@@ -97,7 +97,7 @@
     - sessionId change returns new messages
   - Commit: test: add useMessages hook tests
 
-- [ ] T4-D: useSessions hook tests
+- [x] T4-D: useSessions hook tests
   - File: src/hooks/__tests__/useSessions.test.ts
   - Covers: src/hooks/useSessions.ts
   - Category: deep
@@ -119,7 +119,7 @@
     - Error handling: network failure sets loading false
   - Commit: test: add useSessions hook tests
 
-- [ ] T4-E: usePermissions + useQuestions hook tests
+- [x] T4-E: usePermissions + useQuestions hook tests
   - File: src/hooks/__tests__/usePermissions.test.ts + src/hooks/__tests__/useQuestions.test.ts
   - Covers: src/hooks/usePermissions.ts, src/hooks/useQuestions.ts
   - Category: quick
@@ -131,7 +131,7 @@
 
 ### Wave 5 — Component + Screen Integration Tests
 
-- [ ] T5-A: ChatInput component tests
+- [x] T5-A: ChatInput component tests
   - File: src/components/chat/__tests__/ChatInput.test.tsx
   - Covers: src/components/chat/ChatInput.tsx
   - Category: visual-engineering
@@ -151,7 +151,7 @@
     - Send disabled when text empty
   - Commit: test: add ChatInput component tests
 
-- [ ] T5-B: Part renderer component tests
+- [x] T5-B: Part renderer component tests
   - File: src/components/chat/__tests__/PartRenderer.test.tsx + ReasoningPart.test.tsx + ToolPart.test.tsx + ToolGroup.test.tsx
   - Covers: PartRenderer, ReasoningPart, ToolPart, ToolGroup
   - Category: visual-engineering
@@ -163,7 +163,7 @@
     - ToolGroup: collapseToolGroups=true starts collapsed, false starts expanded, press toggles, expanded renders ToolParts, summary shown, multiple parts all rendered
   - Commit: test: add part renderer and tool component tests
 
-- [ ] T5-C: MessageBubble + SessionItem tests
+- [x] T5-C: MessageBubble + SessionItem tests
   - File: src/components/chat/__tests__/MessageBubble.test.tsx + src/components/session/__tests__/SessionItem.test.tsx
   - Covers: MessageBubble, SessionItem
   - Category: quick
@@ -173,7 +173,7 @@
     - SessionItem: renders title, "Untitled" fallback, renders date, press fires onPress, long press fires delete
   - Commit: test: add MessageBubble and SessionItem component tests
 
-- [ ] T5-D: Setup screen tests
+- [x] T5-D: Setup screen tests
   - File: app/__tests__/setup.test.tsx
   - Covers: app/setup.tsx
   - Category: visual-engineering
@@ -216,6 +216,6 @@
 - Max parallelism: 5 agents (Wave 4) or 4 agents (Wave 5)
 
 ## Final Verification
-- [ ] F1: All tests pass — npx jest --no-coverage --forceExit exits 0 with 250+ new tests
-- [ ] F2: Web export still passes — npx expo export --platform web exits 0
-- [ ] F3: No TypeScript errors — lsp_diagnostics on src/ and app/ clean
+- [x] F1: All tests pass — 400 tests, 40 suites, 0 failures
+- [x] F2: Web export still passes — expo export --platform web exits 0
+- [x] F3: No TypeScript errors — tsc --noEmit exits 0

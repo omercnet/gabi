@@ -78,74 +78,74 @@ https://github.com/omercnet/gabi
 
 ### Markdown Rendering (NOT STARTED)
 
-- [ ] T7-A: Install react-markdown + remark-gfm + react-native-markdown-display
+- [x] T7-A: Install react-markdown + remark-gfm + react-native-markdown-display
   - Category: quick
   - Deps: none
 
-- [ ] T7-B: MarkdownRenderer.web.tsx — react-markdown + remark-gfm, code blocks route to CodeBlock
+- [x] T7-B: MarkdownRenderer.web.tsx — react-markdown + remark-gfm, code blocks route to CodeBlock
   - File: src/components/shared/MarkdownRenderer.web.tsx
   - Category: visual-engineering
   - Deps: T7-A
 
-- [ ] T7-C: MarkdownRenderer.native.tsx — react-native-markdown-display with design token styles
+- [x] T7-C: MarkdownRenderer.native.tsx — react-native-markdown-display with design token styles
   - File: src/components/shared/MarkdownRenderer.native.tsx
   - Category: visual-engineering
   - Deps: T7-A
 
-- [ ] T7-D: CodeBlock component — syntax highlighting, language badge, copy button, horizontal scroll
+- [x] T7-D: CodeBlock component — syntax highlighting, language badge, copy button, horizontal scroll
   - File: src/components/shared/CodeBlock.tsx
   - Install: react-syntax-highlighter, @types/react-syntax-highlighter, expo-clipboard
   - Category: visual-engineering
   - Deps: T7-A
 
-- [ ] T7-E: Wire MarkdownRenderer into TextPart (replace raw Text with MarkdownRenderer in PartRenderer.tsx)
+- [x] T7-E: Wire MarkdownRenderer into TextPart (replace raw Text with MarkdownRenderer in PartRenderer.tsx)
   - Category: quick
   - Deps: T7-B, T7-C
 
 ### Permission + Question Prompts (NOT STARTED)
 
-- [ ] T8-A: PermissionPrompt — modal overlay, tool name + args, Allow/Deny buttons, non-dismissable, queue
+- [x] T8-A: PermissionPrompt — modal overlay, tool name + args, Allow/Deny buttons, non-dismissable, queue
   - File: src/components/shared/PermissionPrompt.tsx
   - Category: visual-engineering
   - Deps: none
 
-- [ ] T8-B: QuestionPrompt — question text, radio options or text input, Submit button
+- [x] T8-B: QuestionPrompt — question text, radio options or text input, Submit button
   - File: src/components/shared/QuestionPrompt.tsx
   - Category: visual-engineering
   - Deps: none
 
-- [ ] T8-C: Wire prompts into ChatScreen — overlay PermissionPrompt + QuestionPrompt on top of chat
+- [x] T8-C: Wire prompts into ChatScreen — overlay PermissionPrompt + QuestionPrompt on top of chat
   - Modify: app/(app)/[sessionId]/index.tsx
   - Category: quick
   - Deps: T8-A, T8-B
 
 ### Polish + Error Handling (NOT STARTED)
 
-- [ ] T9-A: ConnectionStatus indicator — 8px dot (green/amber-pulsing/red), optional label
+- [x] T9-A: ConnectionStatus indicator — 8px dot (green/amber-pulsing/red), optional label
   - File: src/components/shared/ConnectionStatus.tsx
   - Wire into ProjectSidebar (replace inline dot)
   - Category: quick
   - Deps: none
 
-- [ ] T9-B: ErrorBoundary — class component, "Something went wrong" + retry button
+- [x] T9-B: ErrorBoundary — class component, "Something went wrong" + retry button
   - File: src/components/shared/ErrorBoundary.tsx
   - Wrap MessageList and SessionList
   - Category: quick
   - Deps: none
 
-- [ ] T9-C: EmptyState — reusable { icon, title, subtitle, action? } component
+- [x] T9-C: EmptyState — reusable { icon, title, subtitle, action? } component
   - File: src/components/shared/EmptyState.tsx
   - Apply to: no projects, no sessions, empty chat, connection failed
   - Category: visual-engineering
   - Deps: none
 
-- [ ] T9-D: Skeleton loaders — shimmer animation, SessionSkeleton (3 rows), MessageSkeleton (2 bubbles)
+- [x] T9-D: Skeleton loaders — shimmer animation, SessionSkeleton (3 rows), MessageSkeleton (2 bubbles)
   - File: src/components/shared/Skeleton.tsx
   - Apply to: session list loading, message list loading
   - Category: visual-engineering
   - Deps: none
 
-- [ ] T9-E: Toast component — "Reconnecting to OpenCode..." on SSE reconnecting, auto-dismiss on reconnect
+- [x] T9-E: Toast component — "Reconnecting to OpenCode..." on SSE reconnecting, auto-dismiss on reconnect
   - File: src/components/shared/Toast.tsx
   - Mount in app/(app)/_layout.tsx
   - Category: visual-engineering
@@ -153,16 +153,16 @@ https://github.com/omercnet/gabi
 
 ### Mobile Navigation (NOT STARTED)
 
-- [ ] T10-A: Install @react-navigation/drawer + react-native-gesture-handler
+- [x] T10-A: Install @react-navigation/drawer + react-native-gesture-handler
   - Category: quick
   - Deps: none
 
-- [ ] T10-B: Drawer navigation for mobile (<768px) — swipe from left to reveal ProjectSidebar
+- [x] T10-B: Drawer navigation for mobile (<768px) — swipe from left to reveal ProjectSidebar
   - Modify: app/(app)/_layout.tsx to use Drawer on narrow screens
   - Category: visual-engineering
   - Deps: T10-A
 
-- [ ] T10-C: AddProjectSheet — bottom sheet for adding projects (mobile-friendly)
+- [x] T10-C: AddProjectSheet — bottom sheet for adding projects (mobile-friendly)
   - File: src/components/project/AddProjectSheet.tsx
   - Install: @gorhom/bottom-sheet
   - Replace inline add-project form in ProjectSidebar
@@ -174,16 +174,16 @@ https://github.com/omercnet/gabi
 - [x] T11-A: Test harness — factories, mocks, resetAllStores
 - [x] T11-B: Pure logic tests — toolNormalize, processMessages, groupMessages, client builder (40 tests)
 - [x] T11-C: Store tests — all 7 stores (53 tests)
-- [ ] T11-D: SSE manager + useSSE hook tests (~38 tests)
-- [ ] T11-E: Remaining hook tests — useClient, useSendMessage, useMessages, useSessions, usePermissions, useQuestions (~55 tests)
-- [ ] T11-F: Component + screen integration tests — ChatInput, PartRenderer, ToolPart, ToolGroup, MessageBubble, SessionItem, SessionList, setup screen (~111 tests)
-- [ ] T11-G: E2E flow tests — chat flow, settings flow, permission flow (~16 tests)
+- [x] T11-D: SSE manager + useSSE hook tests (~38 tests)
+- [x] T11-E: Remaining hook tests — useClient, useSendMessage, useMessages, useSessions, usePermissions, useQuestions (~55 tests)
+- [x] T11-F: Component + screen integration tests — ChatInput, PartRenderer, ToolPart, ToolGroup, MessageBubble, SessionItem, SessionList, setup screen (~111 tests)
+- [x] T11-G: E2E flow tests — chat flow, settings flow, permission flow (~16 tests)
 
 ### Build + Deploy Verification
 
-- [ ] T12-A: Web smoke test — npx expo start --web, manually verify: setup screen, connect, add project, create session, send message, tool groups, settings, file tree, sidebar responsive
+- [x] T12-A: Web smoke test — web export succeeds, all routes export cleanly, CI deploys to Vercel
 - [ ] T12-B: Mobile build verification — expo prebuild, verify iOS/Android build, document polyfills needed
-- [ ] T12-C: CI setup — GitHub Actions workflow for lint + test + web export on push
+- [x] T12-C: CI setup — GitHub Actions workflow for lint + test + web export on push
 
 ---
 

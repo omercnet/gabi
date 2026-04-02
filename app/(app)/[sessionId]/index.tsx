@@ -26,7 +26,7 @@ export default function ChatScreen() {
 
   useEffect(() => {
     if (!sessionId) return;
-    void loadSessionMessages(client, sessionId);
+    loadSessionMessages(client, sessionId).catch(() => undefined);
   }, [client, sessionId]);
 
   const messageViews = useMessages(sessionId ?? null);
