@@ -1,8 +1,8 @@
 import { SSEManager, type SSEManagerOptions } from "../sse";
 import type { SSEEvent, SSEStatus } from "../types";
 
-function makeAsyncIterable(events: Array<{ data: SSEEvent }>): AsyncIterable<{ data: SSEEvent }> {
-  return {
+function makeStreamResult(events: SSEEvent[]): { stream: AsyncIterable<SSEEvent> } {
+  const iterable: AsyncIterable<SSEEvent> = {
     [Symbol.asyncIterator]() {
       let i = 0;
       return {
@@ -10,15 +10,16 @@ function makeAsyncIterable(events: Array<{ data: SSEEvent }>): AsyncIterable<{ d
           if (i < events.length) {
             return { value: events[i++]!, done: false as const };
           }
-          return { value: undefined as any, done: true };
+          return { value: undefined as unknown as SSEEvent, done: true };
         },
       };
     },
   };
+  return { stream: iterable };
 }
 
-function hangingIterable(): AsyncIterable<{ data: SSEEvent }> {
-  return {
+function makeHangingStreamResult(): { stream: AsyncIterable<SSEEvent> } {
+  const iterable: AsyncIterable<SSEEvent> = {
     [Symbol.asyncIterator]() {
       return {
         next() {
@@ -27,12 +28,13 @@ function hangingIterable(): AsyncIterable<{ data: SSEEvent }> {
       };
     },
   };
+  return { stream: iterable };
 }
 
 function makeMockClient(subscribeFn?: jest.Mock) {
   return {
     event: {
-      subscribe: subscribeFn ?? jest.fn(() => Promise.resolve(makeAsyncIterable([]))),
+      subscribe: subscribeFn ?? jest.fn(() => Promise.resolve(makeStreamResult([]))),
     },
     global: { health: jest.fn() },
     session: {
@@ -82,7 +84,7 @@ describe("SSEManager", () => {
 
   describe("start", () => {
     it("calls client.event.subscribe with directory", async () => {
-      const subscribeFn = jest.fn(() => Promise.resolve(makeAsyncIterable([])));
+      const subscribeFn = jest.fn(() => Promise.resolve(makeStreamResult([])));
       const { manager } = createManager(makeMockClient(subscribeFn), "/my-project");
       manager.start();
       await jest.advanceTimersByTimeAsync(0);
@@ -99,7 +101,7 @@ describe("SSEManager", () => {
     });
 
     it("is idempotent — second start is ignored", async () => {
-      const subscribeFn = jest.fn(() => Promise.resolve(makeAsyncIterable([])));
+      const subscribeFn = jest.fn(() => Promise.resolve(makeStreamResult([])));
       const { manager } = createManager(makeMockClient(subscribeFn));
       manager.start();
       manager.start();
@@ -154,7 +156,7 @@ describe("SSEManager", () => {
         type: "message.part.updated",
         properties: { sessionID: "ses-1", part: { id: "p1", messageID: "msg-1" } },
       } as unknown as SSEEvent;
-      const subscribeFn = jest.fn(() => Promise.resolve(makeAsyncIterable([{ data: event }])));
+      const subscribeFn = jest.fn(() => Promise.resolve(makeStreamResult([event])));
       const { manager } = createManager(makeMockClient(subscribeFn));
       manager.start();
       await jest.advanceTimersByTimeAsync(0);
@@ -168,9 +170,7 @@ describe("SSEManager", () => {
         type: "session.status",
         properties: { status: { type: "busy" } },
       } as unknown as SSEEvent;
-      const subscribeFn = jest.fn(() =>
-        Promise.resolve(makeAsyncIterable([{ data: e1 }, { data: e2 }])),
-      );
+      const subscribeFn = jest.fn(() => Promise.resolve(makeStreamResult([e1, e2])));
       const { manager } = createManager(makeMockClient(subscribeFn));
       manager.start();
       await jest.advanceTimersByTimeAsync(0);
@@ -180,20 +180,8 @@ describe("SSEManager", () => {
       manager.stop();
     });
 
-    it("skips events with no data property", async () => {
-      const iterable = {
-        [Symbol.asyncIterator]() {
-          let i = 0;
-          const items = [{ data: undefined }, { data: null }];
-          return {
-            async next() {
-              if (i < items.length) return { value: items[i++], done: false };
-              return { value: undefined, done: true };
-            },
-          };
-        },
-      };
-      const subscribeFn = jest.fn(() => Promise.resolve(iterable));
+    it("does not call onEvent when stream is empty", async () => {
+      const subscribeFn = jest.fn(() => Promise.resolve(makeStreamResult([])));
       const { manager } = createManager(makeMockClient(subscribeFn));
       manager.start();
       await jest.advanceTimersByTimeAsync(0);
@@ -208,7 +196,7 @@ describe("SSEManager", () => {
       const subscribeFn = jest.fn(() => {
         callCount++;
         if (callCount === 1) return Promise.reject(new Error("network error"));
-        return Promise.resolve(hangingIterable());
+        return Promise.resolve(makeHangingStreamResult());
       });
       const { manager } = createManager(makeMockClient(subscribeFn));
       manager.start();
@@ -226,7 +214,7 @@ describe("SSEManager", () => {
       let _callCount = 0;
       const subscribeFn = jest.fn(() => {
         _callCount++;
-        return Promise.resolve(makeAsyncIterable([]));
+        return Promise.resolve(makeStreamResult([]));
       });
       const { manager } = createManager(makeMockClient(subscribeFn));
       manager.start();
@@ -243,7 +231,7 @@ describe("SSEManager", () => {
       const subscribeFn = jest.fn(() => {
         callCount++;
         if (callCount <= 2) return Promise.reject(new Error("fail"));
-        return Promise.resolve(hangingIterable());
+        return Promise.resolve(makeHangingStreamResult());
       });
       const { manager } = createManager(makeMockClient(subscribeFn));
       manager.start();
@@ -326,7 +314,7 @@ describe("SSEManager", () => {
   describe("status transitions", () => {
     it("does not emit duplicate status changes", async () => {
       const { manager } = createManager(
-        makeMockClient(jest.fn(() => Promise.resolve(hangingIterable()))),
+        makeMockClient(jest.fn(() => Promise.resolve(makeHangingStreamResult()))),
       );
       manager.start();
       await jest.advanceTimersByTimeAsync(0);
@@ -340,7 +328,7 @@ describe("SSEManager", () => {
 
     it("transitions: disconnected → connected → disconnected on stop", async () => {
       const { manager } = createManager(
-        makeMockClient(jest.fn(() => Promise.resolve(hangingIterable()))),
+        makeMockClient(jest.fn(() => Promise.resolve(makeHangingStreamResult()))),
       );
       manager.start();
       await jest.advanceTimersByTimeAsync(0);

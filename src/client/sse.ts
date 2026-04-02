@@ -70,12 +70,13 @@ export class SSEManager {
       this.attempt = 0;
       this.setStatus("connected");
 
-      if (result && typeof result === "object" && Symbol.asyncIterator in result) {
-        for await (const event of result as AsyncIterable<{ data?: unknown }>) {
+      // The v2 SDK returns { stream: AsyncIterable } not the iterable directly
+      const stream = (result as { stream?: unknown }).stream ?? result;
+
+      if (stream && typeof stream === "object" && Symbol.asyncIterator in stream) {
+        for await (const event of stream as AsyncIterable<SSEEvent>) {
           if (!this.running) break;
-          if (event?.data) {
-            this.onEvent(event.data as SSEEvent);
-          }
+          this.onEvent(event);
         }
       }
     } catch (_error) {
