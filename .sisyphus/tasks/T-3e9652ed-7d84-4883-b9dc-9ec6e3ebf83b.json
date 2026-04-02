@@ -1,0 +1,13 @@
+{
+  "id": "T-3e9652ed-7d84-4883-b9dc-9ec6e3ebf83b",
+  "subject": "Verify LSP diagnostics clean for edited test",
+  "description": "Run lsp_diagnostics on SessionItem.test.tsx to ensure no TypeScript errors/warnings.",
+  "status": "completed",
+  "activeForm": "verifying diagnostics",
+  "blocks": [],
+  "blockedBy": [
+    "T-91c4fc53-f101-4325-a300-ce437739d6ef"
+  ],
+  "parentID": "T-28d75ed0-ee2c-4280-aefe-55d806ead2cf",
+  "threadID": "ses_2b08d6757ffeiLWGDFXuh9OUHe"
+}

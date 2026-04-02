@@ -1,0 +1,10 @@
+{
+  "id": "T-028fcdd1-b3a2-42af-84a9-6675e6e6014e",
+  "subject": "Wave 2C: GREEN fix — fetch messages on session select",
+  "description": "Add useEffect in ChatScreen to fetch messages from API when sessionId changes",
+  "status": "in_progress",
+  "activeForm": "Implementing message fetch",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b0a2bea9ffeWAwq52pv7KxjEp"
+}

@@ -20,7 +20,7 @@ export function makeSession(overrides: Partial<Session> = {}): Session {
     id: uid(),
     title: "Test Session",
     projectID: "proj-1",
-    time: { created: Date.now() / 1000, updated: Date.now() / 1000 },
+    time: { created: Date.now(), updated: Date.now() },
     ...overrides,
   } as Session;
 }
@@ -30,7 +30,7 @@ export function makeUserMessage(overrides: Partial<Record<string, unknown>> = {}
     id: uid(),
     sessionID: "ses-1",
     role: "user",
-    time: { created: Date.now() / 1000 },
+    time: { created: Date.now() },
     agent: "",
     model: { providerID: "", modelID: "" },
     ...overrides,
@@ -43,7 +43,7 @@ export function makeAssistantMessage(overrides: Partial<Record<string, unknown>>
     sessionID: "ses-1",
     role: "assistant",
     parts: [],
-    time: { created: Date.now() / 1000 },
+    time: { created: Date.now() },
     parentID: "",
     modelID: "",
     providerID: "",

@@ -1,4 +1,5 @@
 import { useLocalSearchParams } from "expo-router";
+import { useEffect } from "react";
 import { KeyboardAvoidingView, Platform, View } from "react-native";
 import { ChatInput } from "@/components/chat/ChatInput";
 import { MessageList } from "@/components/chat/MessageList";
@@ -8,6 +9,7 @@ import { useMessages } from "@/hooks/useMessages";
 import { usePermissions } from "@/hooks/usePermissions";
 import { useQuestions } from "@/hooks/useQuestions";
 import { useSendMessage } from "@/hooks/useSendMessage";
+import { loadSessionMessages } from "@/hooks/useSessionLoader";
 import { useSSE } from "@/hooks/useSSE";
 import { useProjectStore } from "@/stores/projectStore";
 
@@ -21,6 +23,12 @@ export default function ChatScreen() {
   const directory = activeProject?.directory ?? "";
 
   useSSE(client, directory || null);
+
+  useEffect(() => {
+    if (!sessionId) return;
+    void loadSessionMessages(client, sessionId);
+  }, [client, sessionId]);
+
   const messageViews = useMessages(sessionId ?? null);
   const { send, abort, isStreaming } = useSendMessage(client, sessionId ?? null, directory);
   const { reply: replyPermission } = usePermissions(client, directory);

@@ -26,6 +26,44 @@ describe("sessionStore", () => {
     expect(list[0]?.id).toBe("s2");
   });
 
+  it("upsertSession sorts by time.updated descending — newer first", () => {
+    const older = makeSession({
+      id: "old",
+      time: { created: 0, updated: 1_000_000 },
+    });
+    const newer = makeSession({
+      id: "new",
+      time: { created: 0, updated: 2_000_000 },
+    });
+
+    useSessionStore.getState().setSessions("/test", [newer]);
+    useSessionStore.getState().upsertSession("/test", older);
+
+    const list = useSessionStore.getState().sessionsByDirectory["/test"]!;
+    expect(list).toHaveLength(2);
+    expect(list[0]?.id).toBe("new");
+    expect(list[1]?.id).toBe("old");
+  });
+
+  it("upserting an older session does not move it ahead of newer sessions", () => {
+    const newer = makeSession({
+      id: "new",
+      time: { created: 0, updated: 2_000_000 },
+    });
+    const older = makeSession({
+      id: "old",
+      time: { created: 0, updated: 1_000_000 },
+    });
+
+    useSessionStore.getState().setSessions("/test", [newer]);
+    useSessionStore.getState().upsertSession("/test", older);
+
+    const list = useSessionStore.getState().sessionsByDirectory["/test"]!;
+    expect(list).toHaveLength(2);
+    expect(list[0]?.id).toBe("new");
+    expect(list[1]?.id).toBe("old");
+  });
+
   it("upsertSession updates existing by id", () => {
     const ses = makeSession({ id: "s1", title: "old" });
     useSessionStore.getState().setSessions("/test", [ses]);

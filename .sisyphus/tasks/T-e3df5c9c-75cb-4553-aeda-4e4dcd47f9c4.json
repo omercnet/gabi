@@ -1,0 +1,10 @@
+{
+  "id": "T-e3df5c9c-75cb-4553-aeda-4e4dcd47f9c4",
+  "subject": "Wave 2B: GREEN fix — sessionStore sort order",
+  "description": "Add .sort() by time.updated descending in upsertSession",
+  "status": "completed",
+  "activeForm": "Fixing sort bug",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b0a2bea9ffeWAwq52pv7KxjEp"
+}

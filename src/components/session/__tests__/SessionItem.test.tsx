@@ -29,15 +29,32 @@ describe("SessionItem", () => {
   });
 
   it("renders formatted date", () => {
-    const updated = 1_700_000_000;
+    const updatedMs = 1_700_000_000_000;
     const view = render(
       <SessionItem
-        session={makeSession({ time: { created: updated, updated } })}
+        session={makeSession({ time: { created: updatedMs, updated: updatedMs } })}
         onPress={jest.fn()}
         onDelete={jest.fn()}
       />,
     );
-    expect(textValues(view)).toContain(new Date(updated * 1000).toLocaleDateString());
+    expect(textValues(view)).toContain(new Date(updatedMs).toLocaleDateString());
+  });
+
+  it("renders formatted date from millisecond timestamps (anti-regression for year-58222)", () => {
+    const updatedMs = 1_775_000_000_000;
+    const expectedYear = new Date(updatedMs).getFullYear();
+
+    const view = render(
+      <SessionItem
+        session={makeSession({ time: { created: updatedMs, updated: updatedMs } })}
+        onPress={jest.fn()}
+        onDelete={jest.fn()}
+      />,
+    );
+
+    expect(textValues(view).join(" ")).toContain(String(expectedYear));
+    expect(textValues(view).join(" ")).not.toMatch(/5[0-9]{4}/);
+    expect(textValues(view).join(" ")).toContain("2026");
   });
 
   it("onPress called on tap", () => {

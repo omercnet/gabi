@@ -1,0 +1,13 @@
+{
+  "id": "T-efd1c57f-7ce9-4833-8a40-8c3154f130ef",
+  "subject": "Run TypeScript typecheck (tsc --noEmit)",
+  "description": "Verify the repo still typechecks after adding the failing test.",
+  "status": "completed",
+  "activeForm": "typechecking",
+  "blocks": [],
+  "blockedBy": [
+    "T-3e9652ed-7d84-4883-b9dc-9ec6e3ebf83b"
+  ],
+  "parentID": "T-28d75ed0-ee2c-4280-aefe-55d806ead2cf",
+  "threadID": "ses_2b08d6757ffeiLWGDFXuh9OUHe"
+}

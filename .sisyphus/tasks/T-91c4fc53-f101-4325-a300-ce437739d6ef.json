@@ -1,0 +1,13 @@
+{
+  "id": "T-91c4fc53-f101-4325-a300-ce437739d6ef",
+  "subject": "Run jest for SessionItem.test to ensure red",
+  "description": "Run pnpm jest SessionItem.test to confirm the newly added test fails against current code.",
+  "status": "completed",
+  "activeForm": "running failing test",
+  "blocks": [],
+  "blockedBy": [
+    "T-591fca76-7ae5-416a-ada2-cb77c78235ec"
+  ],
+  "parentID": "T-28d75ed0-ee2c-4280-aefe-55d806ead2cf",
+  "threadID": "ses_2b08d6757ffeiLWGDFXuh9OUHe"
+}

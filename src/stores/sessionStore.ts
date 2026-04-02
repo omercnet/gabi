@@ -19,7 +19,10 @@ export const useSessionStore = create<SessionState>()((set) => ({
 
   setSessions: (directory, sessions) =>
     set((state) => ({
-      sessionsByDirectory: { ...state.sessionsByDirectory, [directory]: sessions },
+      sessionsByDirectory: {
+        ...state.sessionsByDirectory,
+        [directory]: sessions.slice().sort((a, b) => b.time.updated - a.time.updated),
+      },
     })),
 
   upsertSession: (directory, session) =>
@@ -28,8 +31,9 @@ export const useSessionStore = create<SessionState>()((set) => ({
       const idx = existing.findIndex((s) => s.id === session.id);
       const updated =
         idx >= 0 ? existing.map((s, i) => (i === idx ? session : s)) : [session, ...existing];
+      const sorted = updated.sort((a, b) => b.time.updated - a.time.updated);
       return {
-        sessionsByDirectory: { ...state.sessionsByDirectory, [directory]: updated },
+        sessionsByDirectory: { ...state.sessionsByDirectory, [directory]: sorted },
       };
     }),
 

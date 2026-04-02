@@ -1,0 +1,11 @@
+{
+  "id": "T-e274b1f2-14ee-404d-906b-6209b8fd6620",
+  "subject": "Verify diagnostics and finalize task statuses",
+  "description": "Run lsp diagnostics on changed files and mark all tasks completed after first successful verification.",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": [
+    "T-4136fcb9-8e67-4eae-b735-ce9ce90f7e37"
+  ],
+  "threadID": "ses_2b08ce4c0ffe0EzRB0fRgLXekk"
+}
