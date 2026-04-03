@@ -273,3 +273,44 @@ describe("Real sessions: FlatList key props are never undefined", () => {
     }
   });
 });
+
+describe("Real sessions: user message text renders (purple bubble bug)", () => {
+  beforeEach(resetAllStores);
+
+  it("user message text is accessible via parts, not message.content", async () => {
+    const fixture = sessionFixtures.find((f) => f.data.messages.length > 0);
+    if (!fixture) return;
+
+    const mockClient = {
+      session: {
+        messages: async () => ({ data: fixture.data.messages }),
+      },
+    };
+
+    await loadSessionMessages(mockClient as never, fixture.sessionId, fixture.data.info.directory);
+
+    const messages = useMessageStore.getState().messagesBySession[fixture.sessionId]!;
+    const partsByMessage = useMessageStore.getState().partsByMessage;
+    const hydrated = processMessages(messages, partsByMessage);
+
+    for (const h of hydrated) {
+      if (h.message.role === "user") {
+        // User messages have NO content field — text is in parts
+        expect("content" in h.message).toBe(false);
+
+        const items = groupParts(h.parts);
+        const textItems = items.filter(
+          (i) => i.kind === "part" && i.part.type === "text",
+        );
+
+        // User text must be in parts, not content
+        expect(textItems.length).toBeGreaterThan(0);
+        for (const item of textItems) {
+          if (item.kind === "part" && item.part.type === "text") {
+            expect((item.part as { text: string }).text).toBeTruthy();
+          }
+        }
+      }
+    }
+  });
+});
