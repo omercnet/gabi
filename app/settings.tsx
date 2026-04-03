@@ -1,3 +1,4 @@
+import Feather from "@expo/vector-icons/Feather";
 import { router } from "expo-router";
 import { Pressable, ScrollView, Switch, Text, View } from "react-native";
 import { useConnectionStore } from "@/stores/connectionStore";
@@ -15,8 +16,11 @@ export default function SettingsScreen() {
   return (
     <ScrollView className="flex-1 bg-background">
       <View className="mx-auto w-full max-w-lg px-6 py-8">
-        <Pressable onPress={() => router.back()} className="mb-6">
-          <Text className="text-primary">← Back</Text>
+        <Pressable onPress={() => router.back()} className="mb-6 active:opacity-80">
+          <View className="flex-row items-center gap-1">
+            <Feather name="arrow-left" size={18} className="text-primary" />
+            <Text className="text-primary">Back</Text>
+          </View>
         </Pressable>
 
         <Text className="mb-6 font-bold text-2xl text-foreground">Settings</Text>
@@ -53,7 +57,7 @@ export default function SettingsScreen() {
           {(["system", "light", "dark"] as const).map((scheme) => (
             <Pressable
               key={scheme}
-              className={`flex-1 items-center rounded-lg py-2 ${prefs.colorScheme === scheme ? "bg-primary" : "bg-surface"}`}
+              className={`flex-1 items-center rounded-lg py-2 ${prefs.colorScheme === scheme ? "bg-primary" : "bg-surface"} active:opacity-80`}
               onPress={() => prefs.setColorScheme(scheme)}
             >
               <Text
@@ -72,7 +76,7 @@ export default function SettingsScreen() {
         <Text className="mt-8 mb-3 font-semibold text-muted text-sm">CONNECTION</Text>
         <Text className="mb-2 text-foreground text-sm">{baseUrl}</Text>
         <Pressable
-          className="mt-2 items-center rounded-lg bg-destructive py-3"
+          className="mt-2 items-center rounded-lg bg-destructive py-3 active:opacity-80"
           onPress={handleDisconnect}
         >
           <Text className="font-semibold text-destructive-foreground">Disconnect</Text>

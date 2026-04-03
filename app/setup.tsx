@@ -2,9 +2,11 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { ActivityIndicator, Pressable, Text, TextInput, View } from "react-native";
 import { buildClient } from "@/client/client";
+import { usePlaceholderColor } from "@/lib/colors";
 import { useConnectionStore } from "@/stores/connectionStore";
 
 export default function SetupScreen() {
+  const placeholderColor = usePlaceholderColor();
   const [url, setUrl] = useState("http://localhost:4096");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -40,7 +42,7 @@ export default function SetupScreen() {
         <TextInput
           className="rounded-lg border border-border bg-surface px-4 py-3 text-foreground"
           placeholder="http://localhost:4096"
-          placeholderTextColor="#737373"
+          placeholderTextColor={placeholderColor}
           value={url}
           onChangeText={setUrl}
           autoCapitalize="none"
@@ -49,7 +51,7 @@ export default function SetupScreen() {
         <TextInput
           className="rounded-lg border border-border bg-surface px-4 py-3 text-foreground"
           placeholder="Username (optional)"
-          placeholderTextColor="#737373"
+          placeholderTextColor={placeholderColor}
           value={username}
           onChangeText={setUsername}
           autoCapitalize="none"
@@ -57,7 +59,7 @@ export default function SetupScreen() {
         <TextInput
           className="rounded-lg border border-border bg-surface px-4 py-3 text-foreground"
           placeholder="Password (optional)"
-          placeholderTextColor="#737373"
+          placeholderTextColor={placeholderColor}
           value={password}
           onChangeText={setPassword}
           secureTextEntry={true}
@@ -66,7 +68,7 @@ export default function SetupScreen() {
         {error ? <Text className="text-error text-sm">{error}</Text> : null}
 
         <Pressable
-          className="items-center rounded-lg bg-primary px-4 py-3"
+          className="items-center rounded-lg bg-primary px-4 py-3 active:opacity-80 active:scale-[0.98]"
           onPress={handleConnect}
           disabled={loading || !url.trim()}
         >

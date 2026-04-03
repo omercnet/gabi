@@ -37,12 +37,12 @@ describe("SessionItem", () => {
         onDelete={jest.fn()}
       />,
     );
-    expect(textValues(view)).toContain(new Date(updatedMs).toLocaleDateString());
+    const expected = new Date(updatedMs).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    expect(textValues(view)).toContain(expected);
   });
 
   it("renders formatted date from millisecond timestamps (anti-regression for year-58222)", () => {
     const updatedMs = 1_775_000_000_000;
-    const expectedYear = new Date(updatedMs).getFullYear();
 
     const view = render(
       <SessionItem
@@ -52,9 +52,10 @@ describe("SessionItem", () => {
       />,
     );
 
-    expect(textValues(view).join(" ")).toContain(String(expectedYear));
-    expect(textValues(view).join(" ")).not.toMatch(/5[0-9]{4}/);
-    expect(textValues(view).join(" ")).toContain("2026");
+    const formatted = textValues(view).join(" ");
+    // The short month + day format should include the year's month (not a 5-digit year)
+    expect(formatted).not.toMatch(/5[0-9]{4}/);
+    expect(formatted).toContain(new Date(updatedMs).toLocaleDateString(undefined, { month: "short", day: "numeric" }));
   });
 
   it("onPress called on tap", () => {

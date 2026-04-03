@@ -26,31 +26,30 @@ describe("FileTreeNode", () => {
     expect(JSON.stringify(screen.toJSON())).toContain("index.ts");
   });
 
-  it("shows 📄 icon for files", () => {
+  it("renders file-text icon for files", () => {
     render(<FileTreeNode node={makeFile()} depth={0} gitStatus={{}} />);
-    expect(JSON.stringify(screen.toJSON())).toContain("📄");
+    expect(JSON.stringify(screen.toJSON())).toContain("file-text");
   });
 
-  it("shows 📁 icon for directories", () => {
+  it("renders folder icon for directories", () => {
     render(<FileTreeNode node={makeDir()} depth={0} gitStatus={{}} />);
-    expect(JSON.stringify(screen.toJSON())).toContain("📁");
+    expect(JSON.stringify(screen.toJSON())).toContain("folder");
   });
 
-  it("shows ▶ when directory is collapsed (default)", () => {
+  it("shows chevron-right when directory is collapsed (default)", () => {
     render(<FileTreeNode node={makeDir()} depth={0} gitStatus={{}} />);
-    expect(JSON.stringify(screen.toJSON())).toContain("▶");
+    expect(JSON.stringify(screen.toJSON())).toContain("chevron-right");
   });
 
   it("initially shows collapse indicator on directory", () => {
-    // A directory node starts collapsed showing the ▶ indicator
     const { toJSON } = render(<FileTreeNode node={makeDir()} depth={0} gitStatus={{}} />);
     const json = JSON.stringify(toJSON());
-    expect(json).toContain("▶"); // collapsed state shows ▶
+    expect(json).toContain("chevron-right");
   });
 
-  it("initially shows ▶ collapse indicator on directory", () => {
+  it("initially shows chevron-right collapse indicator on directory", () => {
     const { toJSON } = render(<FileTreeNode node={makeDir()} depth={0} gitStatus={{}} />);
-    expect(JSON.stringify(toJSON())).toContain("▶");
+    expect(JSON.stringify(toJSON())).toContain("chevron-right");
   });
 
   it("renders children when directory is expanded via setState", () => {
@@ -64,8 +63,9 @@ describe("FileTreeNode", () => {
 
   it("file node does not have expand indicator", () => {
     const { toJSON } = render(<FileTreeNode node={makeFile()} depth={0} gitStatus={{}} />);
-    // Files don't show ▶ expand indicator
-    expect(JSON.stringify(toJSON())).not.toContain("▶");
+    // Files don't show chevron expand indicator
+    expect(JSON.stringify(toJSON())).not.toContain("chevron-right");
+    expect(JSON.stringify(toJSON())).not.toContain("chevron-down");
   });
 
   it("renders git status badge when status exists", () => {

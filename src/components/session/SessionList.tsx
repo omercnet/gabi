@@ -1,7 +1,9 @@
+import Feather from "@expo/vector-icons/Feather";
 import { router } from "expo-router";
 import { ActivityIndicator, Pressable, Text, View } from "react-native";
 import type { OpencodeClient } from "@/client/types";
 import { useSessions } from "@/hooks/useSessions";
+import { useSessionStore } from "@/stores/sessionStore";
 import { SessionItem } from "./SessionItem";
 
 interface Props {
@@ -14,6 +16,8 @@ export function SessionList({ client, directory }: Props) {
     client,
     directory,
   );
+
+  const activeSessionId = useSessionStore((s) => s.activeSessionId);
 
   const handleCreate = async () => {
     const session = await createSession();
@@ -32,7 +36,7 @@ export function SessionList({ client, directory }: Props) {
   }
 
   return (
-    <View className="pl-4">
+    <View>
       {sessions.map((session) => (
         <SessionItem
           key={session.id}
@@ -42,10 +46,14 @@ export function SessionList({ client, directory }: Props) {
             router.push(`/(app)/${session.id}`);
           }}
           onDelete={() => deleteSession(session.id)}
+          isActive={session.id === activeSessionId}
         />
       ))}
-      <Pressable className="px-4 py-2" onPress={handleCreate}>
-        <Text className="text-primary text-xs">+ New Session</Text>
+      <Pressable className="px-4 py-2 active:opacity-80" onPress={handleCreate}>
+        <View className="flex-row items-center gap-1">
+          <Feather name="plus" size={12} className="text-primary" />
+          <Text className="text-primary text-xs">New Session</Text>
+        </View>
       </Pressable>
     </View>
   );

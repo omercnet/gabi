@@ -1,12 +1,15 @@
+import Feather from "@expo/vector-icons/Feather";
 import { router } from "expo-router";
 import { useState } from "react";
 import { Alert, Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SessionList } from "@/components/session/SessionList";
 import { ConnectionStatus } from "@/components/shared";
 import { useClient } from "@/hooks/useClient";
+import { usePlaceholderColor } from "@/lib/colors";
 import { useProjectStore } from "@/stores/projectStore";
 
 export function ProjectSidebar() {
+  const placeholderColor = usePlaceholderColor();
   const projects = useProjectStore((s) => s.projects);
   const activeProjectId = useProjectStore((s) => s.activeProjectId);
   const addProject = useProjectStore((s) => s.addProject);
@@ -34,16 +37,19 @@ export function ProjectSidebar() {
           <Text className="font-bold text-foreground text-lg">Gabi</Text>
           <ConnectionStatus size="sm" />
         </View>
-        <Pressable onPress={() => router.push("/settings")}>
-          <Text className="text-muted">⚙</Text>
+        <Pressable onPress={() => router.push("/settings")} className="active:opacity-80">
+          <Feather name="settings" size={18} className="text-muted" />
         </Pressable>
       </View>
 
+      <Text className="px-4 pt-3 pb-1 font-sans-medium text-muted text-xs uppercase tracking-wider">
+        Projects
+      </Text>
       <ScrollView className="flex-1">
         {projects.map((project) => (
           <View key={project.id}>
             <Pressable
-              className={`px-4 py-3 ${activeProjectId === project.id ? "bg-primary/10" : ""}`}
+              className={`px-4 py-3 ${activeProjectId === project.id ? "border-l-2 border-primary bg-primary/5" : "border-l-2 border-transparent"} active:opacity-80`}
               onPress={() => setActiveProject(project.id)}
               onLongPress={() => {
                 Alert.alert("Remove project?", project.name, [
@@ -73,27 +79,27 @@ export function ProjectSidebar() {
           <TextInput
             className="rounded-lg border border-border bg-background px-3 py-2 text-foreground text-sm"
             placeholder="Project name"
-            placeholderTextColor="#737373"
+            placeholderTextColor={placeholderColor}
             value={newName}
             onChangeText={setNewName}
           />
           <TextInput
             className="rounded-lg border border-border bg-background px-3 py-2 text-foreground text-sm"
             placeholder="/path/to/project"
-            placeholderTextColor="#737373"
+            placeholderTextColor={placeholderColor}
             value={newDir}
             onChangeText={setNewDir}
             autoCapitalize="none"
           />
           <View className="flex-row gap-2">
             <Pressable
-              className="flex-1 items-center rounded-lg bg-primary py-2"
+              className="flex-1 items-center rounded-lg bg-primary py-2 active:opacity-80 active:scale-[0.98]"
               onPress={handleAdd}
             >
               <Text className="font-semibold text-primary-foreground text-sm">Add</Text>
             </Pressable>
             <Pressable
-              className="flex-1 items-center rounded-lg bg-surface-hover py-2"
+              className="flex-1 items-center rounded-lg bg-surface-hover py-2 active:opacity-80"
               onPress={() => setShowAdd(false)}
             >
               <Text className="text-muted text-sm">Cancel</Text>
@@ -101,7 +107,10 @@ export function ProjectSidebar() {
           </View>
         </View>
       ) : (
-        <Pressable className="border-border border-t px-4 py-3" onPress={() => setShowAdd(true)}>
+        <Pressable
+          className="border-border border-t px-4 py-3 active:opacity-80 active:scale-[0.98]"
+          onPress={() => setShowAdd(true)}
+        >
           <Text className="text-center text-primary text-sm">+ Add Project</Text>
         </Pressable>
       )}

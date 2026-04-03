@@ -1,3 +1,4 @@
+import Feather from "@expo/vector-icons/Feather";
 import { Text, View } from "react-native";
 import type { Part } from "@/client/types";
 import { MarkdownRenderer } from "@/components/shared";
@@ -29,9 +30,12 @@ export function PartRenderer({ part }: Props) {
     case "file":
       return showFileParts ? (
         <View className="my-1 rounded-md bg-surface px-3 py-2">
-          <Text className="text-muted text-xs">
-            📄 {"filename" in part ? String(part.filename) : "file"}
-          </Text>
+          <View className="flex-row items-center gap-1">
+            <Feather name="file-text" size={12} className="text-muted" />
+            <Text className="text-muted text-xs">
+              {"filename" in part ? String(part.filename) : "file"}
+            </Text>
+          </View>
         </View>
       ) : null;
     case "step-start":
@@ -40,7 +44,10 @@ export function PartRenderer({ part }: Props) {
     case "subtask":
       return (
         <View className="my-1 rounded-md bg-surface px-3 py-2">
-          <Text className="text-muted text-xs">⚡ {part.description}</Text>
+          <View className="flex-row items-center gap-1">
+            <Feather name="zap" size={12} className="text-muted" />
+            <Text className="text-muted text-xs">{part.description}</Text>
+          </View>
         </View>
       );
     default:
