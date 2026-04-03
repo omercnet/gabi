@@ -1,0 +1,137 @@
+{
+  "info": {
+    "id": "ses_2b028d9a5ffeB5slGs6bRT1xos",
+    "slug": "silent-garden",
+    "projectID": "f4af9d7ad743564559167090e9107a79802787b8",
+    "directory": "/Users/omer/dev/gabi/~/dev/gabi",
+    "title": "Greeting",
+    "version": "1.3.5",
+    "summary": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 0
+    },
+    "time": {
+      "created": 1775160993370,
+      "updated": 1775161003057
+    }
+  },
+  "messages": [
+    {
+      "info": {
+        "role": "user",
+        "time": {
+          "created": 1775160995960
+        },
+        "summary": {
+          "diffs": []
+        },
+        "agent": "Sisyphus (Ultraworker)",
+        "model": {
+          "providerID": "azure-cognitive-services",
+          "modelID": "claude-opus-4-6"
+        },
+        "variant": "max",
+        "id": "msg_d4fd73078001Te42ZN7W2DmY8l",
+        "sessionID": "ses_2b028d9a5ffeB5slGs6bRT1xos"
+      },
+      "parts": [
+        {
+          "type": "text",
+          "text": "yo",
+          "id": "prt_d4fd73078002rXuzG1WTYn7rJx",
+          "sessionID": "ses_2b028d9a5ffeB5slGs6bRT1xos",
+          "messageID": "msg_d4fd73078001Te42ZN7W2DmY8l"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1775160995975,
+          "completed": 1775161003050
+        },
+        "parentID": "msg_d4fd73078001Te42ZN7W2DmY8l",
+        "modelID": "claude-opus-4-6",
+        "providerID": "azure-cognitive-services",
+        "mode": "Sisyphus (Ultraworker)",
+        "agent": "Sisyphus (Ultraworker)",
+        "path": {
+          "cwd": "/Users/omer/dev/gabi/~/dev/gabi",
+          "root": "/Users/omer/dev/gabi"
+        },
+        "cost": 0.40540625,
+        "tokens": {
+          "total": 71890,
+          "input": 35920,
+          "output": 53,
+          "reasoning": 0,
+          "cache": {
+            "write": 35917,
+            "read": 0
+          }
+        },
+        "variant": "max",
+        "finish": "stop",
+        "id": "msg_d4fd73087001hadXo8aPdWMWcI",
+        "sessionID": "ses_2b028d9a5ffeB5slGs6bRT1xos"
+      },
+      "parts": [
+        {
+          "snapshot": "",
+          "type": "step-start",
+          "id": "prt_d4fd74a86001pc5SWEFHZq7L0O",
+          "sessionID": "ses_2b028d9a5ffeB5slGs6bRT1xos",
+          "messageID": "msg_d4fd73087001hadXo8aPdWMWcI"
+        },
+        {
+          "type": "reasoning",
+          "text": "The user just said \"yo\" - a casual greeting. No task, no request. I should match their casual tone and respond briefly.",
+          "time": {
+            "start": 1775161002632,
+            "end": 1775161003022
+          },
+          "metadata": {
+            "anthropic": {
+              "signature": "ErMCClkIDBgCKkDDxRlVbaahwWJYPN3DCYZIh/rNpSh7tYxQklVwHUY+aM9kNnZ4G145BHtIfrQPpZ4rUU7HsMa/SMGAr1aAIC5aMg9jbGF1ZGUtb3B1cy00LTY4ABIMZdxSPXDabvxLSAJsGgynX8shu1y/V/Ebm+MiMIOCOL4185npFXZn/AymwHELsQHQD25Y99Tva7j6vi3NoYLWcMuRB8RBEVH0T9J5MyqHAbpEnzm4qPg376KPG/ZveD+FQp1F2ha7Tsk3nREfB8pb2ZrdFfoQ06K6y1WXRZtqvqJ52WTa72kZVdj+TERfWO0yDSEaGe9boz/wBT9ayiBjra+ZOiU/aWhpGEY029HP+fFcswM36QVjjjlQRgNOHE6HrQE2QY80Kk8SIY5I0Su0c+kuNTQoIRgB"
+            }
+          },
+          "id": "prt_d4fd74a88001PPwW4bUINfv6bs",
+          "sessionID": "ses_2b028d9a5ffeB5slGs6bRT1xos",
+          "messageID": "msg_d4fd73087001hadXo8aPdWMWcI"
+        },
+        {
+          "type": "text",
+          "text": "yo, what's up?",
+          "time": {
+            "start": 1775161003028,
+            "end": 1775161003028
+          },
+          "id": "prt_d4fd74c10001nPNMYMgXg4xzy8",
+          "sessionID": "ses_2b028d9a5ffeB5slGs6bRT1xos",
+          "messageID": "msg_d4fd73087001hadXo8aPdWMWcI"
+        },
+        {
+          "reason": "stop",
+          "snapshot": "",
+          "type": "step-finish",
+          "tokens": {
+            "total": 71890,
+            "input": 35920,
+            "output": 53,
+            "reasoning": 0,
+            "cache": {
+              "write": 35917,
+              "read": 0
+            }
+          },
+          "cost": 0.40540625,
+          "id": "prt_d4fd74c18001xz32TS1xqvovEF",
+          "sessionID": "ses_2b028d9a5ffeB5slGs6bRT1xos",
+          "messageID": "msg_d4fd73087001hadXo8aPdWMWcI"
+        }
+      ]
+    }
+  ]
+}
