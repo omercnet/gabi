@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useHydration } from "@/hooks/useHydration";
 
-SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function RootLayout() {
   const hydrated = useHydration();
@@ -25,7 +25,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (appReady) {
-      SplashScreen.hideAsync();
+      SplashScreen.hideAsync().catch(() => {});
     }
   }, [appReady]);
 

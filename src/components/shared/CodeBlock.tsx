@@ -47,6 +47,11 @@ export function CodeBlock({ code, language, showLineNumbers = false }: Props) {
     };
   }, []);
 
+  // Sync wordWrap default when viewport crosses the mobile breakpoint
+  useEffect(() => {
+    setWordWrap(isMobile);
+  }, [isMobile]);
+
   const handleCopy = async () => {
     await Clipboard.setStringAsync(code);
     setCopied(true);
