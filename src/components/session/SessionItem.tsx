@@ -23,7 +23,7 @@ export function SessionItem({ session, onPress, onDelete }: Props) {
         {session.title || "Untitled"}
       </Text>
       <Text className="text-muted text-xs">
-        {new Date(session.time.updated).toLocaleDateString()}
+        {session.time?.updated ? new Date(session.time.updated).toLocaleDateString() : ""}
       </Text>
     </Pressable>
   );
