@@ -24,3 +24,8 @@ node-compile-cache/
 
 expo-env.d.ts
 # @end expo-cli
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
