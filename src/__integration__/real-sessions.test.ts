@@ -299,9 +299,7 @@ describe("Real sessions: user message text renders (purple bubble bug)", () => {
         expect("content" in h.message).toBe(false);
 
         const items = groupParts(h.parts);
-        const textItems = items.filter(
-          (i) => i.kind === "part" && i.part.type === "text",
-        );
+        const textItems = items.filter((i) => i.kind === "part" && i.part.type === "text");
 
         // User text must be in parts, not content
         expect(textItems.length).toBeGreaterThan(0);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal, Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import type { QuestionRequest } from "@/client/types"; // QuestionAnswer = string[]
 import { useQuestionStore } from "@/stores/questionStore";
@@ -11,8 +11,16 @@ interface QuestionPromptProps {
 
 export function QuestionPrompt({ request, onSubmit, onDismiss }: QuestionPromptProps) {
   const firstQuestion = request.questions[0];
+  // Reset local state when the request changes (queue advances to next item)
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [freeText, setFreeText] = useState("");
+
+  // Reset when request.id changes (new question in queue)
+  // biome-ignore lint/correctness/useExhaustiveDependencies: setters from useState are stable
+  useEffect(() => {
+    setSelectedOptions([]);
+    setFreeText("");
+  }, [request.id]);
 
   if (!firstQuestion) return null;
 

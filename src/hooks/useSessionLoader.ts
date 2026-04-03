@@ -9,9 +9,7 @@ import { useMessageStore } from "@/stores/messageStore";
 function hydrateFromApiResponse(sessionId: string, raw: unknown): void {
   // Unwrap { data: [...] } envelope if present
   const payload =
-    raw && typeof raw === "object" && "data" in raw
-      ? (raw as { data: unknown }).data
-      : raw;
+    raw && typeof raw === "object" && "data" in raw ? (raw as { data: unknown }).data : raw;
 
   if (!Array.isArray(payload)) return;
 
@@ -52,7 +50,9 @@ function hydrateFromApiResponse(sessionId: string, raw: unknown): void {
 const inflightFetches = new Map<string, Promise<void>>();
 
 export async function loadSessionMessages(
-  client: { session: { messages: (args: { sessionID: string; directory: string }) => Promise<unknown> } } | null,
+  client: {
+    session: { messages: (args: { sessionID: string; directory: string }) => Promise<unknown> };
+  } | null,
   sessionId: string,
   directory: string,
   { force = false }: { force?: boolean } = {},

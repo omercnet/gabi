@@ -337,7 +337,12 @@ describe("SDK integration: SSE event routing", () => {
     const onStatusChange = jest.fn();
     const manager = new SSEManager({ client, directory: DIR, onEvent, onStatusChange });
     manager.start();
-    await new Promise((r) => setTimeout(r, 800));
+    // Poll until connected rather than using a fixed delay (avoids CI flakiness)
+    const deadline = Date.now() + 8000;
+    while (Date.now() < deadline) {
+      if (onStatusChange.mock.calls.some((c) => c[0] === "connected")) break;
+      await new Promise((r) => setTimeout(r, 50));
+    }
     expect(onStatusChange).toHaveBeenCalledWith("connected");
     manager.stop();
     expect(onStatusChange).toHaveBeenCalledWith("disconnected");
@@ -354,7 +359,11 @@ describe("SDK integration: SSE event routing", () => {
     });
     manager.start();
     manager.start(); // second call is no-op
-    await new Promise((r) => setTimeout(r, 300));
+    const deadline = Date.now() + 3000;
+    while (Date.now() < deadline) {
+      if (spy.mock.calls.length > 0) break;
+      await new Promise((r) => setTimeout(r, 50));
+    }
     expect(spy).toHaveBeenCalledTimes(1);
     manager.stop();
     spy.mockRestore();

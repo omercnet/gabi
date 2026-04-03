@@ -1,5 +1,5 @@
 import { Slot } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pressable, Text, useWindowDimensions, View } from "react-native";
 import { ProjectSidebar } from "@/components/project/ProjectSidebar";
 import { SSEToast } from "@/components/shared";
@@ -8,6 +8,11 @@ export default function AppLayout() {
   const { width } = useWindowDimensions();
   const isWide = width >= 768;
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  // Close drawer when viewport becomes wide (avoids stale overlay)
+  useEffect(() => {
+    if (isWide) setDrawerOpen(false);
+  }, [isWide]);
 
   return (
     <View className="flex-1 bg-background">

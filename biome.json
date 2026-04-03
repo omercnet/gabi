@@ -1,7 +1,15 @@
 {
   "root": true,
   "files": {
-    "includes": ["**", "!dist", "!metro-cache", "!.expo", "!.sisyphus"]
+    "includes": [
+      "**",
+      "!dist",
+      "!metro-cache",
+      "!.expo",
+      "!.sisyphus",
+      "!sessions",
+      "!sessions.tar.gz"
+    ]
   },
   "formatter": {
     "enabled": true,

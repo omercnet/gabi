@@ -33,7 +33,6 @@ describe("QuestionPromptQueue", () => {
     const request = makeQuestionRequest();
     useQuestionStore.setState({ pending: [request] });
     // Don't render (Modal portal crashes react-test-renderer) — test store logic directly
-    // Don't render (Modal portal crashes react-test-renderer) — test store logic directly
     useQuestionStore.getState().remove(request.id);
     expect(useQuestionStore.getState().pending).toHaveLength(0);
   });

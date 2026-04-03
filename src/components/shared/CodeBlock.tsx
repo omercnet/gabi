@@ -14,7 +14,6 @@ let SyntaxHighlighter: React.ComponentType<{
 }> | null = null;
 
 let atomOneDark: Record<string, unknown> | null = null;
-let atomOneLight: Record<string, unknown> | null = null;
 
 try {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -23,7 +22,7 @@ try {
   const styles = require("react-syntax-highlighter/dist/esm/styles/hljs");
   SyntaxHighlighter = rsh.default || rsh.Light || rsh;
   atomOneDark = styles.atomOneDark;
-  atomOneLight = styles.atomOneLight;
+  atomOneDark = styles.atomOneDark;
 } catch {
   // fallback — no highlighting
 }
@@ -53,7 +52,7 @@ export function CodeBlock({ code, language, showLineNumbers = false }: Props) {
   const displayLanguage = language ?? "text";
 
   // Web: use SyntaxHighlighter component
-  if (Platform.OS === "web" && SyntaxHighlighter && atomOneDark && atomOneLight) {
+  if (Platform.OS === "web" && SyntaxHighlighter && atomOneDark) {
     return (
       <View className="my-2 overflow-hidden rounded-md border border-border">
         {/* Header */}
