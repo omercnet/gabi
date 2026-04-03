@@ -4,7 +4,7 @@
   --color-surface: 245 245 245;
   --color-surface-hover: 235 235 235;
   --color-border: 220 220 220;
-  --color-primary: 99 102 241;
+  --color-primary: 20 184 166;
   --color-primary-foreground: 255 255 255;
   --color-muted: 115 115 115;
   --color-muted-foreground: 163 163 163;
@@ -14,7 +14,7 @@
   --color-tool-foreground: 0 0 0;
   --color-reasoning: 168 85 247;
   --color-reasoning-foreground: 255 255 255;
-  --color-user-bubble: 99 102 241;
+  --color-user-bubble: 20 184 166;
   --color-user-bubble-foreground: 255 255 255;
   --color-assistant-bubble: 245 245 245;
   --color-assistant-bubble-foreground: 10 10 10;
@@ -29,7 +29,7 @@
   --color-surface: 24 24 27;
   --color-surface-hover: 39 39 42;
   --color-border: 39 39 42;
-  --color-primary: 129 140 248;
+  --color-primary: 45 212 191;
   --color-primary-foreground: 255 255 255;
   --color-muted: 82 82 91;
   --color-muted-foreground: 113 113 122;
@@ -39,7 +39,7 @@
   --color-tool-foreground: 0 0 0;
   --color-reasoning: 192 132 252;
   --color-reasoning-foreground: 255 255 255;
-  --color-user-bubble: 79 70 229;
+  --color-user-bubble: 13 148 136;
   --color-user-bubble-foreground: 255 255 255;
   --color-assistant-bubble: 24 24 27;
   --color-assistant-bubble-foreground: 245 245 245;

@@ -1,3 +1,4 @@
+import Feather from "@expo/vector-icons/Feather";
 import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 
@@ -30,12 +31,20 @@ export function FileTreeNode({ node, depth, gitStatus }: Props) {
   return (
     <View>
       <Pressable
-        className="flex-row items-center py-1"
+        className="flex-row items-center py-1 active:opacity-80"
         style={{ paddingLeft: 12 + depth * 16 }}
         onPress={() => node.isDir && setExpanded(!expanded)}
       >
-        <Text className="w-4 text-muted text-xs">{node.isDir ? (expanded ? "▼" : "▶") : " "}</Text>
-        <Text className="mr-1 text-muted text-xs">{node.isDir ? "📁" : "📄"}</Text>
+        {node.isDir ? (
+          <Feather
+            name={expanded ? "chevron-down" : "chevron-right"}
+            size={10}
+            className="w-4 text-muted"
+          />
+        ) : (
+          <View className="w-4" />
+        )}
+        <Feather name={node.isDir ? "folder" : "file-text"} size={12} className="mr-1 text-muted" />
         <Text className="flex-1 text-foreground text-xs" numberOfLines={1}>
           {node.name}
         </Text>

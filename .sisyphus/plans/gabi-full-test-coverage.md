@@ -116,7 +116,7 @@ Wave FINAL:
 
 ## TODOs
 
-- [ ] 1. Fix QuestionPrompt failing tests
+- [x] 1. Fix QuestionPrompt failing tests
 
   **What to do**:
   Replace the 2 failing tests in `src/components/shared/__tests__/QuestionPrompt.test.tsx` (lines 40-80: "onSubmit is called when user submits an answer" and "question is removed from queue after submission") with tests that verify the same behavior WITHOUT triggering modal portal rendering.
@@ -160,7 +160,7 @@ Wave FINAL:
 
 ---
 
-- [ ] 2. Remove duplicate stub test files
+- [x] 2. Remove duplicate stub test files
 
   **What to do**:
   Delete all 11 `.ts` stub files from `src/components/__tests__/`:
@@ -194,7 +194,7 @@ Wave FINAL:
 
 ---
 
-- [ ] 3. Add cn.ts utility tests
+- [x] 3. Add cn.ts utility tests
 
   **What to do**:
   Create `src/lib/__tests__/cn.test.ts` testing the `cn()` className utility.
@@ -224,7 +224,7 @@ Wave FINAL:
 
 ---
 
-- [ ] 4. Add useHydration hook tests
+- [x] 4. Add useHydration hook tests
 
   **What to do**:
   Create `src/hooks/__tests__/useHydration.test.ts` testing `useHydration()`.
@@ -254,7 +254,7 @@ Wave FINAL:
 
 ---
 
-- [ ] 5. Add FileTreeNode component tests
+- [x] 5. Add FileTreeNode component tests
 
   **What to do**:
   Create `src/components/file-tree/__tests__/FileTreeNode.test.tsx`.
@@ -291,7 +291,7 @@ Wave FINAL:
 
 ---
 
-- [ ] 6. Add FileTree component tests
+- [x] 6. Add FileTree component tests
 
   **What to do**:
   Create `src/components/file-tree/__tests__/FileTree.test.tsx`.
@@ -333,7 +333,7 @@ Wave FINAL:
 
 ---
 
-- [ ] 7. Add MessageList component tests
+- [x] 7. Add MessageList component tests
 
   **What to do**:
   Create `src/components/chat/__tests__/MessageList.test.tsx`.
@@ -364,7 +364,7 @@ Wave FINAL:
 
 ---
 
-- [ ] 8. Expand integration tests — stress test with multiple sessions/projects
+- [x] 8. Expand integration tests — stress test with multiple sessions/projects
 
   **What to do**:
   Massively expand `src/__integration__/sdk-flow.test.ts` with new describe blocks. Use `createOpencode()` — never shell-spawn opencode.
@@ -457,7 +457,7 @@ Wave FINAL:
 
 ---
 
-- [ ] 9. Final verification and CI green
+- [x] 9. Final verification and CI green
 
   **What to do**:
   1. Run `pnpm test --no-coverage` — must exit 0 with 0 failures, 0 skipped

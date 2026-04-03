@@ -1,3 +1,20 @@
+// Mock Reanimated components for test env
+jest.mock("react-native-reanimated", () => {
+  const { View } = require("react-native");
+  return {
+    __esModule: true,
+    default: { View, createAnimatedComponent: (c: unknown) => c },
+    FadeIn: { duration: () => ({ delay: () => ({}) }) },
+    FadeOut: { duration: () => ({}) },
+    useSharedValue: (v: number) => ({ value: v }),
+    useAnimatedStyle: () => ({}),
+    withTiming: (v: number) => v,
+    withDelay: (_d: number, v: number) => v,
+    withRepeat: (v: number) => v,
+    withSequence: (...args: number[]) => args[0],
+  };
+});
+
 import { act, render, screen } from "@testing-library/react-native";
 import type { Message } from "@/client/types";
 import { MessageList } from "@/components/chat/MessageList";

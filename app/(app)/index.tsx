@@ -1,9 +1,11 @@
-import { Text, View } from "react-native";
+import { EmptyState } from "@/components/shared";
 
 export default function NoSessionScreen() {
   return (
-    <View className="flex-1 items-center justify-center bg-background">
-      <Text className="text-lg text-muted">Select a session or create a new one</Text>
-    </View>
+    <EmptyState
+      iconName="message-square"
+      title="No session selected"
+      subtitle="Choose a session from the sidebar or create a new one"
+    />
   );
 }

@@ -16,15 +16,18 @@ describe("ToolPart", () => {
   });
 
   it("is collapsed by default", () => {
-    const view = render(<ToolPart part={makeToolPart({ tool: "read_file" })} />);
-    expect(getText(view)).toContain("▶");
-    expect(getText(view)).not.toContain("▼");
+    expect(
+      JSON.stringify(render(<ToolPart part={makeToolPart({ tool: "read_file" })} />).toJSON()),
+    ).toContain("chevron-right");
+    expect(
+      JSON.stringify(render(<ToolPart part={makeToolPart({ tool: "read_file" })} />).toJSON()),
+    ).not.toContain("chevron-down");
   });
 
   it("expands on press", () => {
     const view = render(<ToolPart part={makeToolPart({ tool: "read_file" })} />);
     fireEvent.press(view.UNSAFE_getByType(Pressable));
-    expect(getText(view)).toContain("▼");
+    expect(JSON.stringify(view.toJSON())).toContain("chevron-down");
   });
 
   it("shows input when expanded", () => {
@@ -53,7 +56,7 @@ describe("ToolPart", () => {
     const view = render(<ToolPart part={makeToolPart({ tool: "read_file" })} />);
     fireEvent.press(view.UNSAFE_getByType(Pressable));
 
-    expect(getText(view)).toContain("▼");
+    expect(JSON.stringify(view.toJSON())).toContain("chevron-down");
     expect(getText(view)).not.toContain("file content");
   });
 });

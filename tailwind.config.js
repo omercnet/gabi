@@ -54,8 +54,10 @@ module.exports = {
         xl: "16px",
       },
       fontFamily: {
-        sans: ["System", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
-        mono: ["ui-monospace", "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "monospace"],
+        sans: ["DMSans_400Regular", "System", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        "sans-medium": ["DMSans_500Medium", "System", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        "sans-bold": ["DMSans_700Bold", "System", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        mono: ["DMMono_400Regular", "ui-monospace", "SFMono-Regular", "SF Mono", "Menlo", "monospace"],
       },
     },
   },

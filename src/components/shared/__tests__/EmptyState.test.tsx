@@ -39,4 +39,10 @@ describe("EmptyState", () => {
     render(<EmptyState icon="📭" title="Empty" />);
     expect(JSON.stringify(screen.toJSON())).not.toContain("Create New");
   });
+
+  it("renders Feather icon when iconName is provided", () => {
+    render(<EmptyState iconName="message-square" title="No session" />);
+    // Feather mock renders the icon name as text content
+    expect(JSON.stringify(screen.toJSON())).toContain("message-square");
+  });
 });

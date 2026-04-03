@@ -1,3 +1,15 @@
+// Mock Reanimated to avoid window.matchMedia requirement in test env
+jest.mock("react-native-reanimated", () => {
+  const { View } = require("react-native");
+  return {
+    __esModule: true,
+    default: { View, createAnimatedComponent: (c: unknown) => c },
+    FadeInUp: { duration: () => ({ delay: () => ({}) }) },
+    useSharedValue: (v: number) => ({ value: v }),
+    useAnimatedStyle: () => ({}),
+  };
+});
+
 import { fireEvent, render, screen, waitFor } from "@testing-library/react-native";
 import { Pressable } from "react-native";
 import { MessageBubble } from "@/components/chat/MessageBubble";
@@ -76,7 +88,8 @@ describe("MessageBubble", () => {
     const { toJSON } = render(<MessageBubble message={message} items={[]} />);
 
     expect(toJSON()).toBeTruthy();
-    expect(screen.queryByText("▶")).toBeNull();
+    // Feather icons don't render text content in test env, so just verify no leftover emoji
+    expect(JSON.stringify(toJSON())).not.toContain("▶");
   });
 
   it("multiple items rendered in order", () => {

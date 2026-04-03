@@ -1,0 +1,984 @@
+[2026-04-01T21:03:07.586Z] [OhMyOpenCodePlugin] ENTRY - plugin loading {"directory":"/home/omer/dev/gabi"}
+[2026-04-01T21:03:07.593Z] [OhMyOpenCodePlugin] Legacy plugin entry detected in OpenCode config {"legacyEntries":["oh-my-opencode@latest"],"suggestedEntries":["oh-my-openagent@latest"],"hasCanonicalEntry":false}
+[2026-04-01T21:03:07.594Z] [opencode-server-auth] Failed to inject server auth {"message":"undefined is not an object (evaluating 'this._fns')"}
+[2026-04-01T21:03:07.622Z] Config loaded from /home/omer/.config/opencode/oh-my-opencode.json {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-01T21:03:07.622Z] Final merged config {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-01T21:03:07.623Z] [tmux-session-manager] initialized {"configEnabled":false,"tmuxConfig":{"enabled":false,"layout":"main-vertical","main_pane_size":60,"main_pane_min_width":120,"agent_pane_min_width":40},"serverUrl":"http://127.0.0.1:24951/"}
+[2026-04-01T21:03:10.485Z] directory-agents-injector auto-disabled due to native OpenCode support {"currentVersion":"1.3.9","nativeVersion":"1.1.37"}
+[2026-04-01T21:03:10.493Z] Loaded 0 plugins with 0 commands, 0 skills, 0 agents, 0 MCP servers 
+[2026-04-01T21:03:10.557Z] [connected-providers-cache] Read cache {"count":3,"updatedAt":"2026-04-01T18:59:43.479Z"}
+[2026-04-01T21:03:10.560Z] [connected-providers-cache] Read provider-models cache {"providerCount":3,"updatedAt":"2026-04-01T18:59:43.479Z"}
+[2026-04-01T21:03:10.562Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-01T21:03:10.562Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-01T21:03:10.563Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-01T21:03:10.566Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-01T21:03:10.569Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-01T21:03:10.571Z] Model resolved via config override {"model":"azure-cognitive-services/claude-haiku-4-5"}
+[2026-04-01T21:03:10.572Z] [fuzzyMatchModel] called {"target":"openai/gpt-5.4","availableCount":212,"providers":["openai"]}
+[2026-04-01T21:03:10.572Z] [fuzzyMatchModel] filtered by providers {"candidateCount":0,"candidates":[]}
+[2026-04-01T21:03:10.572Z] [fuzzyMatchModel] no candidates after filter 
+[2026-04-01T21:03:10.572Z] [fuzzyMatchModel] called {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-01T21:03:10.572Z] [fuzzyMatchModel] filtered by providers {"candidateCount":7,"candidates":["opencode/big-pickle","opencode/mimo-v2-omni-free","opencode/qwen3.6-plus-free","opencode/gpt-5-nano","opencode/nemotron-3-super-free","opencode/minimax-m2.5-free","opencode/mimo-v2-pro-free"]}
+[2026-04-01T21:03:10.572Z] [fuzzyMatchModel] substring matches {"targetNormalized":"opencode/gpt-5.4","matchCount":0,"matches":[]}
+[2026-04-01T21:03:10.572Z] [fuzzyMatchModel] WARNING: no match found {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-01T21:03:10.572Z] [fuzzyMatchModel] called {"target":"gpt-5.4","availableCount":212}
+[2026-04-01T21:03:10.573Z] [fuzzyMatchModel] substring matches {"targetNormalized":"gpt-5.4","matchCount":8,"matches":["azure-cognitive-services/gpt-5.4-mini","azure-cognitive-services/gpt-5.4-nano","azure-cognitive-services/gpt-5.4","azure-cognitive-services/gpt-5.4-pro","azure/gpt-5.4-pro","azure/gpt-5.4-mini","azure/gpt-5.4","azure/gpt-5.4-nano"]}
+[2026-04-01T21:03:10.573Z] [fuzzyMatchModel] exact model ID match found {"result":"azure/gpt-5.4","candidateCount":2}
+[2026-04-01T21:03:10.573Z] Model resolved via fallback chain (cross-provider fuzzy match) {"model":"gpt-5.4","match":"azure/gpt-5.4","variant":"medium"}
+[2026-04-01T21:03:10.573Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-01T21:03:10.574Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-01T21:03:10.575Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-01T21:03:10.578Z] Model resolved via config override {"model":"azure/gpt-5.3-codex"}
+[2026-04-01T21:03:10.581Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-01T21:03:10.584Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-01T21:03:10.584Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-01T21:03:10.584Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-01T21:03:10.584Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-01T21:03:10.587Z] [config-handler] agents loaded {"agentKeys":["Sisyphus (Ultraworker)","Hephaestus (Deep Agent)","Prometheus (Plan Builder)","Atlas (Plan Executor)","Sisyphus-Junior","oracle","librarian","explore","multimodal-looker","Metis (Plan Consultant)","Momus (Plan Critic)","build","plan"]}
+[2026-04-01T21:03:10.638Z] [config-handler] config handler applied {"agentCount":13,"commandCount":24}
+[2026-04-01T21:03:10.793Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b524864dffehNwPykR8gOC1DP"}
+[2026-04-01T21:03:10.799Z] [auto-update-checker] Connected providers cache exists, updating in background 
+[2026-04-01T21:03:10.965Z] [model-capabilities-cache] Cache written {"modelCount":2179,"generatedAt":"2026-04-01T21:03:10.955Z"}
+[2026-04-01T21:03:11.016Z] [connected-providers-cache] Fetched connected providers {"count":3,"providers":["azure","azure-cognitive-services","opencode"]}
+[2026-04-01T21:03:11.017Z] [connected-providers-cache] Cache written {"count":3}
+[2026-04-01T21:03:11.017Z] [connected-providers-cache] Extracted models from provider list {"providerCount":3,"totalModels":212}
+[2026-04-01T21:03:11.020Z] [connected-providers-cache] Provider-models cache written {"providerCount":3}
+[2026-04-01T21:03:11.027Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b5248552ffe2RbnFiLKEpCA2f"}
+[2026-04-01T21:03:11.068Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b5248529ffeaYMeUjnbGOv9HZ"}
+[2026-04-01T21:03:11.104Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b5248529ffeaYMeUjnbGOv9HZ"}
+[2026-04-01T21:03:11.105Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b5248529ffeaYMeUjnbGOv9HZ"}
+[2026-04-01T21:03:11.108Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b5248529ffeaYMeUjnbGOv9HZ"}
+[2026-04-01T21:03:11.108Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b5248529ffeaYMeUjnbGOv9HZ"}
+[2026-04-01T21:03:11.109Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b5248529ffeaYMeUjnbGOv9HZ"}
+[2026-04-01T21:03:11.147Z] [auto-update-checker] Already on latest version for channel: "latest"
+[2026-04-01T21:03:11.182Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:12.172Z] [DEBUG] experimental.chat.messages.transform called {"messageCount":1}
+[2026-04-01T21:03:12.172Z] [DEBUG] Extracted sessionID {"messageSessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb","mainSessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb","sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb","infoKeys":["role","time","agent","model","variant","id","sessionID"]}
+[2026-04-01T21:03:12.172Z] [DEBUG] Checking hasPending {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb","hasPending":false}
+[2026-04-01T21:03:15.107Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.118Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.119Z] [atlas] session.idle {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.120Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.258Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.266Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.266Z] [atlas] session.idle {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.266Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.288Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b524864dffehNwPykR8gOC1DP"}
+[2026-04-01T21:03:15.288Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b524864dffehNwPykR8gOC1DP"}
+[2026-04-01T21:03:15.289Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b524864dffehNwPykR8gOC1DP"}
+[2026-04-01T21:03:15.289Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b524864dffehNwPykR8gOC1DP"}
+[2026-04-01T21:03:15.290Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b524864dffehNwPykR8gOC1DP"}
+[2026-04-01T21:03:15.313Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b5248552ffe2RbnFiLKEpCA2f"}
+[2026-04-01T21:03:15.314Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b5248552ffe2RbnFiLKEpCA2f"}
+[2026-04-01T21:03:15.315Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b5248552ffe2RbnFiLKEpCA2f"}
+[2026-04-01T21:03:15.315Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b5248552ffe2RbnFiLKEpCA2f"}
+[2026-04-01T21:03:15.315Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b5248552ffe2RbnFiLKEpCA2f"}
+[2026-04-01T21:03:15.335Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.335Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.336Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.336Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.337Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b52484b8ffeVLTWxYDJBk1bhb"}
+[2026-04-01T21:03:15.351Z] [background-agent] Shutting down BackgroundManager 
+[2026-04-01T21:03:15.352Z] [tmux-session-manager] cleanup complete 
+[2026-04-01T21:03:15.352Z] [background-agent] Shutdown complete 
+[2026-04-01T21:03:16.493Z] [auto-update-checker] Startup toast shown: v3.14.0 
+[2026-04-01T21:04:41.732Z] [OhMyOpenCodePlugin] ENTRY - plugin loading {"directory":"/home/omer/dev/gabi"}
+[2026-04-01T21:04:41.736Z] [OhMyOpenCodePlugin] Legacy plugin entry detected in OpenCode config {"legacyEntries":["oh-my-opencode@latest"],"suggestedEntries":["oh-my-openagent@latest"],"hasCanonicalEntry":false}
+[2026-04-01T21:04:41.737Z] [opencode-server-auth] Failed to inject server auth {"message":"undefined is not an object (evaluating 'this._fns')"}
+[2026-04-01T21:04:41.762Z] Config loaded from /home/omer/.config/opencode/oh-my-opencode.json {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-01T21:04:41.762Z] Final merged config {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-01T21:04:41.762Z] [tmux-session-manager] initialized {"configEnabled":false,"tmuxConfig":{"enabled":false,"layout":"main-vertical","main_pane_size":60,"main_pane_min_width":120,"agent_pane_min_width":40},"serverUrl":"http://127.0.0.1:42790/"}
+[2026-04-01T21:04:44.186Z] directory-agents-injector auto-disabled due to native OpenCode support {"currentVersion":"1.3.9","nativeVersion":"1.1.37"}
+[2026-04-01T21:04:44.194Z] Loaded 0 plugins with 0 commands, 0 skills, 0 agents, 0 MCP servers 
+[2026-04-01T21:04:44.259Z] [connected-providers-cache] Read cache {"count":3,"updatedAt":"2026-04-01T21:03:11.017Z"}
+[2026-04-01T21:04:44.261Z] [connected-providers-cache] Read provider-models cache {"providerCount":3,"updatedAt":"2026-04-01T21:03:11.018Z"}
+[2026-04-01T21:04:44.262Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-01T21:04:44.262Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-01T21:04:44.263Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-01T21:04:44.264Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-01T21:04:44.265Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-01T21:04:44.267Z] Model resolved via config override {"model":"azure-cognitive-services/claude-haiku-4-5"}
+[2026-04-01T21:04:44.267Z] [fuzzyMatchModel] called {"target":"openai/gpt-5.4","availableCount":212,"providers":["openai"]}
+[2026-04-01T21:04:44.268Z] [fuzzyMatchModel] filtered by providers {"candidateCount":0,"candidates":[]}
+[2026-04-01T21:04:44.268Z] [fuzzyMatchModel] no candidates after filter 
+[2026-04-01T21:04:44.268Z] [fuzzyMatchModel] called {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-01T21:04:44.268Z] [fuzzyMatchModel] filtered by providers {"candidateCount":7,"candidates":["opencode/big-pickle","opencode/mimo-v2-omni-free","opencode/qwen3.6-plus-free","opencode/gpt-5-nano","opencode/nemotron-3-super-free","opencode/minimax-m2.5-free","opencode/mimo-v2-pro-free"]}
+[2026-04-01T21:04:44.268Z] [fuzzyMatchModel] substring matches {"targetNormalized":"opencode/gpt-5.4","matchCount":0,"matches":[]}
+[2026-04-01T21:04:44.268Z] [fuzzyMatchModel] WARNING: no match found {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-01T21:04:44.268Z] [fuzzyMatchModel] called {"target":"gpt-5.4","availableCount":212}
+[2026-04-01T21:04:44.268Z] [fuzzyMatchModel] substring matches {"targetNormalized":"gpt-5.4","matchCount":8,"matches":["azure-cognitive-services/gpt-5.4-mini","azure-cognitive-services/gpt-5.4-nano","azure-cognitive-services/gpt-5.4","azure-cognitive-services/gpt-5.4-pro","azure/gpt-5.4-pro","azure/gpt-5.4-mini","azure/gpt-5.4","azure/gpt-5.4-nano"]}
+[2026-04-01T21:04:44.268Z] [fuzzyMatchModel] exact model ID match found {"result":"azure/gpt-5.4","candidateCount":2}
+[2026-04-01T21:04:44.268Z] Model resolved via fallback chain (cross-provider fuzzy match) {"model":"gpt-5.4","match":"azure/gpt-5.4","variant":"medium"}
+[2026-04-01T21:04:44.269Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-01T21:04:44.269Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-01T21:04:44.269Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-01T21:04:44.272Z] Model resolved via config override {"model":"azure/gpt-5.3-codex"}
+[2026-04-01T21:04:44.273Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-01T21:04:44.276Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-01T21:04:44.276Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-01T21:04:44.276Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-01T21:04:44.276Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-01T21:04:44.277Z] [config-handler] agents loaded {"agentKeys":["Sisyphus (Ultraworker)","Hephaestus (Deep Agent)","Prometheus (Plan Builder)","Atlas (Plan Executor)","Sisyphus-Junior","oracle","librarian","explore","multimodal-looker","Metis (Plan Consultant)","Momus (Plan Critic)","build","plan"]}
+[2026-04-01T21:04:44.328Z] [config-handler] config handler applied {"agentCount":13,"commandCount":24}
+[2026-04-01T21:04:44.482Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b5231858ffej4CZyXwZ5qqxnC"}
+[2026-04-01T21:04:44.487Z] [auto-update-checker] Connected providers cache exists, updating in background 
+[2026-04-01T21:04:44.661Z] [model-capabilities-cache] Cache written {"modelCount":2179,"generatedAt":"2026-04-01T21:04:44.652Z"}
+[2026-04-01T21:04:44.685Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b5231778ffeUITUbI94RPQfMt"}
+[2026-04-01T21:04:44.700Z] [connected-providers-cache] Fetched connected providers {"count":3,"providers":["azure","azure-cognitive-services","opencode"]}
+[2026-04-01T21:04:44.701Z] [connected-providers-cache] Cache written {"count":3}
+[2026-04-01T21:04:44.701Z] [connected-providers-cache] Extracted models from provider list {"providerCount":3,"totalModels":212}
+[2026-04-01T21:04:44.704Z] [connected-providers-cache] Provider-models cache written {"providerCount":3}
+[2026-04-01T21:04:44.747Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b5231739ffeK2Pm95bc2Az2U3"}
+[2026-04-01T21:04:44.774Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b5231739ffeK2Pm95bc2Az2U3"}
+[2026-04-01T21:04:44.775Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b5231739ffeK2Pm95bc2Az2U3"}
+[2026-04-01T21:04:44.778Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b5231739ffeK2Pm95bc2Az2U3"}
+[2026-04-01T21:04:44.778Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b5231739ffeK2Pm95bc2Az2U3"}
+[2026-04-01T21:04:44.779Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b5231739ffeK2Pm95bc2Az2U3"}
+[2026-04-01T21:04:44.823Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:44.883Z] [auto-update-checker] Already on latest version for channel: "latest"
+[2026-04-01T21:04:45.689Z] [DEBUG] experimental.chat.messages.transform called {"messageCount":1}
+[2026-04-01T21:04:45.689Z] [DEBUG] Extracted sessionID {"messageSessionID":"ses_2b52316eeffevpEymarvFUBN6t","mainSessionID":"ses_2b52316eeffevpEymarvFUBN6t","sessionID":"ses_2b52316eeffevpEymarvFUBN6t","infoKeys":["role","time","agent","model","variant","id","sessionID"]}
+[2026-04-01T21:04:45.690Z] [DEBUG] Checking hasPending {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t","hasPending":false}
+[2026-04-01T21:04:48.706Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.716Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.717Z] [atlas] session.idle {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.718Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.811Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.816Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.817Z] [atlas] session.idle {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.817Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.843Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b5231858ffej4CZyXwZ5qqxnC"}
+[2026-04-01T21:04:48.843Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b5231858ffej4CZyXwZ5qqxnC"}
+[2026-04-01T21:04:48.845Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b5231858ffej4CZyXwZ5qqxnC"}
+[2026-04-01T21:04:48.845Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b5231858ffej4CZyXwZ5qqxnC"}
+[2026-04-01T21:04:48.845Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b5231858ffej4CZyXwZ5qqxnC"}
+[2026-04-01T21:04:48.864Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b5231778ffeUITUbI94RPQfMt"}
+[2026-04-01T21:04:48.865Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b5231778ffeUITUbI94RPQfMt"}
+[2026-04-01T21:04:48.866Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b5231778ffeUITUbI94RPQfMt"}
+[2026-04-01T21:04:48.866Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b5231778ffeUITUbI94RPQfMt"}
+[2026-04-01T21:04:48.866Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b5231778ffeUITUbI94RPQfMt"}
+[2026-04-01T21:04:48.887Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.887Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.889Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.889Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.889Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b52316eeffevpEymarvFUBN6t"}
+[2026-04-01T21:04:48.905Z] [background-agent] Shutting down BackgroundManager 
+[2026-04-01T21:04:48.906Z] [tmux-session-manager] cleanup complete 
+[2026-04-01T21:04:48.906Z] [background-agent] Shutdown complete 
+[2026-04-01T21:04:50.195Z] [auto-update-checker] Startup toast shown: v3.14.0 
+[2026-04-02T17:54:30.352Z] [OhMyOpenCodePlugin] ENTRY - plugin loading {"directory":"/home/omer/dev/gabi"}
+[2026-04-02T17:54:30.357Z] [OhMyOpenCodePlugin] Legacy plugin entry detected in OpenCode config {"legacyEntries":["oh-my-opencode@latest"],"suggestedEntries":["oh-my-openagent@latest"],"hasCanonicalEntry":false}
+[2026-04-02T17:54:30.357Z] [opencode-server-auth] Failed to inject server auth {"message":"undefined is not an object (evaluating 'this._fns')"}
+[2026-04-02T17:54:30.383Z] Config loaded from /home/omer/.config/opencode/oh-my-opencode.json {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T17:54:30.383Z] Final merged config {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T17:54:30.383Z] [tmux-session-manager] initialized {"configEnabled":false,"tmuxConfig":{"enabled":false,"layout":"main-vertical","main_pane_size":60,"main_pane_min_width":120,"agent_pane_min_width":40},"serverUrl":"http://127.0.0.1:29445/"}
+[2026-04-02T17:54:32.788Z] directory-agents-injector auto-disabled due to native OpenCode support {"currentVersion":"1.3.13","nativeVersion":"1.1.37"}
+[2026-04-02T17:54:32.796Z] Loaded 0 plugins with 0 commands, 0 skills, 0 agents, 0 MCP servers 
+[2026-04-02T17:54:32.855Z] [connected-providers-cache] Read cache {"count":3,"updatedAt":"2026-04-02T17:50:19.439Z"}
+[2026-04-02T17:54:32.857Z] [connected-providers-cache] Read provider-models cache {"providerCount":3,"updatedAt":"2026-04-02T17:50:19.440Z"}
+[2026-04-02T17:54:32.858Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T17:54:32.858Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T17:54:32.859Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T17:54:32.860Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T17:54:32.861Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T17:54:32.863Z] Model resolved via config override {"model":"azure-cognitive-services/claude-haiku-4-5"}
+[2026-04-02T17:54:32.863Z] [fuzzyMatchModel] called {"target":"openai/gpt-5.4","availableCount":212,"providers":["openai"]}
+[2026-04-02T17:54:32.864Z] [fuzzyMatchModel] filtered by providers {"candidateCount":0,"candidates":[]}
+[2026-04-02T17:54:32.864Z] [fuzzyMatchModel] no candidates after filter 
+[2026-04-02T17:54:32.864Z] [fuzzyMatchModel] called {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T17:54:32.864Z] [fuzzyMatchModel] filtered by providers {"candidateCount":7,"candidates":["opencode/big-pickle","opencode/mimo-v2-omni-free","opencode/qwen3.6-plus-free","opencode/gpt-5-nano","opencode/nemotron-3-super-free","opencode/minimax-m2.5-free","opencode/mimo-v2-pro-free"]}
+[2026-04-02T17:54:32.864Z] [fuzzyMatchModel] substring matches {"targetNormalized":"opencode/gpt-5.4","matchCount":0,"matches":[]}
+[2026-04-02T17:54:32.864Z] [fuzzyMatchModel] WARNING: no match found {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T17:54:32.864Z] [fuzzyMatchModel] called {"target":"gpt-5.4","availableCount":212}
+[2026-04-02T17:54:32.864Z] [fuzzyMatchModel] substring matches {"targetNormalized":"gpt-5.4","matchCount":8,"matches":["azure-cognitive-services/gpt-5.4-mini","azure-cognitive-services/gpt-5.4-nano","azure-cognitive-services/gpt-5.4","azure-cognitive-services/gpt-5.4-pro","azure/gpt-5.4-pro","azure/gpt-5.4-mini","azure/gpt-5.4","azure/gpt-5.4-nano"]}
+[2026-04-02T17:54:32.865Z] [fuzzyMatchModel] exact model ID match found {"result":"azure/gpt-5.4","candidateCount":2}
+[2026-04-02T17:54:32.865Z] Model resolved via fallback chain (cross-provider fuzzy match) {"model":"gpt-5.4","match":"azure/gpt-5.4","variant":"medium"}
+[2026-04-02T17:54:32.865Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T17:54:32.865Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T17:54:32.866Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T17:54:32.868Z] Model resolved via config override {"model":"azure/gpt-5.3-codex"}
+[2026-04-02T17:54:32.870Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T17:54:32.872Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T17:54:32.872Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T17:54:32.872Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T17:54:32.872Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T17:54:32.873Z] [config-handler] agents loaded {"agentKeys":["Sisyphus (Ultraworker)","Hephaestus (Deep Agent)","Prometheus (Plan Builder)","Atlas (Plan Executor)","Sisyphus-Junior","oracle","librarian","explore","multimodal-looker","Metis (Plan Consultant)","Momus (Plan Critic)","build","plan"]}
+[2026-04-02T17:54:32.923Z] [config-handler] config handler applied {"agentCount":13,"commandCount":24}
+[2026-04-02T17:54:33.069Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0aadc29ffe24PZOF3QZ3SGgw"}
+[2026-04-02T17:54:33.075Z] [auto-update-checker] Connected providers cache exists, updating in background 
+[2026-04-02T17:54:33.248Z] [model-capabilities-cache] Cache written {"modelCount":2180,"generatedAt":"2026-04-02T17:54:33.236Z"}
+[2026-04-02T17:54:33.296Z] [connected-providers-cache] Fetched connected providers {"count":3,"providers":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T17:54:33.297Z] [connected-providers-cache] Cache written {"count":3}
+[2026-04-02T17:54:33.297Z] [connected-providers-cache] Extracted models from provider list {"providerCount":3,"totalModels":212}
+[2026-04-02T17:54:33.300Z] [connected-providers-cache] Provider-models cache written {"providerCount":3}
+[2026-04-02T17:54:33.317Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0aadb20ffeTXLTs61LVQat7r"}
+[2026-04-02T17:54:33.349Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0aadb00ffemTQRZ15dv0uAcI"}
+[2026-04-02T17:54:33.377Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0aadb00ffemTQRZ15dv0uAcI"}
+[2026-04-02T17:54:33.378Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0aadb00ffemTQRZ15dv0uAcI"}
+[2026-04-02T17:54:33.381Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0aadb00ffemTQRZ15dv0uAcI"}
+[2026-04-02T17:54:33.381Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0aadb00ffemTQRZ15dv0uAcI"}
+[2026-04-02T17:54:33.381Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0aadb00ffemTQRZ15dv0uAcI"}
+[2026-04-02T17:54:33.407Z] [auto-update-checker] Already on latest version for channel: "latest"
+[2026-04-02T17:54:33.431Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:34.417Z] [DEBUG] experimental.chat.messages.transform called {"messageCount":1}
+[2026-04-02T17:54:34.417Z] [DEBUG] Extracted sessionID {"messageSessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l","mainSessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l","sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l","infoKeys":["role","time","agent","model","variant","id","sessionID"]}
+[2026-04-02T17:54:34.417Z] [DEBUG] Checking hasPending {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l","hasPending":false}
+[2026-04-02T17:54:37.548Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.560Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.561Z] [atlas] session.idle {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.562Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.655Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.662Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.662Z] [atlas] session.idle {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.662Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.703Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0aadc29ffe24PZOF3QZ3SGgw"}
+[2026-04-02T17:54:37.704Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0aadc29ffe24PZOF3QZ3SGgw"}
+[2026-04-02T17:54:37.705Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0aadc29ffe24PZOF3QZ3SGgw"}
+[2026-04-02T17:54:37.705Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0aadc29ffe24PZOF3QZ3SGgw"}
+[2026-04-02T17:54:37.705Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0aadc29ffe24PZOF3QZ3SGgw"}
+[2026-04-02T17:54:37.743Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0aadb20ffeTXLTs61LVQat7r"}
+[2026-04-02T17:54:37.743Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0aadb20ffeTXLTs61LVQat7r"}
+[2026-04-02T17:54:37.744Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0aadb20ffeTXLTs61LVQat7r"}
+[2026-04-02T17:54:37.744Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0aadb20ffeTXLTs61LVQat7r"}
+[2026-04-02T17:54:37.745Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0aadb20ffeTXLTs61LVQat7r"}
+[2026-04-02T17:54:37.773Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.773Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.775Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.775Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.775Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0aadab0ffe4bQiBa6CQsgz0l"}
+[2026-04-02T17:54:37.793Z] [background-agent] Shutting down BackgroundManager 
+[2026-04-02T17:54:37.794Z] [tmux-session-manager] cleanup complete 
+[2026-04-02T17:54:37.794Z] [background-agent] Shutdown complete 
+[2026-04-02T17:54:38.891Z] [auto-update-checker] Startup toast shown: v3.14.0 
+[2026-04-02T19:25:01.436Z] [OhMyOpenCodePlugin] ENTRY - plugin loading {"directory":"/home/omer/dev/gabi"}
+[2026-04-02T19:25:01.441Z] [OhMyOpenCodePlugin] Legacy plugin entry detected in OpenCode config {"legacyEntries":["oh-my-opencode@latest"],"suggestedEntries":["oh-my-openagent@latest"],"hasCanonicalEntry":false}
+[2026-04-02T19:25:01.442Z] [opencode-server-auth] Failed to inject server auth {"message":"undefined is not an object (evaluating 'this._fns')"}
+[2026-04-02T19:25:01.468Z] Config loaded from /home/omer/.config/opencode/oh-my-opencode.json {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T19:25:01.468Z] Final merged config {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T19:25:01.469Z] [tmux-session-manager] initialized {"configEnabled":false,"tmuxConfig":{"enabled":false,"layout":"main-vertical","main_pane_size":60,"main_pane_min_width":120,"agent_pane_min_width":40},"serverUrl":"http://127.0.0.1:16268/"}
+[2026-04-02T19:25:04.105Z] directory-agents-injector auto-disabled due to native OpenCode support {"currentVersion":"1.3.13","nativeVersion":"1.1.37"}
+[2026-04-02T19:25:04.116Z] Loaded 0 plugins with 0 commands, 0 skills, 0 agents, 0 MCP servers 
+[2026-04-02T19:25:04.180Z] [connected-providers-cache] Read cache {"count":3,"updatedAt":"2026-04-02T17:54:33.297Z"}
+[2026-04-02T19:25:04.183Z] [connected-providers-cache] Read provider-models cache {"providerCount":3,"updatedAt":"2026-04-02T17:54:33.297Z"}
+[2026-04-02T19:25:04.185Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:25:04.185Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T19:25:04.185Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:25:04.187Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T19:25:04.188Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:25:04.191Z] Model resolved via config override {"model":"azure-cognitive-services/claude-haiku-4-5"}
+[2026-04-02T19:25:04.192Z] [fuzzyMatchModel] called {"target":"openai/gpt-5.4","availableCount":212,"providers":["openai"]}
+[2026-04-02T19:25:04.192Z] [fuzzyMatchModel] filtered by providers {"candidateCount":0,"candidates":[]}
+[2026-04-02T19:25:04.192Z] [fuzzyMatchModel] no candidates after filter 
+[2026-04-02T19:25:04.192Z] [fuzzyMatchModel] called {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T19:25:04.192Z] [fuzzyMatchModel] filtered by providers {"candidateCount":7,"candidates":["opencode/big-pickle","opencode/mimo-v2-omni-free","opencode/qwen3.6-plus-free","opencode/gpt-5-nano","opencode/nemotron-3-super-free","opencode/minimax-m2.5-free","opencode/mimo-v2-pro-free"]}
+[2026-04-02T19:25:04.193Z] [fuzzyMatchModel] substring matches {"targetNormalized":"opencode/gpt-5.4","matchCount":0,"matches":[]}
+[2026-04-02T19:25:04.193Z] [fuzzyMatchModel] WARNING: no match found {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T19:25:04.193Z] [fuzzyMatchModel] called {"target":"gpt-5.4","availableCount":212}
+[2026-04-02T19:25:04.193Z] [fuzzyMatchModel] substring matches {"targetNormalized":"gpt-5.4","matchCount":8,"matches":["azure-cognitive-services/gpt-5.4-mini","azure-cognitive-services/gpt-5.4-nano","azure-cognitive-services/gpt-5.4","azure-cognitive-services/gpt-5.4-pro","azure/gpt-5.4-pro","azure/gpt-5.4-mini","azure/gpt-5.4","azure/gpt-5.4-nano"]}
+[2026-04-02T19:25:04.193Z] [fuzzyMatchModel] exact model ID match found {"result":"azure/gpt-5.4","candidateCount":2}
+[2026-04-02T19:25:04.193Z] Model resolved via fallback chain (cross-provider fuzzy match) {"model":"gpt-5.4","match":"azure/gpt-5.4","variant":"medium"}
+[2026-04-02T19:25:04.193Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T19:25:04.194Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T19:25:04.194Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T19:25:04.197Z] Model resolved via config override {"model":"azure/gpt-5.3-codex"}
+[2026-04-02T19:25:04.198Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:25:04.201Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:25:04.201Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T19:25:04.201Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:25:04.201Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:25:04.202Z] [config-handler] agents loaded {"agentKeys":["Sisyphus (Ultraworker)","Hephaestus (Deep Agent)","Prometheus (Plan Builder)","Atlas (Plan Executor)","Sisyphus-Junior","oracle","librarian","explore","multimodal-looker","Metis (Plan Consultant)","Momus (Plan Critic)","build","plan"]}
+[2026-04-02T19:25:04.268Z] [config-handler] config handler applied {"agentCount":13,"commandCount":24}
+[2026-04-02T19:25:04.464Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b057fbceffeuSfHoZqUlP8hyI"}
+[2026-04-02T19:25:04.470Z] [auto-update-checker] Connected providers cache exists, updating in background 
+[2026-04-02T19:25:04.665Z] [model-capabilities-cache] Cache written {"modelCount":2180,"generatedAt":"2026-04-02T19:25:04.652Z"}
+[2026-04-02T19:25:04.712Z] [connected-providers-cache] Fetched connected providers {"count":3,"providers":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:25:04.712Z] [connected-providers-cache] Cache written {"count":3}
+[2026-04-02T19:25:04.713Z] [connected-providers-cache] Extracted models from provider list {"providerCount":3,"totalModels":212}
+[2026-04-02T19:25:04.716Z] [connected-providers-cache] Provider-models cache written {"providerCount":3}
+[2026-04-02T19:25:04.733Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b057faa9ffe7lebQzb3gulQJh"}
+[2026-04-02T19:25:04.776Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b057fa7dffe0AWpPsCQ5F2Hnt"}
+[2026-04-02T19:25:04.807Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b057fa7dffe0AWpPsCQ5F2Hnt"}
+[2026-04-02T19:25:04.808Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b057fa7dffe0AWpPsCQ5F2Hnt"}
+[2026-04-02T19:25:04.813Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b057fa7dffe0AWpPsCQ5F2Hnt"}
+[2026-04-02T19:25:04.813Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b057fa7dffe0AWpPsCQ5F2Hnt"}
+[2026-04-02T19:25:04.814Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b057fa7dffe0AWpPsCQ5F2Hnt"}
+[2026-04-02T19:25:04.836Z] [auto-update-checker] Already on latest version for channel: "latest"
+[2026-04-02T19:25:04.859Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:05.842Z] [DEBUG] experimental.chat.messages.transform called {"messageCount":1}
+[2026-04-02T19:25:05.842Z] [DEBUG] Extracted sessionID {"messageSessionID":"ses_2b057fa2bffeAFz57MZ860EOH6","mainSessionID":"ses_2b057fa2bffeAFz57MZ860EOH6","sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6","infoKeys":["role","time","agent","model","variant","id","sessionID"]}
+[2026-04-02T19:25:05.842Z] [DEBUG] Checking hasPending {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6","hasPending":false}
+[2026-04-02T19:25:08.973Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:08.983Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:08.990Z] [atlas] session.idle {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:08.991Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:09.099Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:09.105Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:09.110Z] [atlas] session.idle {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:09.110Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:09.133Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b057fbceffeuSfHoZqUlP8hyI"}
+[2026-04-02T19:25:09.134Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b057fbceffeuSfHoZqUlP8hyI"}
+[2026-04-02T19:25:09.135Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b057fbceffeuSfHoZqUlP8hyI"}
+[2026-04-02T19:25:09.136Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b057fbceffeuSfHoZqUlP8hyI"}
+[2026-04-02T19:25:09.136Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b057fbceffeuSfHoZqUlP8hyI"}
+[2026-04-02T19:25:09.158Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b057faa9ffe7lebQzb3gulQJh"}
+[2026-04-02T19:25:09.159Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b057faa9ffe7lebQzb3gulQJh"}
+[2026-04-02T19:25:09.161Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b057faa9ffe7lebQzb3gulQJh"}
+[2026-04-02T19:25:09.161Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b057faa9ffe7lebQzb3gulQJh"}
+[2026-04-02T19:25:09.161Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b057faa9ffe7lebQzb3gulQJh"}
+[2026-04-02T19:25:09.183Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:09.183Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:09.185Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:09.185Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:09.185Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b057fa2bffeAFz57MZ860EOH6"}
+[2026-04-02T19:25:09.200Z] [background-agent] Shutting down BackgroundManager 
+[2026-04-02T19:25:09.201Z] [tmux-session-manager] cleanup complete 
+[2026-04-02T19:25:09.202Z] [background-agent] Shutdown complete 
+[2026-04-02T19:25:10.357Z] [auto-update-checker] Startup toast shown: v3.14.0 
+[2026-04-02T19:58:42.943Z] [OhMyOpenCodePlugin] ENTRY - plugin loading {"directory":"/home/omer/dev/gabi"}
+[2026-04-02T19:58:42.948Z] [OhMyOpenCodePlugin] Legacy plugin entry detected in OpenCode config {"legacyEntries":["oh-my-opencode@latest"],"suggestedEntries":["oh-my-openagent@latest"],"hasCanonicalEntry":false}
+[2026-04-02T19:58:42.949Z] [opencode-server-auth] Failed to inject server auth {"message":"undefined is not an object (evaluating 'this._fns')"}
+[2026-04-02T19:58:42.981Z] Config loaded from /home/omer/.config/opencode/oh-my-opencode.json {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T19:58:42.981Z] Final merged config {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T19:58:42.982Z] [tmux-session-manager] initialized {"configEnabled":false,"tmuxConfig":{"enabled":false,"layout":"main-vertical","main_pane_size":60,"main_pane_min_width":120,"agent_pane_min_width":40},"serverUrl":"http://127.0.0.1:35154/"}
+[2026-04-02T19:58:45.567Z] directory-agents-injector auto-disabled due to native OpenCode support {"currentVersion":"1.3.13","nativeVersion":"1.1.37"}
+[2026-04-02T19:58:45.577Z] Loaded 0 plugins with 0 commands, 0 skills, 0 agents, 0 MCP servers 
+[2026-04-02T19:58:45.658Z] [connected-providers-cache] Read cache {"count":3,"updatedAt":"2026-04-02T19:58:25.825Z"}
+[2026-04-02T19:58:45.660Z] [connected-providers-cache] Read provider-models cache {"providerCount":3,"updatedAt":"2026-04-02T19:58:25.826Z"}
+[2026-04-02T19:58:45.662Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:58:45.662Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T19:58:45.662Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:58:45.664Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T19:58:45.664Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:58:45.666Z] Model resolved via config override {"model":"azure-cognitive-services/claude-haiku-4-5"}
+[2026-04-02T19:58:45.667Z] [fuzzyMatchModel] called {"target":"openai/gpt-5.4","availableCount":212,"providers":["openai"]}
+[2026-04-02T19:58:45.667Z] [fuzzyMatchModel] filtered by providers {"candidateCount":0,"candidates":[]}
+[2026-04-02T19:58:45.667Z] [fuzzyMatchModel] no candidates after filter 
+[2026-04-02T19:58:45.667Z] [fuzzyMatchModel] called {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T19:58:45.667Z] [fuzzyMatchModel] filtered by providers {"candidateCount":7,"candidates":["opencode/big-pickle","opencode/mimo-v2-omni-free","opencode/qwen3.6-plus-free","opencode/gpt-5-nano","opencode/nemotron-3-super-free","opencode/minimax-m2.5-free","opencode/mimo-v2-pro-free"]}
+[2026-04-02T19:58:45.667Z] [fuzzyMatchModel] substring matches {"targetNormalized":"opencode/gpt-5.4","matchCount":0,"matches":[]}
+[2026-04-02T19:58:45.667Z] [fuzzyMatchModel] WARNING: no match found {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T19:58:45.667Z] [fuzzyMatchModel] called {"target":"gpt-5.4","availableCount":212}
+[2026-04-02T19:58:45.668Z] [fuzzyMatchModel] substring matches {"targetNormalized":"gpt-5.4","matchCount":8,"matches":["azure-cognitive-services/gpt-5.4-mini","azure-cognitive-services/gpt-5.4-nano","azure-cognitive-services/gpt-5.4","azure-cognitive-services/gpt-5.4-pro","azure/gpt-5.4-pro","azure/gpt-5.4-mini","azure/gpt-5.4","azure/gpt-5.4-nano"]}
+[2026-04-02T19:58:45.668Z] [fuzzyMatchModel] exact model ID match found {"result":"azure/gpt-5.4","candidateCount":2}
+[2026-04-02T19:58:45.668Z] Model resolved via fallback chain (cross-provider fuzzy match) {"model":"gpt-5.4","match":"azure/gpt-5.4","variant":"medium"}
+[2026-04-02T19:58:45.668Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T19:58:45.668Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T19:58:45.669Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T19:58:45.673Z] Model resolved via config override {"model":"azure/gpt-5.3-codex"}
+[2026-04-02T19:58:45.675Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:58:45.678Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:58:45.678Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T19:58:45.678Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:58:45.678Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:58:45.680Z] [config-handler] agents loaded {"agentKeys":["Sisyphus (Ultraworker)","Hephaestus (Deep Agent)","Prometheus (Plan Builder)","Atlas (Plan Executor)","Sisyphus-Junior","oracle","librarian","explore","multimodal-looker","Metis (Plan Consultant)","Momus (Plan Critic)","build","plan"]}
+[2026-04-02T19:58:45.732Z] [config-handler] config handler applied {"agentCount":13,"commandCount":24}
+[2026-04-02T19:58:45.890Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0392393ffeNbnVwa6rfuB5xL"}
+[2026-04-02T19:58:45.896Z] [auto-update-checker] Connected providers cache exists, updating in background 
+[2026-04-02T19:58:46.075Z] [model-capabilities-cache] Cache written {"modelCount":2180,"generatedAt":"2026-04-02T19:58:46.064Z"}
+[2026-04-02T19:58:46.135Z] [connected-providers-cache] Fetched connected providers {"count":3,"providers":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:58:46.136Z] [connected-providers-cache] Cache written {"count":3}
+[2026-04-02T19:58:46.136Z] [connected-providers-cache] Extracted models from provider list {"providerCount":3,"totalModels":212}
+[2026-04-02T19:58:46.140Z] [connected-providers-cache] Provider-models cache written {"providerCount":3}
+[2026-04-02T19:58:46.161Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b039227fffe08oDNb7VYSl7lh"}
+[2026-04-02T19:58:46.206Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0392247ffe9YnSdW6Qp0kuZj"}
+[2026-04-02T19:58:46.233Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0392247ffe9YnSdW6Qp0kuZj"}
+[2026-04-02T19:58:46.234Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0392247ffe9YnSdW6Qp0kuZj"}
+[2026-04-02T19:58:46.237Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0392247ffe9YnSdW6Qp0kuZj"}
+[2026-04-02T19:58:46.237Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0392247ffe9YnSdW6Qp0kuZj"}
+[2026-04-02T19:58:46.237Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0392247ffe9YnSdW6Qp0kuZj"}
+[2026-04-02T19:58:46.273Z] [auto-update-checker] Already on latest version for channel: "latest"
+[2026-04-02T19:58:46.288Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:47.289Z] [DEBUG] experimental.chat.messages.transform called {"messageCount":1}
+[2026-04-02T19:58:47.290Z] [DEBUG] Extracted sessionID {"messageSessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw","mainSessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw","sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw","infoKeys":["role","time","agent","model","variant","id","sessionID"]}
+[2026-04-02T19:58:47.290Z] [DEBUG] Checking hasPending {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw","hasPending":false}
+[2026-04-02T19:58:50.906Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:50.927Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:50.928Z] [atlas] session.idle {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:50.929Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:51.195Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:51.203Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:51.204Z] [atlas] session.idle {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:51.205Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:51.228Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0390ea9ffenfG4TCXO0l3tQs"}
+[2026-04-02T19:58:51.255Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0390e8effeguCwFyhQKlpvsF"}
+[2026-04-02T19:58:51.280Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0390e74ffeArzGWOXaL0UqL7"}
+[2026-04-02T19:58:51.306Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0390e74ffeArzGWOXaL0UqL7"}
+[2026-04-02T19:58:51.306Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0390e74ffeArzGWOXaL0UqL7"}
+[2026-04-02T19:58:51.308Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0390e74ffeArzGWOXaL0UqL7"}
+[2026-04-02T19:58:51.308Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0390e74ffeArzGWOXaL0UqL7"}
+[2026-04-02T19:58:51.308Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0390e74ffeArzGWOXaL0UqL7"}
+[2026-04-02T19:58:51.359Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0390e24ffedex9Mdg0vwk3Pq"}
+[2026-04-02T19:58:51.365Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0390e1fffeynh4Jc9LCBrLFj"}
+[2026-04-02T19:58:51.386Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0390e0bffe5mIQOlDEGRQksr"}
+[2026-04-02T19:58:51.426Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0390de2ffe1HlrAVYi2ZoOpf"}
+[2026-04-02T19:58:51.450Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0390dc9ffeoqFF5AvkFEtYAu"}
+[2026-04-02T19:58:51.455Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0390dc4ffecTBVZ8b7nV9ZUZ"}
+[2026-04-02T19:58:51.482Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0390de2ffe1HlrAVYi2ZoOpf"}
+[2026-04-02T19:58:51.483Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0390de2ffe1HlrAVYi2ZoOpf"}
+[2026-04-02T19:58:51.485Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0390de2ffe1HlrAVYi2ZoOpf"}
+[2026-04-02T19:58:51.485Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0390de2ffe1HlrAVYi2ZoOpf"}
+[2026-04-02T19:58:51.485Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0390de2ffe1HlrAVYi2ZoOpf"}
+[2026-04-02T19:58:51.494Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0390dc9ffeoqFF5AvkFEtYAu"}
+[2026-04-02T19:58:51.494Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0390dc9ffeoqFF5AvkFEtYAu"}
+[2026-04-02T19:58:51.496Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0390dc9ffeoqFF5AvkFEtYAu"}
+[2026-04-02T19:58:51.496Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0390dc9ffeoqFF5AvkFEtYAu"}
+[2026-04-02T19:58:51.496Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0390dc9ffeoqFF5AvkFEtYAu"}
+[2026-04-02T19:58:51.502Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0390dc4ffecTBVZ8b7nV9ZUZ"}
+[2026-04-02T19:58:51.502Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0390dc4ffecTBVZ8b7nV9ZUZ"}
+[2026-04-02T19:58:51.504Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0390dc4ffecTBVZ8b7nV9ZUZ"}
+[2026-04-02T19:58:51.504Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0390dc4ffecTBVZ8b7nV9ZUZ"}
+[2026-04-02T19:58:51.504Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0390dc4ffecTBVZ8b7nV9ZUZ"}
+[2026-04-02T19:58:51.548Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0390d69ffe5eGq99pLOfBmRh"}
+[2026-04-02T19:58:51.921Z] [auto-update-checker] Startup toast shown: v3.14.0 
+[2026-04-02T19:58:52.926Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0390808ffevl6p0zchms3Vp8"}
+[2026-04-02T19:58:52.941Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b03907f9ffeuCe4NNyYZ2wjdH"}
+[2026-04-02T19:58:53.006Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b03907b7ffeg1gUCiuPHTNxBy"}
+[2026-04-02T19:58:53.028Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b03907b7ffeg1gUCiuPHTNxBy"}
+[2026-04-02T19:58:53.029Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b03907b7ffeg1gUCiuPHTNxBy"}
+[2026-04-02T19:58:53.030Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b03907b7ffeg1gUCiuPHTNxBy"}
+[2026-04-02T19:58:53.030Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b03907b7ffeg1gUCiuPHTNxBy"}
+[2026-04-02T19:58:53.030Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b03907b7ffeg1gUCiuPHTNxBy"}
+[2026-04-02T19:58:53.069Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0392393ffeNbnVwa6rfuB5xL"}
+[2026-04-02T19:58:53.070Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0392393ffeNbnVwa6rfuB5xL"}
+[2026-04-02T19:58:53.071Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0392393ffeNbnVwa6rfuB5xL"}
+[2026-04-02T19:58:53.071Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0392393ffeNbnVwa6rfuB5xL"}
+[2026-04-02T19:58:53.072Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0392393ffeNbnVwa6rfuB5xL"}
+[2026-04-02T19:58:53.092Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b039227fffe08oDNb7VYSl7lh"}
+[2026-04-02T19:58:53.093Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b039227fffe08oDNb7VYSl7lh"}
+[2026-04-02T19:58:53.094Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b039227fffe08oDNb7VYSl7lh"}
+[2026-04-02T19:58:53.094Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b039227fffe08oDNb7VYSl7lh"}
+[2026-04-02T19:58:53.094Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b039227fffe08oDNb7VYSl7lh"}
+[2026-04-02T19:58:53.114Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:53.115Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:53.116Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:53.116Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:53.116Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b03921f7ffeOvH0oliJUwL5fw"}
+[2026-04-02T19:58:53.134Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0390ea9ffenfG4TCXO0l3tQs"}
+[2026-04-02T19:58:53.135Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0390ea9ffenfG4TCXO0l3tQs"}
+[2026-04-02T19:58:53.136Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0390ea9ffenfG4TCXO0l3tQs"}
+[2026-04-02T19:58:53.136Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0390ea9ffenfG4TCXO0l3tQs"}
+[2026-04-02T19:58:53.136Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0390ea9ffenfG4TCXO0l3tQs"}
+[2026-04-02T19:58:53.155Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0390e8effeguCwFyhQKlpvsF"}
+[2026-04-02T19:58:53.156Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0390e8effeguCwFyhQKlpvsF"}
+[2026-04-02T19:58:53.157Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0390e8effeguCwFyhQKlpvsF"}
+[2026-04-02T19:58:53.157Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0390e8effeguCwFyhQKlpvsF"}
+[2026-04-02T19:58:53.157Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0390e8effeguCwFyhQKlpvsF"}
+[2026-04-02T19:58:53.180Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0390e24ffedex9Mdg0vwk3Pq"}
+[2026-04-02T19:58:53.182Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0390e24ffedex9Mdg0vwk3Pq"}
+[2026-04-02T19:58:53.183Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0390e24ffedex9Mdg0vwk3Pq"}
+[2026-04-02T19:58:53.183Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0390e24ffedex9Mdg0vwk3Pq"}
+[2026-04-02T19:58:53.183Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0390e24ffedex9Mdg0vwk3Pq"}
+[2026-04-02T19:58:53.203Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0390e1fffeynh4Jc9LCBrLFj"}
+[2026-04-02T19:58:53.204Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0390e1fffeynh4Jc9LCBrLFj"}
+[2026-04-02T19:58:53.205Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0390e1fffeynh4Jc9LCBrLFj"}
+[2026-04-02T19:58:53.206Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0390e1fffeynh4Jc9LCBrLFj"}
+[2026-04-02T19:58:53.206Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0390e1fffeynh4Jc9LCBrLFj"}
+[2026-04-02T19:58:53.226Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0390e0bffe5mIQOlDEGRQksr"}
+[2026-04-02T19:58:53.226Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0390e0bffe5mIQOlDEGRQksr"}
+[2026-04-02T19:58:53.228Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0390e0bffe5mIQOlDEGRQksr"}
+[2026-04-02T19:58:53.228Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0390e0bffe5mIQOlDEGRQksr"}
+[2026-04-02T19:58:53.228Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0390e0bffe5mIQOlDEGRQksr"}
+[2026-04-02T19:58:53.248Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0390d69ffe5eGq99pLOfBmRh"}
+[2026-04-02T19:58:53.248Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0390d69ffe5eGq99pLOfBmRh"}
+[2026-04-02T19:58:53.250Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0390d69ffe5eGq99pLOfBmRh"}
+[2026-04-02T19:58:53.250Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0390d69ffe5eGq99pLOfBmRh"}
+[2026-04-02T19:58:53.250Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0390d69ffe5eGq99pLOfBmRh"}
+[2026-04-02T19:58:53.270Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0390808ffevl6p0zchms3Vp8"}
+[2026-04-02T19:58:53.270Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0390808ffevl6p0zchms3Vp8"}
+[2026-04-02T19:58:53.272Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0390808ffevl6p0zchms3Vp8"}
+[2026-04-02T19:58:53.272Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0390808ffevl6p0zchms3Vp8"}
+[2026-04-02T19:58:53.272Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0390808ffevl6p0zchms3Vp8"}
+[2026-04-02T19:58:53.294Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b03907f9ffeuCe4NNyYZ2wjdH"}
+[2026-04-02T19:58:53.295Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b03907f9ffeuCe4NNyYZ2wjdH"}
+[2026-04-02T19:58:53.296Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b03907f9ffeuCe4NNyYZ2wjdH"}
+[2026-04-02T19:58:53.296Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b03907f9ffeuCe4NNyYZ2wjdH"}
+[2026-04-02T19:58:53.296Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b03907f9ffeuCe4NNyYZ2wjdH"}
+[2026-04-02T19:58:53.314Z] [background-agent] Shutting down BackgroundManager 
+[2026-04-02T19:58:53.316Z] [tmux-session-manager] cleanup complete 
+[2026-04-02T19:58:53.316Z] [background-agent] Shutdown complete 
+[2026-04-02T19:59:05.245Z] [OhMyOpenCodePlugin] ENTRY - plugin loading {"directory":"/home/omer/dev/gabi"}
+[2026-04-02T19:59:05.250Z] [OhMyOpenCodePlugin] Legacy plugin entry detected in OpenCode config {"legacyEntries":["oh-my-opencode@latest"],"suggestedEntries":["oh-my-openagent@latest"],"hasCanonicalEntry":false}
+[2026-04-02T19:59:05.251Z] [opencode-server-auth] Failed to inject server auth {"message":"undefined is not an object (evaluating 'this._fns')"}
+[2026-04-02T19:59:05.278Z] Config loaded from /home/omer/.config/opencode/oh-my-opencode.json {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T19:59:05.278Z] Final merged config {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T19:59:05.278Z] [tmux-session-manager] initialized {"configEnabled":false,"tmuxConfig":{"enabled":false,"layout":"main-vertical","main_pane_size":60,"main_pane_min_width":120,"agent_pane_min_width":40},"serverUrl":"http://127.0.0.1:50231/"}
+[2026-04-02T19:59:08.208Z] directory-agents-injector auto-disabled due to native OpenCode support {"currentVersion":"1.3.13","nativeVersion":"1.1.37"}
+[2026-04-02T19:59:08.219Z] Loaded 0 plugins with 0 commands, 0 skills, 0 agents, 0 MCP servers 
+[2026-04-02T19:59:08.299Z] [connected-providers-cache] Read cache {"count":3,"updatedAt":"2026-04-02T19:58:46.135Z"}
+[2026-04-02T19:59:08.303Z] [connected-providers-cache] Read provider-models cache {"providerCount":3,"updatedAt":"2026-04-02T19:58:46.137Z"}
+[2026-04-02T19:59:08.305Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:59:08.305Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T19:59:08.306Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:59:08.308Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T19:59:08.309Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:59:08.313Z] Model resolved via config override {"model":"azure-cognitive-services/claude-haiku-4-5"}
+[2026-04-02T19:59:08.314Z] [fuzzyMatchModel] called {"target":"openai/gpt-5.4","availableCount":212,"providers":["openai"]}
+[2026-04-02T19:59:08.314Z] [fuzzyMatchModel] filtered by providers {"candidateCount":0,"candidates":[]}
+[2026-04-02T19:59:08.314Z] [fuzzyMatchModel] no candidates after filter 
+[2026-04-02T19:59:08.314Z] [fuzzyMatchModel] called {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T19:59:08.315Z] [fuzzyMatchModel] filtered by providers {"candidateCount":7,"candidates":["opencode/big-pickle","opencode/mimo-v2-omni-free","opencode/qwen3.6-plus-free","opencode/gpt-5-nano","opencode/nemotron-3-super-free","opencode/minimax-m2.5-free","opencode/mimo-v2-pro-free"]}
+[2026-04-02T19:59:08.315Z] [fuzzyMatchModel] substring matches {"targetNormalized":"opencode/gpt-5.4","matchCount":0,"matches":[]}
+[2026-04-02T19:59:08.315Z] [fuzzyMatchModel] WARNING: no match found {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T19:59:08.315Z] [fuzzyMatchModel] called {"target":"gpt-5.4","availableCount":212}
+[2026-04-02T19:59:08.316Z] [fuzzyMatchModel] substring matches {"targetNormalized":"gpt-5.4","matchCount":8,"matches":["azure-cognitive-services/gpt-5.4-mini","azure-cognitive-services/gpt-5.4-nano","azure-cognitive-services/gpt-5.4","azure-cognitive-services/gpt-5.4-pro","azure/gpt-5.4-pro","azure/gpt-5.4-mini","azure/gpt-5.4","azure/gpt-5.4-nano"]}
+[2026-04-02T19:59:08.316Z] [fuzzyMatchModel] exact model ID match found {"result":"azure/gpt-5.4","candidateCount":2}
+[2026-04-02T19:59:08.316Z] Model resolved via fallback chain (cross-provider fuzzy match) {"model":"gpt-5.4","match":"azure/gpt-5.4","variant":"medium"}
+[2026-04-02T19:59:08.316Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T19:59:08.316Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T19:59:08.317Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T19:59:08.325Z] Model resolved via config override {"model":"azure/gpt-5.3-codex"}
+[2026-04-02T19:59:08.327Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:59:08.330Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:59:08.330Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T19:59:08.330Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:59:08.330Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:59:08.332Z] [config-handler] agents loaded {"agentKeys":["Sisyphus (Ultraworker)","Hephaestus (Deep Agent)","Prometheus (Plan Builder)","Atlas (Plan Executor)","Sisyphus-Junior","oracle","librarian","explore","multimodal-looker","Metis (Plan Consultant)","Momus (Plan Critic)","build","plan"]}
+[2026-04-02T19:59:08.406Z] [config-handler] config handler applied {"agentCount":13,"commandCount":24}
+[2026-04-02T19:59:08.572Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038cafdffeIKwiUynzmCudh4"}
+[2026-04-02T19:59:08.577Z] [auto-update-checker] Connected providers cache exists, updating in background 
+[2026-04-02T19:59:08.748Z] [model-capabilities-cache] Cache written {"modelCount":2180,"generatedAt":"2026-04-02T19:59:08.735Z"}
+[2026-04-02T19:59:08.787Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038ca13ffe3puShU3Kw5O7bC"}
+[2026-04-02T19:59:08.801Z] [connected-providers-cache] Fetched connected providers {"count":3,"providers":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:59:08.801Z] [connected-providers-cache] Cache written {"count":3}
+[2026-04-02T19:59:08.802Z] [connected-providers-cache] Extracted models from provider list {"providerCount":3,"totalModels":212}
+[2026-04-02T19:59:08.804Z] [connected-providers-cache] Provider-models cache written {"providerCount":3}
+[2026-04-02T19:59:08.851Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038c9d3ffeiYnRR5h1G8VOUx"}
+[2026-04-02T19:59:08.883Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038c9d3ffeiYnRR5h1G8VOUx"}
+[2026-04-02T19:59:08.884Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038c9d3ffeiYnRR5h1G8VOUx"}
+[2026-04-02T19:59:08.887Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038c9d3ffeiYnRR5h1G8VOUx"}
+[2026-04-02T19:59:08.887Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038c9d3ffeiYnRR5h1G8VOUx"}
+[2026-04-02T19:59:08.888Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038c9d3ffeiYnRR5h1G8VOUx"}
+[2026-04-02T19:59:08.933Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:08.965Z] [auto-update-checker] Already on latest version for channel: "latest"
+[2026-04-02T19:59:09.905Z] [DEBUG] experimental.chat.messages.transform called {"messageCount":1}
+[2026-04-02T19:59:09.905Z] [DEBUG] Extracted sessionID {"messageSessionID":"ses_2b038c980ffepN8atYOHn5u495","mainSessionID":"ses_2b038c980ffepN8atYOHn5u495","sessionID":"ses_2b038c980ffepN8atYOHn5u495","infoKeys":["role","time","agent","model","variant","id","sessionID"]}
+[2026-04-02T19:59:09.905Z] [DEBUG] Checking hasPending {"sessionID":"ses_2b038c980ffepN8atYOHn5u495","hasPending":false}
+[2026-04-02T19:59:12.996Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:13.006Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:13.007Z] [atlas] session.idle {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:13.008Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:13.094Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:13.099Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:13.099Z] [atlas] session.idle {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:13.099Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:13.121Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b923ffeM1U3iDRULGWHfS"}
+[2026-04-02T19:59:13.137Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b912ffeKEe7E4NBd7k2D7"}
+[2026-04-02T19:59:13.157Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b8feffeWpGezwyLe2kQSy"}
+[2026-04-02T19:59:13.178Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b8feffeWpGezwyLe2kQSy"}
+[2026-04-02T19:59:13.179Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b8feffeWpGezwyLe2kQSy"}
+[2026-04-02T19:59:13.180Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b8feffeWpGezwyLe2kQSy"}
+[2026-04-02T19:59:13.180Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b8feffeWpGezwyLe2kQSy"}
+[2026-04-02T19:59:13.181Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b8feffeWpGezwyLe2kQSy"}
+[2026-04-02T19:59:13.233Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b8b4ffeO0AWWOrxvdUAlC"}
+[2026-04-02T19:59:13.239Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b8adffeVthLrSjZI4rpUS"}
+[2026-04-02T19:59:13.257Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b89bffe4EZivMWvekUJJJ"}
+[2026-04-02T19:59:13.310Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b865ffeK8gx4eVHSsJvra"}
+[2026-04-02T19:59:13.325Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b856ffeA5gHnk0lnwjnPY"}
+[2026-04-02T19:59:13.330Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b851fferilzCSkPq2YdOA"}
+[2026-04-02T19:59:13.350Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b865ffeK8gx4eVHSsJvra"}
+[2026-04-02T19:59:13.350Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b865ffeK8gx4eVHSsJvra"}
+[2026-04-02T19:59:13.352Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b865ffeK8gx4eVHSsJvra"}
+[2026-04-02T19:59:13.352Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b865ffeK8gx4eVHSsJvra"}
+[2026-04-02T19:59:13.352Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b865ffeK8gx4eVHSsJvra"}
+[2026-04-02T19:59:13.358Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b856ffeA5gHnk0lnwjnPY"}
+[2026-04-02T19:59:13.358Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b856ffeA5gHnk0lnwjnPY"}
+[2026-04-02T19:59:13.360Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b856ffeA5gHnk0lnwjnPY"}
+[2026-04-02T19:59:13.360Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b856ffeA5gHnk0lnwjnPY"}
+[2026-04-02T19:59:13.360Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b856ffeA5gHnk0lnwjnPY"}
+[2026-04-02T19:59:13.366Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b851fferilzCSkPq2YdOA"}
+[2026-04-02T19:59:13.367Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b851fferilzCSkPq2YdOA"}
+[2026-04-02T19:59:13.368Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b851fferilzCSkPq2YdOA"}
+[2026-04-02T19:59:13.368Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b851fferilzCSkPq2YdOA"}
+[2026-04-02T19:59:13.368Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b851fferilzCSkPq2YdOA"}
+[2026-04-02T19:59:13.420Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b7f8ffea0g4gExHQtYVhc"}
+[2026-04-02T19:59:14.365Z] [auto-update-checker] Startup toast shown: v3.14.0 
+[2026-04-02T19:59:14.601Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b35effexvCqDCKP5PXxK8"}
+[2026-04-02T19:59:14.630Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b33fffeSbg8vOqcgjCz2p"}
+[2026-04-02T19:59:14.733Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038b2d9ffeWooxUMyzhsSYtS"}
+[2026-04-02T19:59:14.755Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b2d9ffeWooxUMyzhsSYtS"}
+[2026-04-02T19:59:14.756Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b2d9ffeWooxUMyzhsSYtS"}
+[2026-04-02T19:59:14.757Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b2d9ffeWooxUMyzhsSYtS"}
+[2026-04-02T19:59:14.757Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b2d9ffeWooxUMyzhsSYtS"}
+[2026-04-02T19:59:14.757Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b2d9ffeWooxUMyzhsSYtS"}
+[2026-04-02T19:59:14.796Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038cafdffeIKwiUynzmCudh4"}
+[2026-04-02T19:59:14.797Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038cafdffeIKwiUynzmCudh4"}
+[2026-04-02T19:59:14.798Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038cafdffeIKwiUynzmCudh4"}
+[2026-04-02T19:59:14.798Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038cafdffeIKwiUynzmCudh4"}
+[2026-04-02T19:59:14.798Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038cafdffeIKwiUynzmCudh4"}
+[2026-04-02T19:59:14.820Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038ca13ffe3puShU3Kw5O7bC"}
+[2026-04-02T19:59:14.820Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038ca13ffe3puShU3Kw5O7bC"}
+[2026-04-02T19:59:14.821Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038ca13ffe3puShU3Kw5O7bC"}
+[2026-04-02T19:59:14.822Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038ca13ffe3puShU3Kw5O7bC"}
+[2026-04-02T19:59:14.822Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038ca13ffe3puShU3Kw5O7bC"}
+[2026-04-02T19:59:14.844Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:14.845Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:14.846Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:14.846Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:14.846Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038c980ffepN8atYOHn5u495"}
+[2026-04-02T19:59:14.866Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b923ffeM1U3iDRULGWHfS"}
+[2026-04-02T19:59:14.867Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b923ffeM1U3iDRULGWHfS"}
+[2026-04-02T19:59:14.868Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b923ffeM1U3iDRULGWHfS"}
+[2026-04-02T19:59:14.868Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b923ffeM1U3iDRULGWHfS"}
+[2026-04-02T19:59:14.868Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b923ffeM1U3iDRULGWHfS"}
+[2026-04-02T19:59:14.890Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b912ffeKEe7E4NBd7k2D7"}
+[2026-04-02T19:59:14.890Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b912ffeKEe7E4NBd7k2D7"}
+[2026-04-02T19:59:14.892Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b912ffeKEe7E4NBd7k2D7"}
+[2026-04-02T19:59:14.892Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b912ffeKEe7E4NBd7k2D7"}
+[2026-04-02T19:59:14.892Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b912ffeKEe7E4NBd7k2D7"}
+[2026-04-02T19:59:14.914Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b8b4ffeO0AWWOrxvdUAlC"}
+[2026-04-02T19:59:14.915Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b8b4ffeO0AWWOrxvdUAlC"}
+[2026-04-02T19:59:14.916Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b8b4ffeO0AWWOrxvdUAlC"}
+[2026-04-02T19:59:14.916Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b8b4ffeO0AWWOrxvdUAlC"}
+[2026-04-02T19:59:14.916Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b8b4ffeO0AWWOrxvdUAlC"}
+[2026-04-02T19:59:14.936Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b8adffeVthLrSjZI4rpUS"}
+[2026-04-02T19:59:14.937Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b8adffeVthLrSjZI4rpUS"}
+[2026-04-02T19:59:14.938Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b8adffeVthLrSjZI4rpUS"}
+[2026-04-02T19:59:14.938Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b8adffeVthLrSjZI4rpUS"}
+[2026-04-02T19:59:14.938Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b8adffeVthLrSjZI4rpUS"}
+[2026-04-02T19:59:14.959Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b89bffe4EZivMWvekUJJJ"}
+[2026-04-02T19:59:14.959Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b89bffe4EZivMWvekUJJJ"}
+[2026-04-02T19:59:14.961Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b89bffe4EZivMWvekUJJJ"}
+[2026-04-02T19:59:14.961Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b89bffe4EZivMWvekUJJJ"}
+[2026-04-02T19:59:14.961Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b89bffe4EZivMWvekUJJJ"}
+[2026-04-02T19:59:14.980Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b7f8ffea0g4gExHQtYVhc"}
+[2026-04-02T19:59:14.980Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b7f8ffea0g4gExHQtYVhc"}
+[2026-04-02T19:59:14.981Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b7f8ffea0g4gExHQtYVhc"}
+[2026-04-02T19:59:14.981Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b7f8ffea0g4gExHQtYVhc"}
+[2026-04-02T19:59:14.982Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b7f8ffea0g4gExHQtYVhc"}
+[2026-04-02T19:59:15.000Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b35effexvCqDCKP5PXxK8"}
+[2026-04-02T19:59:15.001Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b35effexvCqDCKP5PXxK8"}
+[2026-04-02T19:59:15.002Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b35effexvCqDCKP5PXxK8"}
+[2026-04-02T19:59:15.002Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b35effexvCqDCKP5PXxK8"}
+[2026-04-02T19:59:15.003Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b35effexvCqDCKP5PXxK8"}
+[2026-04-02T19:59:15.023Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038b33fffeSbg8vOqcgjCz2p"}
+[2026-04-02T19:59:15.023Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038b33fffeSbg8vOqcgjCz2p"}
+[2026-04-02T19:59:15.025Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038b33fffeSbg8vOqcgjCz2p"}
+[2026-04-02T19:59:15.025Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038b33fffeSbg8vOqcgjCz2p"}
+[2026-04-02T19:59:15.025Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038b33fffeSbg8vOqcgjCz2p"}
+[2026-04-02T19:59:15.038Z] [background-agent] Shutting down BackgroundManager 
+[2026-04-02T19:59:15.039Z] [tmux-session-manager] cleanup complete 
+[2026-04-02T19:59:15.039Z] [background-agent] Shutdown complete 
+[2026-04-02T19:59:26.386Z] [OhMyOpenCodePlugin] ENTRY - plugin loading {"directory":"/home/omer/dev/gabi"}
+[2026-04-02T19:59:26.393Z] [OhMyOpenCodePlugin] Legacy plugin entry detected in OpenCode config {"legacyEntries":["oh-my-opencode@latest"],"suggestedEntries":["oh-my-openagent@latest"],"hasCanonicalEntry":false}
+[2026-04-02T19:59:26.394Z] [opencode-server-auth] Failed to inject server auth {"message":"undefined is not an object (evaluating 'this._fns')"}
+[2026-04-02T19:59:26.434Z] Config loaded from /home/omer/.config/opencode/oh-my-opencode.json {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T19:59:26.434Z] Final merged config {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T19:59:26.435Z] [tmux-session-manager] initialized {"configEnabled":false,"tmuxConfig":{"enabled":false,"layout":"main-vertical","main_pane_size":60,"main_pane_min_width":120,"agent_pane_min_width":40},"serverUrl":"http://127.0.0.1:42373/"}
+[2026-04-02T19:59:29.860Z] directory-agents-injector auto-disabled due to native OpenCode support {"currentVersion":"1.3.13","nativeVersion":"1.1.37"}
+[2026-04-02T19:59:29.871Z] Loaded 0 plugins with 0 commands, 0 skills, 0 agents, 0 MCP servers 
+[2026-04-02T19:59:29.936Z] [connected-providers-cache] Read cache {"count":3,"updatedAt":"2026-04-02T19:59:08.801Z"}
+[2026-04-02T19:59:29.939Z] [connected-providers-cache] Read provider-models cache {"providerCount":3,"updatedAt":"2026-04-02T19:59:08.802Z"}
+[2026-04-02T19:59:29.940Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:59:29.940Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T19:59:29.940Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:59:29.942Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T19:59:29.943Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:59:29.944Z] Model resolved via config override {"model":"azure-cognitive-services/claude-haiku-4-5"}
+[2026-04-02T19:59:29.945Z] [fuzzyMatchModel] called {"target":"openai/gpt-5.4","availableCount":212,"providers":["openai"]}
+[2026-04-02T19:59:29.946Z] [fuzzyMatchModel] filtered by providers {"candidateCount":0,"candidates":[]}
+[2026-04-02T19:59:29.946Z] [fuzzyMatchModel] no candidates after filter 
+[2026-04-02T19:59:29.946Z] [fuzzyMatchModel] called {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T19:59:29.946Z] [fuzzyMatchModel] filtered by providers {"candidateCount":7,"candidates":["opencode/big-pickle","opencode/mimo-v2-omni-free","opencode/qwen3.6-plus-free","opencode/gpt-5-nano","opencode/nemotron-3-super-free","opencode/minimax-m2.5-free","opencode/mimo-v2-pro-free"]}
+[2026-04-02T19:59:29.946Z] [fuzzyMatchModel] substring matches {"targetNormalized":"opencode/gpt-5.4","matchCount":0,"matches":[]}
+[2026-04-02T19:59:29.946Z] [fuzzyMatchModel] WARNING: no match found {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T19:59:29.946Z] [fuzzyMatchModel] called {"target":"gpt-5.4","availableCount":212}
+[2026-04-02T19:59:29.946Z] [fuzzyMatchModel] substring matches {"targetNormalized":"gpt-5.4","matchCount":8,"matches":["azure-cognitive-services/gpt-5.4-mini","azure-cognitive-services/gpt-5.4-nano","azure-cognitive-services/gpt-5.4","azure-cognitive-services/gpt-5.4-pro","azure/gpt-5.4-pro","azure/gpt-5.4-mini","azure/gpt-5.4","azure/gpt-5.4-nano"]}
+[2026-04-02T19:59:29.946Z] [fuzzyMatchModel] exact model ID match found {"result":"azure/gpt-5.4","candidateCount":2}
+[2026-04-02T19:59:29.946Z] Model resolved via fallback chain (cross-provider fuzzy match) {"model":"gpt-5.4","match":"azure/gpt-5.4","variant":"medium"}
+[2026-04-02T19:59:29.947Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T19:59:29.947Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T19:59:29.948Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T19:59:29.950Z] Model resolved via config override {"model":"azure/gpt-5.3-codex"}
+[2026-04-02T19:59:29.951Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:59:29.954Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:59:29.954Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T19:59:29.954Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:59:29.954Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T19:59:29.955Z] [config-handler] agents loaded {"agentKeys":["Sisyphus (Ultraworker)","Hephaestus (Deep Agent)","Prometheus (Plan Builder)","Atlas (Plan Executor)","Sisyphus-Junior","oracle","librarian","explore","multimodal-looker","Metis (Plan Consultant)","Momus (Plan Critic)","build","plan"]}
+[2026-04-02T19:59:30.013Z] [config-handler] config handler applied {"agentCount":13,"commandCount":24}
+[2026-04-02T19:59:30.186Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038768dfferX0jFfQ0onmbyi"}
+[2026-04-02T19:59:30.191Z] [auto-update-checker] Connected providers cache exists, updating in background 
+[2026-04-02T19:59:30.381Z] [model-capabilities-cache] Cache written {"modelCount":2180,"generatedAt":"2026-04-02T19:59:30.373Z"}
+[2026-04-02T19:59:30.429Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0387588ffeE7EeFkfSjMDEZo"}
+[2026-04-02T19:59:30.442Z] [connected-providers-cache] Fetched connected providers {"count":3,"providers":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T19:59:30.443Z] [connected-providers-cache] Cache written {"count":3}
+[2026-04-02T19:59:30.443Z] [connected-providers-cache] Extracted models from provider list {"providerCount":3,"totalModels":212}
+[2026-04-02T19:59:30.446Z] [connected-providers-cache] Provider-models cache written {"providerCount":3}
+[2026-04-02T19:59:30.485Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0387550ffekWMETMclXc9oeF"}
+[2026-04-02T19:59:30.513Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0387550ffekWMETMclXc9oeF"}
+[2026-04-02T19:59:30.513Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0387550ffekWMETMclXc9oeF"}
+[2026-04-02T19:59:30.516Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0387550ffekWMETMclXc9oeF"}
+[2026-04-02T19:59:30.516Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0387550ffekWMETMclXc9oeF"}
+[2026-04-02T19:59:30.516Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0387550ffekWMETMclXc9oeF"}
+[2026-04-02T19:59:30.539Z] [auto-update-checker] Already on latest version for channel: "latest"
+[2026-04-02T19:59:30.560Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:31.468Z] [DEBUG] experimental.chat.messages.transform called {"messageCount":1}
+[2026-04-02T19:59:31.468Z] [DEBUG] Extracted sessionID {"messageSessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ","mainSessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ","sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ","infoKeys":["role","time","agent","model","variant","id","sessionID"]}
+[2026-04-02T19:59:31.469Z] [DEBUG] Checking hasPending {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ","hasPending":false}
+[2026-04-02T19:59:34.804Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:34.815Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:34.816Z] [atlas] session.idle {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:34.817Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:34.891Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:34.896Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:34.896Z] [atlas] session.idle {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:34.897Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:34.918Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b03863fdffeXq91VBHq3DuReC"}
+[2026-04-02T19:59:34.939Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b03863e9ffe5Eep9XHMD6B6kM"}
+[2026-04-02T19:59:34.960Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b03863d5ffeC4fPMzrrlMB67v"}
+[2026-04-02T19:59:34.980Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b03863d5ffeC4fPMzrrlMB67v"}
+[2026-04-02T19:59:34.981Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b03863d5ffeC4fPMzrrlMB67v"}
+[2026-04-02T19:59:34.982Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b03863d5ffeC4fPMzrrlMB67v"}
+[2026-04-02T19:59:34.982Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b03863d5ffeC4fPMzrrlMB67v"}
+[2026-04-02T19:59:34.982Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b03863d5ffeC4fPMzrrlMB67v"}
+[2026-04-02T19:59:35.026Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0386393ffetFxuGVW4eyp2x1"}
+[2026-04-02T19:59:35.042Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0386381ffegHA7XYJlvCas3e"}
+[2026-04-02T19:59:35.058Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0386372ffeabRo7riWxlklH9"}
+[2026-04-02T19:59:35.112Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b038633dffe20oFMHBLQ3yrWu"}
+[2026-04-02T19:59:35.117Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0386336ffeAnWsoAIbrvXk4c"}
+[2026-04-02T19:59:35.123Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0386331ffenDG8VCD9qyUjar"}
+[2026-04-02T19:59:35.146Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038633dffe20oFMHBLQ3yrWu"}
+[2026-04-02T19:59:35.146Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038633dffe20oFMHBLQ3yrWu"}
+[2026-04-02T19:59:35.147Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038633dffe20oFMHBLQ3yrWu"}
+[2026-04-02T19:59:35.147Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038633dffe20oFMHBLQ3yrWu"}
+[2026-04-02T19:59:35.148Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038633dffe20oFMHBLQ3yrWu"}
+[2026-04-02T19:59:35.168Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0386336ffeAnWsoAIbrvXk4c"}
+[2026-04-02T19:59:35.168Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0386336ffeAnWsoAIbrvXk4c"}
+[2026-04-02T19:59:35.170Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0386336ffeAnWsoAIbrvXk4c"}
+[2026-04-02T19:59:35.170Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0386336ffeAnWsoAIbrvXk4c"}
+[2026-04-02T19:59:35.170Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0386336ffeAnWsoAIbrvXk4c"}
+[2026-04-02T19:59:35.176Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0386331ffenDG8VCD9qyUjar"}
+[2026-04-02T19:59:35.177Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0386331ffenDG8VCD9qyUjar"}
+[2026-04-02T19:59:35.178Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0386331ffenDG8VCD9qyUjar"}
+[2026-04-02T19:59:35.178Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0386331ffenDG8VCD9qyUjar"}
+[2026-04-02T19:59:35.178Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0386331ffenDG8VCD9qyUjar"}
+[2026-04-02T19:59:35.222Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b03862ceffe31616lMbndS2SR"}
+[2026-04-02T19:59:35.957Z] [auto-update-checker] Startup toast shown: v3.14.0 
+[2026-04-02T19:59:36.392Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0385e3dffeaU3u48ZGX3kneM"}
+[2026-04-02T19:59:36.419Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0385e21ffeu1JEHbD2U0jD9e"}
+[2026-04-02T19:59:36.493Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b0385dd7ffeBpqlXu2x3hTc28"}
+[2026-04-02T19:59:36.515Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0385dd7ffeBpqlXu2x3hTc28"}
+[2026-04-02T19:59:36.516Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0385dd7ffeBpqlXu2x3hTc28"}
+[2026-04-02T19:59:36.518Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0385dd7ffeBpqlXu2x3hTc28"}
+[2026-04-02T19:59:36.518Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0385dd7ffeBpqlXu2x3hTc28"}
+[2026-04-02T19:59:36.518Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0385dd7ffeBpqlXu2x3hTc28"}
+[2026-04-02T19:59:36.555Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b038768dfferX0jFfQ0onmbyi"}
+[2026-04-02T19:59:36.555Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b038768dfferX0jFfQ0onmbyi"}
+[2026-04-02T19:59:36.557Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b038768dfferX0jFfQ0onmbyi"}
+[2026-04-02T19:59:36.557Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b038768dfferX0jFfQ0onmbyi"}
+[2026-04-02T19:59:36.557Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b038768dfferX0jFfQ0onmbyi"}
+[2026-04-02T19:59:36.575Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0387588ffeE7EeFkfSjMDEZo"}
+[2026-04-02T19:59:36.575Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0387588ffeE7EeFkfSjMDEZo"}
+[2026-04-02T19:59:36.577Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0387588ffeE7EeFkfSjMDEZo"}
+[2026-04-02T19:59:36.577Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0387588ffeE7EeFkfSjMDEZo"}
+[2026-04-02T19:59:36.577Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0387588ffeE7EeFkfSjMDEZo"}
+[2026-04-02T19:59:36.596Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:36.597Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:36.598Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:36.598Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:36.598Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0387505ffexgH3ZGN4cFCOaJ"}
+[2026-04-02T19:59:36.617Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b03863fdffeXq91VBHq3DuReC"}
+[2026-04-02T19:59:36.617Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b03863fdffeXq91VBHq3DuReC"}
+[2026-04-02T19:59:36.619Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b03863fdffeXq91VBHq3DuReC"}
+[2026-04-02T19:59:36.619Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b03863fdffeXq91VBHq3DuReC"}
+[2026-04-02T19:59:36.619Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b03863fdffeXq91VBHq3DuReC"}
+[2026-04-02T19:59:36.637Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b03863e9ffe5Eep9XHMD6B6kM"}
+[2026-04-02T19:59:36.638Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b03863e9ffe5Eep9XHMD6B6kM"}
+[2026-04-02T19:59:36.639Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b03863e9ffe5Eep9XHMD6B6kM"}
+[2026-04-02T19:59:36.639Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b03863e9ffe5Eep9XHMD6B6kM"}
+[2026-04-02T19:59:36.639Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b03863e9ffe5Eep9XHMD6B6kM"}
+[2026-04-02T19:59:36.663Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0386393ffetFxuGVW4eyp2x1"}
+[2026-04-02T19:59:36.664Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0386393ffetFxuGVW4eyp2x1"}
+[2026-04-02T19:59:36.665Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0386393ffetFxuGVW4eyp2x1"}
+[2026-04-02T19:59:36.665Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0386393ffetFxuGVW4eyp2x1"}
+[2026-04-02T19:59:36.665Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0386393ffetFxuGVW4eyp2x1"}
+[2026-04-02T19:59:36.691Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0386381ffegHA7XYJlvCas3e"}
+[2026-04-02T19:59:36.691Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0386381ffegHA7XYJlvCas3e"}
+[2026-04-02T19:59:36.693Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0386381ffegHA7XYJlvCas3e"}
+[2026-04-02T19:59:36.693Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0386381ffegHA7XYJlvCas3e"}
+[2026-04-02T19:59:36.693Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0386381ffegHA7XYJlvCas3e"}
+[2026-04-02T19:59:36.728Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0386372ffeabRo7riWxlklH9"}
+[2026-04-02T19:59:36.728Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0386372ffeabRo7riWxlklH9"}
+[2026-04-02T19:59:36.730Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0386372ffeabRo7riWxlklH9"}
+[2026-04-02T19:59:36.730Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0386372ffeabRo7riWxlklH9"}
+[2026-04-02T19:59:36.730Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0386372ffeabRo7riWxlklH9"}
+[2026-04-02T19:59:36.753Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b03862ceffe31616lMbndS2SR"}
+[2026-04-02T19:59:36.754Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b03862ceffe31616lMbndS2SR"}
+[2026-04-02T19:59:36.755Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b03862ceffe31616lMbndS2SR"}
+[2026-04-02T19:59:36.755Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b03862ceffe31616lMbndS2SR"}
+[2026-04-02T19:59:36.755Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b03862ceffe31616lMbndS2SR"}
+[2026-04-02T19:59:36.779Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0385e3dffeaU3u48ZGX3kneM"}
+[2026-04-02T19:59:36.779Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0385e3dffeaU3u48ZGX3kneM"}
+[2026-04-02T19:59:36.781Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0385e3dffeaU3u48ZGX3kneM"}
+[2026-04-02T19:59:36.781Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0385e3dffeaU3u48ZGX3kneM"}
+[2026-04-02T19:59:36.781Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0385e3dffeaU3u48ZGX3kneM"}
+[2026-04-02T19:59:36.804Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b0385e21ffeu1JEHbD2U0jD9e"}
+[2026-04-02T19:59:36.804Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b0385e21ffeu1JEHbD2U0jD9e"}
+[2026-04-02T19:59:36.806Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b0385e21ffeu1JEHbD2U0jD9e"}
+[2026-04-02T19:59:36.806Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b0385e21ffeu1JEHbD2U0jD9e"}
+[2026-04-02T19:59:36.806Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b0385e21ffeu1JEHbD2U0jD9e"}
+[2026-04-02T19:59:36.823Z] [background-agent] Shutting down BackgroundManager 
+[2026-04-02T19:59:36.824Z] [tmux-session-manager] cleanup complete 
+[2026-04-02T19:59:36.825Z] [background-agent] Shutdown complete 
+[2026-04-02T20:00:02.754Z] [OhMyOpenCodePlugin] ENTRY - plugin loading {"directory":"/home/omer/dev/gabi"}
+[2026-04-02T20:00:02.760Z] [OhMyOpenCodePlugin] Legacy plugin entry detected in OpenCode config {"legacyEntries":["oh-my-opencode@latest"],"suggestedEntries":["oh-my-openagent@latest"],"hasCanonicalEntry":false}
+[2026-04-02T20:00:02.760Z] [opencode-server-auth] Failed to inject server auth {"message":"undefined is not an object (evaluating 'this._fns')"}
+[2026-04-02T20:00:02.787Z] Config loaded from /home/omer/.config/opencode/oh-my-opencode.json {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T20:00:02.787Z] Final merged config {"agents":{"sisyphus":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max","temperature":0.7,"ultrawork":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"max"}},"hephaestus":{"model":"azure/gpt-5.3-codex","variant":"medium","temperature":0.5},"sisyphus-junior":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.1},"prometheus":{"model":"azure-cognitive-services/claude-sonnet-4-6","variant":"max","temperature":0.8,"prompt_append":"Leverage deep & quick agents heavily, always in parallel."},"metis":{"model":"azure-cognitive-services/claude-opus-4-6","variant":"high"},"momus":{"model":"azure/gpt-5.4","variant":"xhigh"},"oracle":{"model":"azure/gpt-5.4","variant":"high","temperature":0.3},"librarian":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.2},"explore":{"model":"azure-cognitive-services/claude-haiku-4-5","temperature":0.1},"atlas":{"model":"azure-cognitive-services/claude-sonnet-4-6","temperature":0.6}}}
+[2026-04-02T20:00:02.788Z] [tmux-session-manager] initialized {"configEnabled":false,"tmuxConfig":{"enabled":false,"layout":"main-vertical","main_pane_size":60,"main_pane_min_width":120,"agent_pane_min_width":40},"serverUrl":"http://127.0.0.1:28603/"}
+[2026-04-02T20:00:05.306Z] directory-agents-injector auto-disabled due to native OpenCode support {"currentVersion":"1.3.13","nativeVersion":"1.1.37"}
+[2026-04-02T20:00:05.314Z] Loaded 0 plugins with 0 commands, 0 skills, 0 agents, 0 MCP servers 
+[2026-04-02T20:00:05.378Z] [connected-providers-cache] Read cache {"count":3,"updatedAt":"2026-04-02T19:59:30.443Z"}
+[2026-04-02T20:00:05.381Z] [connected-providers-cache] Read provider-models cache {"providerCount":3,"updatedAt":"2026-04-02T19:59:30.444Z"}
+[2026-04-02T20:00:05.383Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T20:00:05.383Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T20:00:05.383Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T20:00:05.384Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T20:00:05.385Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T20:00:05.388Z] Model resolved via config override {"model":"azure-cognitive-services/claude-haiku-4-5"}
+[2026-04-02T20:00:05.388Z] [fuzzyMatchModel] called {"target":"openai/gpt-5.4","availableCount":212,"providers":["openai"]}
+[2026-04-02T20:00:05.389Z] [fuzzyMatchModel] filtered by providers {"candidateCount":0,"candidates":[]}
+[2026-04-02T20:00:05.389Z] [fuzzyMatchModel] no candidates after filter 
+[2026-04-02T20:00:05.389Z] [fuzzyMatchModel] called {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T20:00:05.389Z] [fuzzyMatchModel] filtered by providers {"candidateCount":7,"candidates":["opencode/big-pickle","opencode/mimo-v2-omni-free","opencode/qwen3.6-plus-free","opencode/gpt-5-nano","opencode/nemotron-3-super-free","opencode/minimax-m2.5-free","opencode/mimo-v2-pro-free"]}
+[2026-04-02T20:00:05.389Z] [fuzzyMatchModel] substring matches {"targetNormalized":"opencode/gpt-5.4","matchCount":0,"matches":[]}
+[2026-04-02T20:00:05.389Z] [fuzzyMatchModel] WARNING: no match found {"target":"opencode/gpt-5.4","availableCount":212,"providers":["opencode"]}
+[2026-04-02T20:00:05.389Z] [fuzzyMatchModel] called {"target":"gpt-5.4","availableCount":212}
+[2026-04-02T20:00:05.390Z] [fuzzyMatchModel] substring matches {"targetNormalized":"gpt-5.4","matchCount":8,"matches":["azure-cognitive-services/gpt-5.4-mini","azure-cognitive-services/gpt-5.4-nano","azure-cognitive-services/gpt-5.4","azure-cognitive-services/gpt-5.4-pro","azure/gpt-5.4-pro","azure/gpt-5.4-mini","azure/gpt-5.4","azure/gpt-5.4-nano"]}
+[2026-04-02T20:00:05.390Z] [fuzzyMatchModel] exact model ID match found {"result":"azure/gpt-5.4","candidateCount":2}
+[2026-04-02T20:00:05.390Z] Model resolved via fallback chain (cross-provider fuzzy match) {"model":"gpt-5.4","match":"azure/gpt-5.4","variant":"medium"}
+[2026-04-02T20:00:05.390Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T20:00:05.390Z] Model resolved via config override {"model":"azure/gpt-5.4"}
+[2026-04-02T20:00:05.391Z] Model resolved via config override {"model":"azure-cognitive-services/claude-opus-4-6"}
+[2026-04-02T20:00:05.394Z] Model resolved via config override {"model":"azure/gpt-5.3-codex"}
+[2026-04-02T20:00:05.395Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T20:00:05.398Z] [fetchAvailableModels] CALLED {"connectedProvidersUnknown":false,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T20:00:05.398Z] [fetchAvailableModels] using provider-models cache (whitelist-filtered) 
+[2026-04-02T20:00:05.398Z] [fetchAvailableModels] parsed from provider-models cache {"count":212,"connectedProviders":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T20:00:05.398Z] Model resolved via config override {"model":"azure-cognitive-services/claude-sonnet-4-6"}
+[2026-04-02T20:00:05.399Z] [config-handler] agents loaded {"agentKeys":["Sisyphus (Ultraworker)","Hephaestus (Deep Agent)","Prometheus (Plan Builder)","Atlas (Plan Executor)","Sisyphus-Junior","oracle","librarian","explore","multimodal-looker","Metis (Plan Consultant)","Momus (Plan Critic)","build","plan"]}
+[2026-04-02T20:00:05.451Z] [config-handler] config handler applied {"agentCount":13,"commandCount":24}
+[2026-04-02T20:00:05.620Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037ec2bffeCZXhxQNuG9pTN9"}
+[2026-04-02T20:00:05.627Z] [auto-update-checker] Connected providers cache exists, updating in background 
+[2026-04-02T20:00:05.797Z] [model-capabilities-cache] Cache written {"modelCount":2180,"generatedAt":"2026-04-02T20:00:05.787Z"}
+[2026-04-02T20:00:05.843Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037eb32ffeuhLNf23qXJ6Rvb"}
+[2026-04-02T20:00:05.858Z] [connected-providers-cache] Fetched connected providers {"count":3,"providers":["azure","azure-cognitive-services","opencode"]}
+[2026-04-02T20:00:05.859Z] [connected-providers-cache] Cache written {"count":3}
+[2026-04-02T20:00:05.859Z] [connected-providers-cache] Extracted models from provider list {"providerCount":3,"totalModels":212}
+[2026-04-02T20:00:05.862Z] [connected-providers-cache] Provider-models cache written {"providerCount":3}
+[2026-04-02T20:00:05.911Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037eaedffeD1b1MXj7WRLtAv"}
+[2026-04-02T20:00:05.941Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037eaedffeD1b1MXj7WRLtAv"}
+[2026-04-02T20:00:05.942Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037eaedffeD1b1MXj7WRLtAv"}
+[2026-04-02T20:00:05.945Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037eaedffeD1b1MXj7WRLtAv"}
+[2026-04-02T20:00:05.945Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037eaedffeD1b1MXj7WRLtAv"}
+[2026-04-02T20:00:05.946Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037eaedffeD1b1MXj7WRLtAv"}
+[2026-04-02T20:00:05.967Z] [auto-update-checker] Already on latest version for channel: "latest"
+[2026-04-02T20:00:05.989Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:07.033Z] [DEBUG] experimental.chat.messages.transform called {"messageCount":1}
+[2026-04-02T20:00:07.033Z] [DEBUG] Extracted sessionID {"messageSessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y","mainSessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y","sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y","infoKeys":["role","time","agent","model","variant","id","sessionID"]}
+[2026-04-02T20:00:07.033Z] [DEBUG] Checking hasPending {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y","hasPending":false}
+[2026-04-02T20:00:10.663Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:10.675Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:10.676Z] [atlas] session.idle {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:10.677Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:10.786Z] [todo-continuation-enforcer] session.idle {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:10.792Z] [todo-continuation-enforcer] No todos {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:10.792Z] [atlas] session.idle {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:10.793Z] [atlas] Skipped: session not registered in active boulder {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:10.811Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d7c9ffezOUN18HJTqE3Mt"}
+[2026-04-02T20:00:10.832Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d7b4ffe2oD9jSgeUtN0Dv"}
+[2026-04-02T20:00:10.848Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d7a3ffe24LFCAKXzVfI0c"}
+[2026-04-02T20:00:10.872Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d7a3ffe24LFCAKXzVfI0c"}
+[2026-04-02T20:00:10.872Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d7a3ffe24LFCAKXzVfI0c"}
+[2026-04-02T20:00:10.873Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d7a3ffe24LFCAKXzVfI0c"}
+[2026-04-02T20:00:10.873Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d7a3ffe24LFCAKXzVfI0c"}
+[2026-04-02T20:00:10.874Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d7a3ffe24LFCAKXzVfI0c"}
+[2026-04-02T20:00:10.916Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d760ffec1lX11pswNp8zj"}
+[2026-04-02T20:00:10.937Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d74bffe9FwB4Mar5NLZ5C"}
+[2026-04-02T20:00:10.955Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d739ffeww4hH5dWr8gaVC"}
+[2026-04-02T20:00:10.994Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d711ffe2HxPc4S0irfF2f"}
+[2026-04-02T20:00:11.013Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d6ffffeLQer3Bm4cKiMDF"}
+[2026-04-02T20:00:11.018Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d6f9ffeGl8POKDCQYZqWc"}
+[2026-04-02T20:00:11.043Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d711ffe2HxPc4S0irfF2f"}
+[2026-04-02T20:00:11.043Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d711ffe2HxPc4S0irfF2f"}
+[2026-04-02T20:00:11.045Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d711ffe2HxPc4S0irfF2f"}
+[2026-04-02T20:00:11.045Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d711ffe2HxPc4S0irfF2f"}
+[2026-04-02T20:00:11.045Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d711ffe2HxPc4S0irfF2f"}
+[2026-04-02T20:00:11.066Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d6ffffeLQer3Bm4cKiMDF"}
+[2026-04-02T20:00:11.066Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d6ffffeLQer3Bm4cKiMDF"}
+[2026-04-02T20:00:11.068Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d6ffffeLQer3Bm4cKiMDF"}
+[2026-04-02T20:00:11.068Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d6ffffeLQer3Bm4cKiMDF"}
+[2026-04-02T20:00:11.068Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d6ffffeLQer3Bm4cKiMDF"}
+[2026-04-02T20:00:11.076Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d6f9ffeGl8POKDCQYZqWc"}
+[2026-04-02T20:00:11.076Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d6f9ffeGl8POKDCQYZqWc"}
+[2026-04-02T20:00:11.078Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d6f9ffeGl8POKDCQYZqWc"}
+[2026-04-02T20:00:11.078Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d6f9ffeGl8POKDCQYZqWc"}
+[2026-04-02T20:00:11.079Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d6f9ffeGl8POKDCQYZqWc"}
+[2026-04-02T20:00:11.138Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d682ffeH6qZH5HbmoH72H"}
+[2026-04-02T20:00:11.513Z] [auto-update-checker] Startup toast shown: v3.14.0 
+[2026-04-02T20:00:12.326Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d1dfffeGMmsaXQHAHTVoW"}
+[2026-04-02T20:00:12.341Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d1d1ffen5QapB3UUlCxr3"}
+[2026-04-02T20:00:12.412Z] [tmux-session-manager] onSessionCreated called {"enabled":false,"tmuxConfigEnabled":false,"isInsideTmux":false,"eventType":"session.created","infoId":"ses_2b037d189ffe4y57LhMS1rJI9Z"}
+[2026-04-02T20:00:12.432Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d189ffe4y57LhMS1rJI9Z"}
+[2026-04-02T20:00:12.432Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d189ffe4y57LhMS1rJI9Z"}
+[2026-04-02T20:00:12.434Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d189ffe4y57LhMS1rJI9Z"}
+[2026-04-02T20:00:12.434Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d189ffe4y57LhMS1rJI9Z"}
+[2026-04-02T20:00:12.434Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d189ffe4y57LhMS1rJI9Z"}
+[2026-04-02T20:00:12.467Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037ec2bffeCZXhxQNuG9pTN9"}
+[2026-04-02T20:00:12.468Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037ec2bffeCZXhxQNuG9pTN9"}
+[2026-04-02T20:00:12.469Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037ec2bffeCZXhxQNuG9pTN9"}
+[2026-04-02T20:00:12.469Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037ec2bffeCZXhxQNuG9pTN9"}
+[2026-04-02T20:00:12.469Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037ec2bffeCZXhxQNuG9pTN9"}
+[2026-04-02T20:00:12.490Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037eb32ffeuhLNf23qXJ6Rvb"}
+[2026-04-02T20:00:12.491Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037eb32ffeuhLNf23qXJ6Rvb"}
+[2026-04-02T20:00:12.492Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037eb32ffeuhLNf23qXJ6Rvb"}
+[2026-04-02T20:00:12.492Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037eb32ffeuhLNf23qXJ6Rvb"}
+[2026-04-02T20:00:12.493Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037eb32ffeuhLNf23qXJ6Rvb"}
+[2026-04-02T20:00:12.516Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:12.517Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:12.519Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:12.519Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:12.519Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037eaa0ffev7gt9vJE75fr6Y"}
+[2026-04-02T20:00:12.538Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d7c9ffezOUN18HJTqE3Mt"}
+[2026-04-02T20:00:12.539Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d7c9ffezOUN18HJTqE3Mt"}
+[2026-04-02T20:00:12.540Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d7c9ffezOUN18HJTqE3Mt"}
+[2026-04-02T20:00:12.540Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d7c9ffezOUN18HJTqE3Mt"}
+[2026-04-02T20:00:12.540Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d7c9ffezOUN18HJTqE3Mt"}
+[2026-04-02T20:00:12.560Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d7b4ffe2oD9jSgeUtN0Dv"}
+[2026-04-02T20:00:12.560Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d7b4ffe2oD9jSgeUtN0Dv"}
+[2026-04-02T20:00:12.562Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d7b4ffe2oD9jSgeUtN0Dv"}
+[2026-04-02T20:00:12.562Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d7b4ffe2oD9jSgeUtN0Dv"}
+[2026-04-02T20:00:12.562Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d7b4ffe2oD9jSgeUtN0Dv"}
+[2026-04-02T20:00:12.584Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d760ffec1lX11pswNp8zj"}
+[2026-04-02T20:00:12.584Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d760ffec1lX11pswNp8zj"}
+[2026-04-02T20:00:12.585Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d760ffec1lX11pswNp8zj"}
+[2026-04-02T20:00:12.585Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d760ffec1lX11pswNp8zj"}
+[2026-04-02T20:00:12.585Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d760ffec1lX11pswNp8zj"}
+[2026-04-02T20:00:12.606Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d74bffe9FwB4Mar5NLZ5C"}
+[2026-04-02T20:00:12.606Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d74bffe9FwB4Mar5NLZ5C"}
+[2026-04-02T20:00:12.607Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d74bffe9FwB4Mar5NLZ5C"}
+[2026-04-02T20:00:12.607Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d74bffe9FwB4Mar5NLZ5C"}
+[2026-04-02T20:00:12.608Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d74bffe9FwB4Mar5NLZ5C"}
+[2026-04-02T20:00:12.628Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d739ffeww4hH5dWr8gaVC"}
+[2026-04-02T20:00:12.629Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d739ffeww4hH5dWr8gaVC"}
+[2026-04-02T20:00:12.630Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d739ffeww4hH5dWr8gaVC"}
+[2026-04-02T20:00:12.630Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d739ffeww4hH5dWr8gaVC"}
+[2026-04-02T20:00:12.630Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d739ffeww4hH5dWr8gaVC"}
+[2026-04-02T20:00:12.652Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d682ffeH6qZH5HbmoH72H"}
+[2026-04-02T20:00:12.652Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d682ffeH6qZH5HbmoH72H"}
+[2026-04-02T20:00:12.654Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d682ffeH6qZH5HbmoH72H"}
+[2026-04-02T20:00:12.654Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d682ffeH6qZH5HbmoH72H"}
+[2026-04-02T20:00:12.654Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d682ffeH6qZH5HbmoH72H"}
+[2026-04-02T20:00:12.677Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d1dfffeGMmsaXQHAHTVoW"}
+[2026-04-02T20:00:12.678Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d1dfffeGMmsaXQHAHTVoW"}
+[2026-04-02T20:00:12.680Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d1dfffeGMmsaXQHAHTVoW"}
+[2026-04-02T20:00:12.680Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d1dfffeGMmsaXQHAHTVoW"}
+[2026-04-02T20:00:12.680Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d1dfffeGMmsaXQHAHTVoW"}
+[2026-04-02T20:00:12.702Z] [todo-continuation-enforcer] Session deleted: cleaned up {"sessionID":"ses_2b037d1d1ffen5QapB3UUlCxr3"}
+[2026-04-02T20:00:12.702Z] [runtime-fallback] Cleaning up session state {"sessionID":"ses_2b037d1d1ffen5QapB3UUlCxr3"}
+[2026-04-02T20:00:12.704Z] [stop-continuation-guard] Continuation guard cleared for session {"sessionID":"ses_2b037d1d1ffen5QapB3UUlCxr3"}
+[2026-04-02T20:00:12.704Z] [stop-continuation-guard] Session deleted: cleaned up {"sessionID":"ses_2b037d1d1ffen5QapB3UUlCxr3"}
+[2026-04-02T20:00:12.704Z] [atlas] Session deleted: cleaned up {"sessionID":"ses_2b037d1d1ffen5QapB3UUlCxr3"}
+[2026-04-02T20:00:12.720Z] [background-agent] Shutting down BackgroundManager 
+[2026-04-02T20:00:12.721Z] [tmux-session-manager] cleanup complete 
+[2026-04-02T20:00:12.722Z] [background-agent] Shutdown complete 

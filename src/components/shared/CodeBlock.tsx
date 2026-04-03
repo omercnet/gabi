@@ -1,7 +1,9 @@
+import Feather from "@expo/vector-icons/Feather";
 import * as Clipboard from "expo-clipboard";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { Platform, Pressable, ScrollView, Text, View } from "react-native";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 // react-syntax-highlighter may have issues on native, so we try/catch
 let SyntaxHighlighter: React.ComponentType<{
@@ -36,12 +38,19 @@ interface Props {
 export function CodeBlock({ code, language, showLineNumbers = false }: Props) {
   const [copied, setCopied] = useState(false);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isMobile = useIsMobile();
+  const [wordWrap, setWordWrap] = useState(isMobile);
 
   useEffect(() => {
     return () => {
       if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
     };
   }, []);
+
+  // Sync wordWrap default when viewport crosses the mobile breakpoint
+  useEffect(() => {
+    setWordWrap(isMobile);
+  }, [isMobile]);
 
   const handleCopy = async () => {
     await Clipboard.setStringAsync(code);
@@ -58,19 +67,28 @@ export function CodeBlock({ code, language, showLineNumbers = false }: Props) {
         {/* Header */}
         <View className="flex-row items-center justify-between bg-surface px-3 py-2 dark:bg-surface">
           <Text className="font-mono text-muted text-xs">{displayLanguage}</Text>
-          <Pressable
-            onPress={handleCopy}
-            className="rounded px-2 py-1"
-            accessibilityLabel={copied ? "Copied!" : "Copy code"}
-          >
-            <Text className="text-muted text-xs dark:text-muted">
-              {copied ? "✓ Copied!" : "Copy"}
-            </Text>
-          </Pressable>
+          <View className="flex-row items-center gap-1">
+            <Pressable
+              onPress={() => setWordWrap(!wordWrap)}
+              className="rounded px-2 py-1 active:opacity-80"
+              accessibilityLabel={wordWrap ? "Disable word wrap" : "Enable word wrap"}
+            >
+              <Feather name={wordWrap ? "align-left" : "code"} size={14} className="text-muted" />
+            </Pressable>
+            <Pressable
+              onPress={handleCopy}
+              className="rounded px-2 py-1 active:opacity-80"
+              accessibilityLabel={copied ? "Copied!" : "Copy code"}
+            >
+              <Text className="text-muted text-xs dark:text-muted">
+                {copied ? "✓ Copied!" : "Copy"}
+              </Text>
+            </Pressable>
+          </View>
         </View>
 
         {/* Code with syntax highlighting */}
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
+        {wordWrap ? (
           <SyntaxHighlighter
             language={displayLanguage}
             style={atomOneDark}
@@ -81,11 +99,30 @@ export function CodeBlock({ code, language, showLineNumbers = false }: Props) {
               background: "transparent",
               fontSize: "13px",
               lineHeight: "1.5",
+              whiteSpace: "pre-wrap",
+              wordBreak: "break-word",
             }}
           >
             {code}
           </SyntaxHighlighter>
-        </ScrollView>
+        ) : (
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
+            <SyntaxHighlighter
+              language={displayLanguage}
+              style={atomOneDark}
+              showLineNumbers={showLineNumbers}
+              customStyle={{
+                margin: 0,
+                padding: "12px",
+                background: "transparent",
+                fontSize: "13px",
+                lineHeight: "1.5",
+              }}
+            >
+              {code}
+            </SyntaxHighlighter>
+          </ScrollView>
+        )}
       </View>
     );
   }
@@ -96,26 +133,49 @@ export function CodeBlock({ code, language, showLineNumbers = false }: Props) {
       {/* Header */}
       <View className="flex-row items-center justify-between bg-surface px-3 py-2">
         <Text className="font-mono text-muted text-xs">{displayLanguage}</Text>
-        <Pressable
-          onPress={handleCopy}
-          className="rounded px-2 py-1"
-          accessibilityLabel={copied ? "Copied!" : "Copy code"}
-        >
-          <Text className="text-muted text-xs">{copied ? "✓ Copied!" : "Copy"}</Text>
-        </Pressable>
+        <View className="flex-row items-center gap-1">
+          <Pressable
+            onPress={() => setWordWrap(!wordWrap)}
+            className="rounded px-2 py-1 active:opacity-80"
+            accessibilityLabel={wordWrap ? "Disable word wrap" : "Enable word wrap"}
+          >
+            <Feather name={wordWrap ? "align-left" : "code"} size={14} className="text-muted" />
+          </Pressable>
+          <Pressable
+            onPress={handleCopy}
+            className="rounded px-2 py-1 active:opacity-80"
+            accessibilityLabel={copied ? "Copied!" : "Copy code"}
+          >
+            <Text className="text-muted text-xs">{copied ? "✓ Copied!" : "Copy"}</Text>
+          </Pressable>
+        </View>
       </View>
 
       {/* Code body */}
-      <ScrollView
-        horizontal={true}
-        showsHorizontalScrollIndicator={true}
-        className="bg-surface/50"
-        contentContainerStyle={{ padding: 12 }}
-      >
-        <Text className="font-mono text-foreground text-xs dark:text-foreground" selectable={true}>
-          {code}
-        </Text>
-      </ScrollView>
+      {wordWrap ? (
+        <View className="bg-surface/50" style={{ padding: 12 }}>
+          <Text
+            className="font-mono text-foreground text-xs dark:text-foreground"
+            selectable={true}
+          >
+            {code}
+          </Text>
+        </View>
+      ) : (
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={true}
+          className="bg-surface/50"
+          contentContainerStyle={{ padding: 12 }}
+        >
+          <Text
+            className="font-mono text-foreground text-xs dark:text-foreground"
+            selectable={true}
+          >
+            {code}
+          </Text>
+        </ScrollView>
+      )}
     </View>
   );
 }
