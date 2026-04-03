@@ -8,7 +8,10 @@
       "!.expo",
       "!.sisyphus",
       "!sessions",
-      "!sessions.tar.gz"
+      "!sessions.tar.gz",
+      "!._sessions",
+      "!src/__integration__/fixtures",
+      "!.beads"
     ]
   },
   "formatter": {
