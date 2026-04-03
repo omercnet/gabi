@@ -36,4 +36,57 @@ describe("session message loading contract (red)", () => {
     });
     expect(useMessageStore.getState().messagesBySession[sessionId]).toEqual(expectedMessages);
   });
+
+  it("does NOT fetch again if messages are already loaded (deduplication by cache)", async () => {
+    const sessionId = "ses-cached";
+    // Pre-populate the store as if messages were already loaded
+    useMessageStore.getState().setMessages(sessionId, [makeUserMessage({ id: "m1" })]);
+
+    const client = { session: { messages: jest.fn().mockResolvedValue([]) } };
+    const { loadSessionMessages } = require("@/hooks/useSessionLoader");
+    await loadSessionMessages(client, sessionId, "/home/test");
+
+    // Should not have fetched since messages are already in store
+    expect(client.session.messages).not.toHaveBeenCalled();
+  });
+
+  it("fetches again when force=true even if already loaded", async () => {
+    const sessionId = "ses-force";
+    useMessageStore.getState().setMessages(sessionId, [makeUserMessage({ id: "m1" })]);
+
+    const freshMessages = [makeAssistantMessage({ id: "m2", sessionID: sessionId })];
+    const client = {
+      session: {
+        messages: jest.fn().mockResolvedValue({ data: freshMessages }),
+      },
+    };
+    const { loadSessionMessages } = require("@/hooks/useSessionLoader");
+    await loadSessionMessages(client, sessionId, "/home/test", { force: true });
+
+    expect(client.session.messages).toHaveBeenCalledTimes(1);
+    expect(useMessageStore.getState().messagesBySession[sessionId]).toEqual(freshMessages);
+  });
+
+  it("does not make concurrent duplicate requests for the same session", async () => {
+    const sessionId = "ses-concurrent";
+    let resolveMessages!: (v: unknown) => void;
+    const pending = new Promise((r) => (resolveMessages = r));
+
+    const client = {
+      session: {
+        messages: jest.fn().mockReturnValue(pending),
+      },
+    };
+
+    const { loadSessionMessages } = require("@/hooks/useSessionLoader");
+    // Fire two concurrent calls
+    const p1 = loadSessionMessages(client, sessionId, "/home/test");
+    const p2 = loadSessionMessages(client, sessionId, "/home/test");
+
+    resolveMessages([]);
+    await Promise.all([p1, p2]);
+
+    // Only one actual fetch should have been made
+    expect(client.session.messages).toHaveBeenCalledTimes(1);
+  });
 });

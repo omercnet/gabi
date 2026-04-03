@@ -79,7 +79,13 @@ export const useMessageStore = create<MessageState>()((set) => ({
 
   clearSession: (sessionId) =>
     set((state) => {
+      const messages = state.messagesBySession[sessionId] ?? [];
+      const messageIds = new Set(messages.map((m) => m.id));
+      // Also clean up partsByMessage for all messages in this session
+      const restParts = Object.fromEntries(
+        Object.entries(state.partsByMessage).filter(([msgId]) => !messageIds.has(msgId)),
+      );
       const { [sessionId]: _msgs, ...restMsgs } = state.messagesBySession;
-      return { messagesBySession: restMsgs };
+      return { messagesBySession: restMsgs, partsByMessage: restParts };
     }),
 }));
