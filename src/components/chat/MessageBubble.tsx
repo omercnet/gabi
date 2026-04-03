@@ -28,7 +28,7 @@ export function MessageBubble({ message, items }: Props) {
         item.kind === "tool-group" ? (
           <ToolGroup key={`tg-${idx}`} group={item} />
         ) : (
-          <PartRenderer key={item.part.id} part={item.part} />
+          <PartRenderer key={item.part.id ?? `part-${idx}`} part={item.part} />
         ),
       )}
     </View>
