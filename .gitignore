@@ -29,3 +29,7 @@ expo-env.d.ts
 .dolt/
 *.db
 .beads-credential-key
+sessions/
+sessions.tar.gz
+._sessions
+src/__integration__/fixtures/
