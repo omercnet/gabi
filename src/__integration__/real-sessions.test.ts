@@ -105,7 +105,7 @@ describe("Real API: session.messages() response shape", () => {
     const items = Array.isArray(data) ? data : [];
 
     for (const item of items) {
-      const { parts } = item as { parts: Array<Record<string, unknown>> };
+      const { parts } = item as { parts: Record<string, unknown>[] };
       for (const part of parts) {
         expect(part.id).toBeTruthy();
         expect(part.type).toBeTruthy();
