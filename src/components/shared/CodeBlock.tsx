@@ -1,9 +1,9 @@
-import * as Clipboard from "expo-clipboard";
 import Feather from "@expo/vector-icons/Feather";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import * as Clipboard from "expo-clipboard";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { Platform, Pressable, ScrollView, Text, View } from "react-native";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 // react-syntax-highlighter may have issues on native, so we try/catch
 let SyntaxHighlighter: React.ComponentType<{
@@ -149,7 +149,10 @@ export function CodeBlock({ code, language, showLineNumbers = false }: Props) {
       {/* Code body */}
       {wordWrap ? (
         <View className="bg-surface/50" style={{ padding: 12 }}>
-          <Text className="font-mono text-foreground text-xs dark:text-foreground" selectable={true}>
+          <Text
+            className="font-mono text-foreground text-xs dark:text-foreground"
+            selectable={true}
+          >
             {code}
           </Text>
         </View>
@@ -160,7 +163,10 @@ export function CodeBlock({ code, language, showLineNumbers = false }: Props) {
           className="bg-surface/50"
           contentContainerStyle={{ padding: 12 }}
         >
-          <Text className="font-mono text-foreground text-xs dark:text-foreground" selectable={true}>
+          <Text
+            className="font-mono text-foreground text-xs dark:text-foreground"
+            selectable={true}
+          >
             {code}
           </Text>
         </ScrollView>

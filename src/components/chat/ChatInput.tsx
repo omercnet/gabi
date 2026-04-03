@@ -30,7 +30,13 @@ export function ChatInput({ onSend, onAbort, isStreaming, disabled }: Props) {
   };
 
   return (
-    <View className={isMobile ? "border-border border-t bg-surface px-3 py-2" : "border-border border-t bg-surface px-4 py-3"}>
+    <View
+      className={
+        isMobile
+          ? "border-border border-t bg-surface px-3 py-2"
+          : "border-border border-t bg-surface px-4 py-3"
+      }
+    >
       <View className="flex-row items-end gap-2">
         <TextInput
           className="flex-1 rounded-xl border border-border bg-background px-4 py-3 text-foreground"
@@ -45,7 +51,11 @@ export function ChatInput({ onSend, onAbort, isStreaming, disabled }: Props) {
         />
         {isStreaming ? (
           <Pressable
-            className={isMobile ? "h-10 w-10 items-center justify-center rounded-full bg-destructive active:opacity-80" : "rounded-xl bg-destructive px-4 py-3 active:opacity-80"}
+            className={
+              isMobile
+                ? "h-10 w-10 items-center justify-center rounded-full bg-destructive active:opacity-80"
+                : "rounded-xl bg-destructive px-4 py-3 active:opacity-80"
+            }
             onPress={onAbort}
           >
             {isMobile ? (
@@ -56,7 +66,11 @@ export function ChatInput({ onSend, onAbort, isStreaming, disabled }: Props) {
           </Pressable>
         ) : (
           <Pressable
-            className={isMobile ? "h-10 w-10 items-center justify-center rounded-full bg-primary active:opacity-80 active:scale-[0.98]" : "rounded-xl bg-primary px-4 py-3 active:opacity-80 active:scale-[0.98]"}
+            className={
+              isMobile
+                ? "h-10 w-10 items-center justify-center rounded-full bg-primary active:opacity-80 active:scale-[0.98]"
+                : "rounded-xl bg-primary px-4 py-3 active:opacity-80 active:scale-[0.98]"
+            }
             onPress={handleSend}
             disabled={disabled || !text.trim()}
           >

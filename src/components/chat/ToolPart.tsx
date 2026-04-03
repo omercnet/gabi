@@ -2,8 +2,8 @@ import Feather from "@expo/vector-icons/Feather";
 import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import type { ToolPart as ToolPartType } from "@/client/types";
-import { normalizeToolName } from "@/transcript/toolNormalize";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { normalizeToolName } from "@/transcript/toolNormalize";
 
 interface Props {
   part: ToolPartType;
@@ -17,7 +17,11 @@ export function ToolPart({ part }: Props) {
 
   return (
     <Pressable onPress={() => setExpanded(!expanded)} className="my-1 active:opacity-80">
-      <View className={isMobile ? "rounded-md bg-tool/10 px-2 py-1.5" : "rounded-md bg-tool/10 px-3 py-2"}>
+      <View
+        className={
+          isMobile ? "rounded-md bg-tool/10 px-2 py-1.5" : "rounded-md bg-tool/10 px-3 py-2"
+        }
+      >
         <View className="flex-row items-center gap-2">
           <Text className="font-medium text-tool text-xs">{label}</Text>
           <Feather

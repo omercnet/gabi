@@ -9,10 +9,10 @@ import {
 } from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 import type { Message } from "@/client/types";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import type { RenderItem } from "@/transcript/types";
 import { MessageBubble } from "./MessageBubble";
 import { StreamingIndicator } from "./StreamingIndicator";
-import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface MessageView {
   message: Message;
@@ -53,7 +53,11 @@ export function MessageList({ messages, isStreaming }: Props) {
         keyExtractor={(item) => item.message.id}
         renderItem={({ item }) => <MessageBubble message={item.message} items={item.items} />}
         ListFooterComponent={isStreaming ? <StreamingIndicator /> : null}
-        contentContainerStyle={isMobile ? { paddingHorizontal: 12, paddingVertical: 8, gap: 8 } : { padding: 16, gap: 12 }}
+        contentContainerStyle={
+          isMobile
+            ? { paddingHorizontal: 12, paddingVertical: 8, gap: 8 }
+            : { padding: 16, gap: 12 }
+        }
         showsVerticalScrollIndicator={false}
         onScroll={handleScroll}
         scrollEventThrottle={100}

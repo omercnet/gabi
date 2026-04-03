@@ -1,9 +1,9 @@
 import Feather from "@expo/vector-icons/Feather";
 import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { usePreferencesStore } from "@/stores/preferencesStore";
 import type { CollapsedToolGroup } from "@/transcript/types";
-import { useIsMobile } from "@/hooks/useIsMobile";
 import { ToolPart } from "./ToolPart";
 
 interface Props {
@@ -19,7 +19,11 @@ export function ToolGroup({ group }: Props) {
     <View className="my-1">
       <Pressable
         onPress={() => setExpanded(!expanded)}
-        className={isMobile ? "rounded-md bg-tool/10 px-2 py-1.5 active:opacity-80" : "rounded-md bg-tool/10 px-3 py-2 active:opacity-80"}
+        className={
+          isMobile
+            ? "rounded-md bg-tool/10 px-2 py-1.5 active:opacity-80"
+            : "rounded-md bg-tool/10 px-3 py-2 active:opacity-80"
+        }
       >
         <View className="flex-row items-center gap-1.5">
           <Feather

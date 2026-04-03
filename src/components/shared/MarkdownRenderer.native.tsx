@@ -1,6 +1,6 @@
-import { useIsMobile } from "@/hooks/useIsMobile";
 import { useColorScheme } from "react-native";
 import Markdown from "react-native-markdown-display";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { CodeBlock } from "./CodeBlock";
 
 interface Props {

@@ -1,7 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { CodeBlock } from "./CodeBlock";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { CodeBlock } from "./CodeBlock";
 
 interface Props {
   content: string;
@@ -18,17 +18,35 @@ export function MarkdownRenderer({ content, className }: Props) {
         components={{
           // Headings
           h1: ({ children }) => (
-            <h1 className={isMobile ? "mb-3 mt-4 font-bold text-foreground text-xl leading-tight" : "mb-3 mt-4 font-bold text-foreground text-2xl leading-tight"}>
+            <h1
+              className={
+                isMobile
+                  ? "mb-3 mt-4 font-bold text-foreground text-xl leading-tight"
+                  : "mb-3 mt-4 font-bold text-foreground text-2xl leading-tight"
+              }
+            >
               {children}
             </h1>
           ),
           h2: ({ children }) => (
-            <h2 className={isMobile ? "mb-2 mt-3 font-bold text-foreground text-lg leading-tight" : "mb-2 mt-3 font-bold text-foreground text-xl leading-tight"}>
+            <h2
+              className={
+                isMobile
+                  ? "mb-2 mt-3 font-bold text-foreground text-lg leading-tight"
+                  : "mb-2 mt-3 font-bold text-foreground text-xl leading-tight"
+              }
+            >
               {children}
             </h2>
           ),
           h3: ({ children }) => (
-            <h3 className={isMobile ? "mb-2 mt-3 font-semibold text-foreground text-base leading-tight" : "mb-2 mt-3 font-semibold text-foreground text-lg leading-tight"}>
+            <h3
+              className={
+                isMobile
+                  ? "mb-2 mt-3 font-semibold text-foreground text-base leading-tight"
+                  : "mb-2 mt-3 font-semibold text-foreground text-lg leading-tight"
+              }
+            >
               {children}
             </h3>
           ),

@@ -37,7 +37,10 @@ describe("SessionItem", () => {
         onDelete={jest.fn()}
       />,
     );
-    const expected = new Date(updatedMs).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    const expected = new Date(updatedMs).toLocaleDateString(undefined, {
+      month: "short",
+      day: "numeric",
+    });
     expect(textValues(view)).toContain(expected);
   });
 
@@ -55,7 +58,9 @@ describe("SessionItem", () => {
     const formatted = textValues(view).join(" ");
     // The short month + day format should include the year's month (not a 5-digit year)
     expect(formatted).not.toMatch(/5[0-9]{4}/);
-    expect(formatted).toContain(new Date(updatedMs).toLocaleDateString(undefined, { month: "short", day: "numeric" }));
+    expect(formatted).toContain(
+      new Date(updatedMs).toLocaleDateString(undefined, { month: "short", day: "numeric" }),
+    );
   });
 
   it("onPress called on tap", () => {

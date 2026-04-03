@@ -16,8 +16,12 @@ describe("ToolPart", () => {
   });
 
   it("is collapsed by default", () => {
-    expect(JSON.stringify(render(<ToolPart part={makeToolPart({ tool: "read_file" })} />).toJSON())).toContain("chevron-right");
-    expect(JSON.stringify(render(<ToolPart part={makeToolPart({ tool: "read_file" })} />).toJSON())).not.toContain("chevron-down");
+    expect(
+      JSON.stringify(render(<ToolPart part={makeToolPart({ tool: "read_file" })} />).toJSON()),
+    ).toContain("chevron-right");
+    expect(
+      JSON.stringify(render(<ToolPart part={makeToolPart({ tool: "read_file" })} />).toJSON()),
+    ).not.toContain("chevron-down");
   });
 
   it("expands on press", () => {
