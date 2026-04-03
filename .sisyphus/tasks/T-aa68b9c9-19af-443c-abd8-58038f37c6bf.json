@@ -1,0 +1,10 @@
+{
+  "id": "T-aa68b9c9-19af-443c-abd8-58038f37c6bf",
+  "subject": "Wave 2A: GREEN fix — timestamp in SessionItem + factory",
+  "description": "Fix factory to use ms, remove *1000 from SessionItem, update existing tests",
+  "status": "in_progress",
+  "activeForm": "Fixing timestamp bug",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b0a2bea9ffeWAwq52pv7KxjEp"
+}

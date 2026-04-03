@@ -1,0 +1,10 @@
+{
+  "id": "T-b5e1bb67-7556-48de-a36a-a2507897505a",
+  "subject": "Wave 0: Baseline test run",
+  "description": "Run `pnpm test` to establish baseline pass/fail state before any changes",
+  "status": "completed",
+  "activeForm": "Running baseline tests",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b0a2bea9ffeWAwq52pv7KxjEp"
+}

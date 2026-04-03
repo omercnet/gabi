@@ -1,0 +1,10 @@
+{
+  "id": "T-755b9d04-d80b-4e17-aa74-902328227f9a",
+  "subject": "Fix sessionStore session ordering by time.updated sort",
+  "description": "Sort sessions by time.updated descending in upsertSession and setSessions to stabilize ordering; ensure sessionStore RED tests pass.",
+  "status": "completed",
+  "activeForm": "verified sessionStore ordering",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b07c8358ffeKyIz2Wr7Wi7iCm"
+}

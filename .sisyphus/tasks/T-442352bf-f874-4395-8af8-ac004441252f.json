@@ -1,0 +1,11 @@
+{
+  "id": "T-442352bf-f874-4395-8af8-ac004441252f",
+  "subject": "Create red test file for missing session loader",
+  "description": "Add a new test file documenting current empty-store behavior and failing contract for missing loadSessionMessages API fetch hook.",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": [
+    "T-0e2d289d-0b13-46c9-933a-aad3ba2f4f69"
+  ],
+  "threadID": "ses_2b08ce4c0ffe0EzRB0fRgLXekk"
+}

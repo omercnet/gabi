@@ -1,7 +1,18 @@
 {
   "root": true,
   "files": {
-    "includes": ["**", "!dist", "!metro-cache", "!.expo", "!.sisyphus"]
+    "includes": [
+      "**",
+      "!dist",
+      "!metro-cache",
+      "!.expo",
+      "!.sisyphus",
+      "!sessions",
+      "!sessions.tar.gz",
+      "!._sessions",
+      "!src/__integration__/fixtures",
+      "!.beads"
+    ]
   },
   "formatter": {
     "enabled": true,

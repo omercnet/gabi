@@ -1,0 +1,10 @@
+{
+  "id": "T-ce50a543-c2c7-4b61-ab25-c3fde3adce80",
+  "subject": "Add QuestionPrompt submit callback + dequeue tests",
+  "description": "Update QuestionPrompt.test.tsx with interaction tests for onSubmit wiring and queue removal, then run targeted Jest and diagnostics.",
+  "status": "in_progress",
+  "activeForm": "Adding/adjusting tests",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b08cbe41ffeFP0RYkk6h845kr"
+}

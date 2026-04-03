@@ -42,4 +42,26 @@ describe("processMessages", () => {
     const result = processMessages([msg], { "msg-1": { p1, p2 } });
     expect(result[0]?.parts).toHaveLength(2);
   });
+
+  it("does not crash when message.time is undefined (streaming/pending messages)", () => {
+    const noTime = {
+      ...makeUserMessage(),
+      time: undefined,
+    } as unknown as import("@/client/types").Message;
+    expect(() => processMessages([noTime], {})).not.toThrow();
+    const result = processMessages([noTime], {});
+    expect(result).toHaveLength(1);
+  });
+
+  it("sorts messages with missing time before messages with time", () => {
+    const noTime = {
+      ...makeUserMessage({ id: "no-time" }),
+      time: undefined,
+    } as unknown as import("@/client/types").Message;
+    const withTime = makeUserMessage({ id: "with-time", time: { created: 100, updated: 100 } });
+    const result = processMessages([withTime, noTime], {});
+    // no-time treated as 0, sorts before created=100
+    expect(result[0]?.message.id).toBe("no-time");
+    expect(result[1]?.message.id).toBe("with-time");
+  });
 });

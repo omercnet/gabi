@@ -1,0 +1,10 @@
+{
+  "id": "T-39f4364f-b7d9-4d59-a896-5d603b6b95e3",
+  "subject": "Wave 3: Gap-fill tests for shared components + layout",
+  "description": "Fill test gaps in CodeBlock, Toast, EmptyState, ErrorBoundary, PermissionPrompt, AddProjectSheet, and layout",
+  "status": "pending",
+  "activeForm": "Writing gap-fill tests",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b0a2bea9ffeWAwq52pv7KxjEp"
+}

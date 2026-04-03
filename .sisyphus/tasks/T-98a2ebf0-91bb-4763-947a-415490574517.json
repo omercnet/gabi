@@ -1,0 +1,11 @@
+{
+  "id": "T-98a2ebf0-91bb-4763-947a-415490574517",
+  "subject": "Add failing red tests for sessionStore ordering bug",
+  "description": "Read existing sessionStore tests and store logic; add two new tests that currently fail due to upsertSession prepending without sorting; verify by running jest sessionStore.test.",
+  "status": "completed",
+  "activeForm": "adding failing red tests",
+  "blocks": [],
+  "blockedBy": [],
+  "owner": "sisyphus-junior",
+  "threadID": "ses_2b08d420affeB76NspTsCkl0qm"
+}

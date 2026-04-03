@@ -1,0 +1,10 @@
+{
+  "id": "T-c910fc0f-6baa-4090-8b17-14cb2b1fd60f",
+  "subject": "Wave 1C: RED test — messages not fetched on session select",
+  "description": "Add test asserting messages are loaded from API when sessionId changes",
+  "status": "completed",
+  "activeForm": "Writing failing fetch test",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b0a2bea9ffeWAwq52pv7KxjEp"
+}

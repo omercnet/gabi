@@ -14,6 +14,18 @@ describe("PartRenderer", () => {
     expect(JSON.stringify(screen.toJSON())).toContain("plain text");
   });
 
+  it("uses MarkdownRenderer for text parts (renders markdown bold)", () => {
+    render(<PartRenderer part={makeTextPart({ text: "**bold content**" })} />);
+    // MarkdownRenderer parses **bold** into a <strong> element
+    // The text 'bold content' should appear in the rendered output
+    expect(JSON.stringify(screen.toJSON())).toContain("bold content");
+  });
+
+  it("uses MarkdownRenderer for text parts (renders markdown heading)", () => {
+    render(<PartRenderer part={makeTextPart({ text: "# My Heading" })} />);
+    expect(JSON.stringify(screen.toJSON())).toContain("My Heading");
+  });
+
   it("renders reasoning part when showReasoning=true", async () => {
     usePreferencesStore.setState({ showReasoning: true });
     render(<PartRenderer part={makeReasoningPart({ text: "why this works" })} />);

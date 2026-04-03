@@ -1,0 +1,10 @@
+{
+  "id": "T-ee13597b-0029-4891-842c-eaa45b0e9078",
+  "subject": "Wave 1A: RED test — SessionItem timestamp year 58222",
+  "description": "Rewrite SessionItem date test to use ms timestamp, exposing the *1000 double-multiplication bug",
+  "status": "completed",
+  "activeForm": "Writing failing date test",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b0a2bea9ffeWAwq52pv7KxjEp"
+}

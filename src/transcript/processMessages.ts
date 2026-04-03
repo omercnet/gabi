@@ -11,5 +11,5 @@ export function processMessages(
       const parts = Object.values(partsMap);
       return { message, parts };
     })
-    .sort((a, b) => a.message.time.created - b.message.time.created);
+    .sort((a, b) => (a.message.time?.created ?? 0) - (b.message.time?.created ?? 0));
 }

@@ -2,8 +2,8 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { Alert, Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SessionList } from "@/components/session/SessionList";
+import { ConnectionStatus } from "@/components/shared";
 import { useClient } from "@/hooks/useClient";
-import { useConnectionStore } from "@/stores/connectionStore";
 import { useProjectStore } from "@/stores/projectStore";
 
 export function ProjectSidebar() {
@@ -12,19 +12,11 @@ export function ProjectSidebar() {
   const addProject = useProjectStore((s) => s.addProject);
   const removeProject = useProjectStore((s) => s.removeProject);
   const setActiveProject = useProjectStore((s) => s.setActiveProject);
-  const sseStatus = useConnectionStore((s) => s.sseStatus);
   const client = useClient();
 
   const [showAdd, setShowAdd] = useState(false);
   const [newName, setNewName] = useState("");
   const [newDir, setNewDir] = useState("");
-
-  const statusColor =
-    sseStatus === "connected"
-      ? "bg-success"
-      : sseStatus === "reconnecting"
-        ? "bg-warning"
-        : "bg-error";
 
   const handleAdd = () => {
     if (!(newName.trim() && newDir.trim())) return;
@@ -40,7 +32,7 @@ export function ProjectSidebar() {
       <View className="flex-row items-center justify-between border-border border-b px-4 py-3">
         <View className="flex-row items-center gap-2">
           <Text className="font-bold text-foreground text-lg">Gabi</Text>
-          <View className={`h-2 w-2 rounded-full ${statusColor}`} />
+          <ConnectionStatus size="sm" />
         </View>
         <Pressable onPress={() => router.push("/settings")}>
           <Text className="text-muted">⚙</Text>

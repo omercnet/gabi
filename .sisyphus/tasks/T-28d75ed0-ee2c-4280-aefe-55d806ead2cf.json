@@ -1,0 +1,10 @@
+{
+  "id": "T-28d75ed0-ee2c-4280-aefe-55d806ead2cf",
+  "subject": "Add failing SessionItem ms-vs-s bug test",
+  "description": "Create a new failing (red) Jest test in SessionItem.test.tsx that passes millisecond timestamps to makeSession and exposes the year-58222 bug due to multiplying by 1000 in SessionItem.",
+  "status": "completed",
+  "activeForm": "adding failing regression test",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b08d6757ffeiLWGDFXuh9OUHe"
+}

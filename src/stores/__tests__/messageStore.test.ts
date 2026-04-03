@@ -87,5 +87,27 @@ describe("messageStore", () => {
       useMessageStore.getState().clearSession("ses-1");
       expect(useMessageStore.getState().messagesBySession["ses-1"]).toBeUndefined();
     });
+
+    it("also removes partsByMessage entries for messages in that session (no leak)", () => {
+      const msg = makeUserMessage({ id: "msg-to-clear" });
+      const part = makeTextPart({ id: "p1", messageID: "msg-to-clear" });
+      useMessageStore.getState().setMessages("ses-1", [msg]);
+      useMessageStore.getState().upsertPart("ses-1", "msg-to-clear", part);
+      expect(useMessageStore.getState().partsByMessage["msg-to-clear"]).toBeDefined();
+      useMessageStore.getState().clearSession("ses-1");
+      expect(useMessageStore.getState().messagesBySession["ses-1"]).toBeUndefined();
+      expect(useMessageStore.getState().partsByMessage["msg-to-clear"]).toBeUndefined();
+    });
+
+    it("does not remove parts from other sessions", () => {
+      const msg1 = makeUserMessage({ id: "msg-keep" });
+      const part1 = makeTextPart({ id: "pk", messageID: "msg-keep" });
+      useMessageStore.getState().setMessages("ses-2", [msg1]);
+      useMessageStore.getState().upsertPart("ses-2", "msg-keep", part1);
+      const msg2 = makeUserMessage({ id: "msg-clear" });
+      useMessageStore.getState().setMessages("ses-1", [msg2]);
+      useMessageStore.getState().clearSession("ses-1");
+      expect(useMessageStore.getState().partsByMessage["msg-keep"]).toBeDefined();
+    });
   });
 });

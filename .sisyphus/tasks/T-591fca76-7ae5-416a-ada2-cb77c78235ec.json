@@ -1,0 +1,11 @@
+{
+  "id": "T-591fca76-7ae5-416a-ada2-cb77c78235ec",
+  "subject": "Add failing ms-date test to SessionItem.test.tsx",
+  "description": "Edit SessionItem.test.tsx to add a red failing regression test using explicit millisecond timestamps.",
+  "status": "completed",
+  "activeForm": "adding failing test",
+  "blocks": [],
+  "blockedBy": [],
+  "parentID": "T-28d75ed0-ee2c-4280-aefe-55d806ead2cf",
+  "threadID": "ses_2b08d6757ffeiLWGDFXuh9OUHe"
+}

@@ -1,0 +1,18 @@
+- generic [ref=e2]:
+  - generic [ref=e9]:
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e14]: Gabi
+        - generic [ref=e18] [cursor=pointer]: ⚙
+      - generic [ref=e21]:
+        - generic [ref=e22] [cursor=pointer]:
+          - generic [ref=e23]: gabi
+          - generic [ref=e24]: /dev/gabi
+        - progressbar [ref=e26]:
+          - img [ref=e28]
+      - generic [ref=e32] [cursor=pointer]: + Add Project
+    - generic [ref=e40]:
+      - textbox "Ask anything..." [ref=e41]
+      - generic [ref=e42]: Send
+  - generic:
+    - img

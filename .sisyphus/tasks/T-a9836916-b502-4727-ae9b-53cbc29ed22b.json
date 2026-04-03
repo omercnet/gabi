@@ -1,0 +1,10 @@
+{
+  "id": "T-a9836916-b502-4727-ae9b-53cbc29ed22b",
+  "subject": "Wave 1D: QuestionPrompt onSubmit coverage",
+  "description": "Add test coverage for onSubmit callback in QuestionPrompt",
+  "status": "in_progress",
+  "activeForm": "Writing QuestionPrompt tests",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b0a2bea9ffeWAwq52pv7KxjEp"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "T-dcae8b02-9c9c-445f-94de-427bb6ff19d6",
+  "subject": "Wave 1B: RED test — sessionStore sort order",
+  "description": "Add tests asserting sessions sorted by time.updated descending after upsert",
+  "status": "completed",
+  "activeForm": "Writing failing sort test",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b0a2bea9ffeWAwq52pv7KxjEp"
+}

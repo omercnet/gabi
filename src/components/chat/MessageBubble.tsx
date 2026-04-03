@@ -15,9 +15,20 @@ export function MessageBubble({ message, items }: Props) {
   if (isUser) {
     return (
       <View className="max-w-[85%] self-end rounded-2xl bg-user-bubble px-4 py-3">
-        <Text className="text-user-bubble-foreground">
-          {"content" in message ? String(message.content) : ""}
-        </Text>
+        {items.length > 0 ? (
+          items.map((item, idx) =>
+            item.kind === "tool-group" ? (
+              <ToolGroup key={`tg-${idx}`} group={item} />
+            ) : (
+              <PartRenderer key={item.part.id ?? `part-${idx}`} part={item.part} />
+            ),
+          )
+        ) : (
+          // Fallback: pre-API-fix sessions may have content field
+          <Text className="text-user-bubble-foreground">
+            {"content" in message ? String(message.content) : ""}
+          </Text>
+        )}
       </View>
     );
   }
@@ -28,7 +39,7 @@ export function MessageBubble({ message, items }: Props) {
         item.kind === "tool-group" ? (
           <ToolGroup key={`tg-${idx}`} group={item} />
         ) : (
-          <PartRenderer key={item.part.id} part={item.part} />
+          <PartRenderer key={item.part.id ?? `part-${idx}`} part={item.part} />
         ),
       )}
     </View>

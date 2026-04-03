@@ -1,0 +1,11 @@
+{
+  "id": "T-88805d0d-ee36-4e44-8562-56efd0077938",
+  "subject": "Inspect QuestionPrompt submit wiring + existing test patterns",
+  "description": "Read existing QuestionPrompt tests, component behavior, question store queue mechanism, and makeQuestionRequest factory to implement new submit-callback tests without modifying source.",
+  "status": "completed",
+  "activeForm": "Inspecting...",
+  "blocks": [],
+  "blockedBy": [],
+  "owner": "Sisyphus-Junior",
+  "threadID": "ses_2b08cbe41ffeFP0RYkk6h845kr"
+}

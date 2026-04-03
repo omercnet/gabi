@@ -1,0 +1,23 @@
+- generic [ref=e9]:
+  - generic [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e14]: Gabi
+      - generic [ref=e18] [cursor=pointer]: ⚙
+    - generic [ref=e21]:
+      - generic [ref=e22] [cursor=pointer]:
+        - generic [ref=e23]: gabi
+        - generic [ref=e24]: /dev/gabi
+      - generic [ref=e25]:
+        - generic [ref=e26] [cursor=pointer]:
+          - generic [ref=e27]: Greeting
+          - generic [ref=e28]: 5/10/58222
+        - generic [active] [ref=e29] [cursor=pointer]:
+          - generic [ref=e30]: Greeting
+          - generic [ref=e31]: 5/14/58222
+        - generic [ref=e33] [cursor=pointer]: + New Session
+    - generic [ref=e35] [cursor=pointer]: + Add Project
+  - generic [ref=e64]:
+    - paragraph [ref=e74]: Doing well, thanks! What are you working on?
+    - generic [ref=e76]:
+      - textbox "Ask anything..." [ref=e77]
+      - generic [ref=e78]: Send

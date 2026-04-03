@@ -1,5 +1,6 @@
 import { Text, View } from "react-native";
 import type { Part } from "@/client/types";
+import { MarkdownRenderer } from "@/components/shared";
 import { usePreferencesStore } from "@/stores/preferencesStore";
 import { ReasoningPart } from "./ReasoningPart";
 import { ToolPart } from "./ToolPart";
@@ -18,7 +19,7 @@ export function PartRenderer({ part }: Props) {
     case "text":
       return (
         <View className="py-1">
-          <Text className="text-assistant-bubble-foreground">{part.text}</Text>
+          <MarkdownRenderer content={part.text} />
         </View>
       );
     case "reasoning":

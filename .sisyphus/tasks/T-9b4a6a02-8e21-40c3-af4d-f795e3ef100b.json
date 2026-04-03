@@ -1,0 +1,11 @@
+{
+  "id": "T-9b4a6a02-8e21-40c3-af4d-f795e3ef100b",
+  "subject": "Run targeted and full verification",
+  "description": "Run required jest tests and TypeScript checks",
+  "status": "pending",
+  "activeForm": "running verification",
+  "blocks": [],
+  "blockedBy": [],
+  "parentID": "T-9a676d24-ac1d-49a3-8cd8-3bfb323f57ef",
+  "threadID": "ses_2b07c3e28ffeBSE110oGi7NbGR"
+}

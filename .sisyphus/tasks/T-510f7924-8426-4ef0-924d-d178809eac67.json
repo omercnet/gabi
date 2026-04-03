@@ -1,0 +1,10 @@
+{
+  "id": "T-510f7924-8426-4ef0-924d-d178809eac67",
+  "subject": "Run Jest for SessionItem and full suite; fix any regressions",
+  "description": "Run pnpm jest SessionItem.test then pnpm jest; address any failing tests due to timestamp format changes.",
+  "status": "in_progress",
+  "activeForm": "running jest and fixing regressions",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b07ca15fffejNSpN8R1M31a16"
+}

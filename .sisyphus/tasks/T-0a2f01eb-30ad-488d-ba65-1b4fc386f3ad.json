@@ -1,0 +1,10 @@
+{
+  "id": "T-0a2f01eb-30ad-488d-ba65-1b4fc386f3ad",
+  "subject": "Wave 4: Pre-push verification (lint + tsc + test)",
+  "description": "Run full CI pipeline locally: pnpm lint, tsc --noEmit, pnpm test",
+  "status": "pending",
+  "activeForm": "Running verification suite",
+  "blocks": [],
+  "blockedBy": [],
+  "threadID": "ses_2b0a2bea9ffeWAwq52pv7KxjEp"
+}
