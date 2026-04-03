@@ -98,10 +98,14 @@ export class SSEManager {
     this.setStatus("reconnecting");
     const delay = this.getBackoff();
 
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       if (this.running) {
         this.connect();
       }
     }, delay);
+    // Allow Node.js to exit even if this timer is pending (prevents test runner hangs)
+    if (typeof timer === "object" && timer !== null && "unref" in timer) {
+      (timer as NodeJS.Timeout).unref();
+    }
   }
 }
